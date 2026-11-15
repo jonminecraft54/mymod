@@ -1,0 +1,6 @@
+room2hcrecep
+room2hcguest117
+room2hcservice
+room2hcboiler
+room2hckitchen
+room2hcballroom

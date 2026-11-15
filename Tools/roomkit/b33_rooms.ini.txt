@@ -1,0 +1,43 @@
+
+;INDEV THIRTY-THIRD BATCH - SCP STORAGE AND VAULT 4612 (generated, Tools\roomkit\gen_b33.py, IndevU33.bb)
+;=================================================
+
+[room2b33toys]
+descr=Hall 8 and the Wondertainment store (Light Containment): SCP-1007 in his coffin with his key, SCP-3537 behind glass, the Take-You-Anywhere Machine (SCP-3938), the Pixel Buddies (SCP-4876) and the Guide to History (SCP-4890) - ref. 96 shutter corridor.
+mesh path=GFX\map\room2b33toys.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=1
+set room=0.45
+set room priority=9000
+
+[room2b33archive]
+descr=Site-73 secure archive (Entrance Zone): SCP-232 and SCP-865 in their safes, SCP-696 on its table; the decommissioned room with SCP-252-EX, SCP-762-EX and SCP-667-2's remains; the research bullpen; Dr. Tolentino's office - ref. 93 corridor.
+mesh path=GFX\map\room2b33archive.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=3
+set room=0.5
+set room priority=9000
+
+[room2b33bio]
+descr=Bio-Site 84 annex (Heavy Containment): vivarium 3 (SCP-1563), SCP-2394 asleep in its tank, SCP-3419's observation room, the Site-84 archive (SCP-7042, SCP-7284) - ref. 99 buttressed corridor.
+mesh path=GFX\map\room2b33bio.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=2
+set room=0.5
+set room priority=9000
+
+[room2b33deep]
+descr=Site-91 liaison wing and VAULT 4612 (Heavy Containment): the liaison bullpen and Director Varga's office (SCP-5512, SCP-5079, SCP-5267), and 768 below by the stairs the vault of charred glyph stone: SCP-4612-A on its altar, the SCP-4712 vault door, the SCP-3743-A-1 Way, SCP-L043's turntable - ref. 95 bulkhead corridor.
+mesh path=GFX\map\room2b33deep.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=2
+set room=0.5
+set room priority=9000

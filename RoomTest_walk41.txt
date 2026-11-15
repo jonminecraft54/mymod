@@ -1,0 +1,8 @@
+room2b43staff 0 165 -400 -700 150 -400
+room2b43staff 0 165 0 900 150 0
+room2b43medical 0 165 400 -700 150 400
+room2b43security 0 165 400 -500 150 400
+room2b43security 0 165 0 900 150 0
+room2b43rec 0 165 0 -900 150 0
+room2b43rec 0 165 0 900 150 0
+room2b43dblock 0 165 0 900 150 0

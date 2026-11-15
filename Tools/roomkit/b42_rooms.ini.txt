@@ -1,0 +1,43 @@
+
+;INDEV FORTY-SECOND BATCH - PANOPTICON, TOY BOX, VAULT, CELLAR (generated, Tools\roomkit\gen_b42.py, IndevU42.bb)
+;=================================================
+
+[room2b44panopticon]
+descr=Facility B - the Panopticon (Heavy Containment): a ring of barred cells in two tiers round a central observation tower with a glass cab.
+mesh path=GFX\map\room2b44panopticon.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=2
+set room=0.55
+set room priority=9000
+
+[room3b44toybox]
+descr=C-Block, the Toy Box (Heavy Containment, T-junction): three containment chambers each with its own small lab - SCP-127, SCP-439, SCP-1577's test room - the block armory and the research offices.
+mesh path=GFX\map\room3b44toybox.rmesh
+shape = 3
+commonness = 0
+disabledecals = true
+zone1=2
+set room=0.5
+set room priority=9000
+
+[room4b44vault]
+descr=D-Block, the Vault (Entrance Zone, crossroads): four vaults - SCP-4139's fridge, SCP-154 on velvet, the backup servers, the sensitive archives.
+mesh path=GFX\map\room4b44vault.rmesh
+shape = 4
+commonness = 0
+disabledecals = true
+zone1=3
+set room=0.5
+set room priority=9000
+
+[room2b44cellar]
+descr=E-Block, the Cellar (Heavy Containment): the end of the long tunnel, ribbed and wired with demolition charges; the blast control room, the airlock, and SCP-466 behind thick glass.
+mesh path=GFX\map\room2b44cellar.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=2
+set room=0.55
+set room priority=9000

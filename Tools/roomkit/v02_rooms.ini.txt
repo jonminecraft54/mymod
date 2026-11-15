@@ -1,0 +1,443 @@
+
+;INDEV v0.1-STYLE FILLER ROOMS, "w" SERIES (generated meshes, Tools\roomkit\gen_v02.py, IndevV02.bb)
+;=================================================
+
+[room2w_narrow]
+descr=A low, narrow board-marked passage with concrete ribs.
+mesh path=GFX\map\room2w_narrow.rmesh
+shape = 2
+commonness = 70
+disabledecals = true
+zone1=4
+
+[room2w_wide]
+descr=A broad early-pattern hallway with benches along the walls.
+mesh path=GFX\map\room2w_wide.rmesh
+shape = 2
+commonness = 70
+disabledecals = true
+zone1=4
+
+[room2w_tall]
+descr=A tall, narrow concrete hallway crossed by steel beams.
+mesh path=GFX\map\room2w_tall.rmesh
+shape = 2
+commonness = 60
+disabledecals = true
+zone1=4
+
+[room2w_ribs]
+descr=A dark ribbed tunnel with a steel floor.
+mesh path=GFX\map\room2w_ribs.rmesh
+shape = 2
+commonness = 60
+disabledecals = true
+zone1=4
+
+[room2w_oct]
+descr=An eight-sided concrete hall on the line of the hallway.
+mesh path=GFX\map\room2w_oct.rmesh
+shape = 2
+commonness = 55
+disabledecals = true
+zone1=4
+
+[room2w_consoles]
+descr=A hallway with a small control room off it: two console units, a bench, wall lamps.
+mesh path=GFX\map\room2w_consoles.rmesh
+shape = 2
+commonness = 45
+disabledecals = true
+zone1=4
+
+[room2w_meeting]
+descr=An office-zone hallway with the old meeting room: a long table, white chairs, a whiteboard.
+mesh path=GFX\map\room2w_meeting.rmesh
+shape = 2
+commonness = 45
+disabledecals = true
+zone1=4
+
+[room2w_whitedoor]
+descr=A hallway with a dim records room; at its far wall, a doorway of flat white light that is not a door.
+mesh path=GFX\map\room2w_whitedoor.rmesh
+shape = 2
+commonness = 40
+disabledecals = true
+zone1=4
+
+[room2w_canteen]
+descr=An office-zone hallway with a small canteen: two vending machines, two tables.
+mesh path=GFX\map\room2w_canteen.rmesh
+shape = 2
+commonness = 45
+disabledecals = true
+zone1=4
+
+[room2w_lab]
+descr=A white-tiled hallway with a glazed laboratory.
+mesh path=GFX\map\room2w_lab.rmesh
+shape = 2
+commonness = 45
+disabledecals = true
+zone1=4
+
+[room2w_generator]
+descr=A heavy steel passage with a plant bay: two tanks, a duct fan, a red lamp.
+mesh path=GFX\map\room2w_generator.rmesh
+shape = 2
+commonness = 45
+disabledecals = true
+zone1=4
+
+[room2w_bridge]
+descr=A tall hall with a railed walkway crossing overhead.
+mesh path=GFX\map\room2w_bridge.rmesh
+shape = 2
+commonness = 50
+disabledecals = true
+zone1=4
+
+[room2w_mezz]
+descr=A hall with a mezzanine up a flight of steps; a few stores are kept up there.
+mesh path=GFX\map\room2w_mezz.rmesh
+shape = 2
+commonness = 45
+disabledecals = true
+zone1=4
+
+[room2w_lift2]
+descr=A hallway with a lift up to a store on the floor above.
+mesh path=GFX\map\room2w_lift2.rmesh
+shape = 2
+commonness = 35
+disabledecals = true
+zone1=4
+
+[room2w_dogleg]
+descr=A hall split by two baffle walls, so the way through doubles back on itself.
+mesh path=GFX\map\room2w_dogleg.rmesh
+shape = 2
+commonness = 55
+disabledecals = true
+zone1=4
+
+[room2w_checkpoint]
+descr=A hazard-striped checkpoint between two portal frames, with a glazed guard booth.
+mesh path=GFX\map\room2w_checkpoint.rmesh
+shape = 2
+commonness = 40
+disabledecals = true
+zone1=4
+
+[room2w_cages]
+descr=A store hall of wire cages. One has been left open.
+mesh path=GFX\map\room2w_cages.rmesh
+shape = 2
+commonness = 45
+disabledecals = true
+zone1=4
+
+[room2w_infirm]
+descr=A green-striped corridor and a three-bed ward.
+mesh path=GFX\map\room2w_infirm.rmesh
+shape = 2
+commonness = 40
+disabledecals = true
+zone1=4
+
+[room2w_archive]
+descr=A hallway with a records room: a wall of filing cabinets and shelves of box files.
+mesh path=GFX\map\room2w_archive.rmesh
+shape = 2
+commonness = 45
+disabledecals = true
+zone1=4
+
+[room2w_boiler]
+descr=A boiler hall: two tanks, pipes under the roof, a ceiling fan turning over the walkway.
+mesh path=GFX\map\room2w_boiler.rmesh
+shape = 2
+commonness = 45
+disabledecals = true
+zone1=4
+
+[room2w_gallery]
+descr=A high hall with a railed gallery down each side that nothing leads up to.
+mesh path=GFX\map\room2w_gallery.rmesh
+shape = 2
+commonness = 50
+disabledecals = true
+zone1=4
+
+[room2w_lockdown]
+descr=A lockdown section: two blast frames in hazard paint, red lamps under each.
+mesh path=GFX\map\room2w_lockdown.rmesh
+shape = 2
+commonness = 45
+disabledecals = true
+zone1=4
+
+[room2w_dclass]
+descr=A white Class-D block. One cell is open, and occupied.
+mesh path=GFX\map\room2w_dclass.rmesh
+shape = 2
+commonness = 40
+disabledecals = true
+zone1=4
+
+[room2w_pumps]
+descr=A pump corridor: a row of small tanks under a pipe run, a duct fan in the wall.
+mesh path=GFX\map\room2w_pumps.rmesh
+shape = 2
+commonness = 50
+disabledecals = true
+zone1=4
+
+[room2cw_tight]
+descr=A low, narrow board-marked corner.
+mesh path=GFX\map\room2cw_tight.rmesh
+shape = 2C
+commonness = 70
+disabledecals = true
+zone1=4
+
+[room2cw_round]
+descr=A corner opened out into an eight-sided room.
+mesh path=GFX\map\room2cw_round.rmesh
+shape = 2C
+commonness = 60
+disabledecals = true
+zone1=4
+
+[room2cw_tall]
+descr=A corner under a tall shaft crossed by two beams.
+mesh path=GFX\map\room2cw_tall.rmesh
+shape = 2C
+commonness = 55
+disabledecals = true
+zone1=4
+
+[room2cw_bench]
+descr=An office-zone corner with a bench, a vending machine and a painting.
+mesh path=GFX\map\room2cw_bench.rmesh
+shape = 2C
+commonness = 55
+disabledecals = true
+zone1=4
+
+[room2cw_guard]
+descr=A corner watched from a guard hatch.
+mesh path=GFX\map\room2cw_guard.rmesh
+shape = 2C
+commonness = 40
+disabledecals = true
+zone1=4
+
+[room2cw_store]
+descr=A corner with a store cupboard off it.
+mesh path=GFX\map\room2cw_store.rmesh
+shape = 2C
+commonness = 45
+disabledecals = true
+zone1=4
+
+[room2cw_pipes]
+descr=A dark service corner: a pipe following the bend, a duct fan, a red lamp.
+mesh path=GFX\map\room2cw_pipes.rmesh
+shape = 2C
+commonness = 50
+disabledecals = true
+zone1=4
+
+[room2cw_pillar]
+descr=A pillared corner hall.
+mesh path=GFX\map\room2cw_pillar.rmesh
+shape = 2C
+commonness = 55
+disabledecals = true
+zone1=4
+
+[room2cw_lab]
+descr=A white-tiled corner with a small glazed laboratory.
+mesh path=GFX\map\room2cw_lab.rmesh
+shape = 2C
+commonness = 40
+disabledecals = true
+zone1=4
+
+[room2cw_cells]
+descr=A white corner of the Class-D block.
+mesh path=GFX\map\room2cw_cells.rmesh
+shape = 2C
+commonness = 50
+disabledecals = true
+zone1=4
+
+[room3w_narrow]
+descr=A low, narrow board-marked T junction.
+mesh path=GFX\map\room3w_narrow.rmesh
+shape = 3
+commonness = 70
+disabledecals = true
+zone1=4
+
+[room3w_wide]
+descr=A broad early-pattern T junction with a bench on the blank wall.
+mesh path=GFX\map\room3w_wide.rmesh
+shape = 3
+commonness = 70
+disabledecals = true
+zone1=4
+
+[room3w_oct]
+descr=A T junction in an eight-sided hall under a ceiling fan.
+mesh path=GFX\map\room3w_oct.rmesh
+shape = 3
+commonness = 55
+disabledecals = true
+zone1=4
+
+[room3w_office]
+descr=A T junction overlooked by a glazed conference room. Someone is still in there.
+mesh path=GFX\map\room3w_office.rmesh
+shape = 3
+commonness = 40
+disabledecals = true
+zone1=4
+
+[room3w_console]
+descr=A T junction with a glazed control room: two console units and a bench.
+mesh path=GFX\map\room3w_console.rmesh
+shape = 3
+commonness = 40
+disabledecals = true
+zone1=4
+
+[room3w_beams]
+descr=A T junction under a tall shaft crossed by steel beams.
+mesh path=GFX\map\room3w_beams.rmesh
+shape = 3
+commonness = 55
+disabledecals = true
+zone1=4
+
+[room3w_store]
+descr=A T junction with an open store alcove on the blank side.
+mesh path=GFX\map\room3w_store.rmesh
+shape = 3
+commonness = 50
+disabledecals = true
+zone1=4
+
+[room3w_pillars]
+descr=A T junction in a square hall with four pillars.
+mesh path=GFX\map\room3w_pillars.rmesh
+shape = 3
+commonness = 55
+disabledecals = true
+zone1=4
+
+[room3w_pipes]
+descr=A dark service T junction with pipes, a duct fan and a red lamp.
+mesh path=GFX\map\room3w_pipes.rmesh
+shape = 3
+commonness = 50
+disabledecals = true
+zone1=4
+
+[room4w_narrow]
+descr=A low, narrow board-marked crossroads.
+mesh path=GFX\map\room4w_narrow.rmesh
+shape = 4
+commonness = 70
+disabledecals = true
+zone1=4
+
+[room4w_oct]
+descr=A crossroads in an eight-sided hall under one hanging lamp.
+mesh path=GFX\map\room4w_oct.rmesh
+shape = 4
+commonness = 60
+disabledecals = true
+zone1=4
+
+[room4w_pillars]
+descr=A crossroads in a square hall with a pillar towards each corner.
+mesh path=GFX\map\room4w_pillars.rmesh
+shape = 4
+commonness = 60
+disabledecals = true
+zone1=4
+
+[room4w_bridge]
+descr=A tall crossroads with a railed walkway passing overhead.
+mesh path=GFX\map\room4w_bridge.rmesh
+shape = 4
+commonness = 50
+disabledecals = true
+zone1=4
+
+[room4w_fan]
+descr=A dark crossroads under a big extractor fan framed by beams.
+mesh path=GFX\map\room4w_fan.rmesh
+shape = 4
+commonness = 50
+disabledecals = true
+zone1=4
+
+[room4w_dome]
+descr=A crossroads in a tall eight-sided hall.
+mesh path=GFX\map\room4w_dome.rmesh
+shape = 4
+commonness = 55
+disabledecals = true
+zone1=4
+
+[room1w_consoles]
+descr=A dead-end control room: two console units against the wall, a bench, three wall lamps.
+mesh path=GFX\map\room1w_consoles.rmesh
+shape = 1
+commonness = 70
+disabledecals = true
+zone1=4
+
+[room1w_meeting]
+descr=A dead-end meeting room: a long table, white chairs, a whiteboard, a red book left open.
+mesh path=GFX\map\room1w_meeting.rmesh
+shape = 1
+commonness = 60
+disabledecals = true
+zone1=4
+
+[room1w_whitedoor]
+descr=A dark room at the end of a passage. In the far wall there is a doorway of white light with nothing behind it.
+mesh path=GFX\map\room1w_whitedoor.rmesh
+shape = 1
+commonness = 45
+disabledecals = true
+zone1=4
+
+[room1w_ward]
+descr=A dead-end ward: six beds under a ceiling fan, and someone who did not make it out.
+mesh path=GFX\map\room1w_ward.rmesh
+shape = 1
+commonness = 55
+disabledecals = true
+zone1=4
+
+[room1w_cache]
+descr=A dead-end lobby with a lift down to a supply cache.
+mesh path=GFX\map\room1w_cache.rmesh
+shape = 1
+commonness = 40
+disabledecals = true
+zone1=4
+
+[room1w_tank]
+descr=A dead-end plant room built round a coolant tank. A technician has stayed with it.
+mesh path=GFX\map\room1w_tank.rmesh
+shape = 1
+commonness = 45
+disabledecals = true
+zone1=4

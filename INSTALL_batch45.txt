@@ -1,0 +1,21 @@
+BATCH 45 - OLD SCP-939 CHAMBER, MORGUE, OFF-SHOOT HALL (3-way), DAMAGED WING
+==============================================================================================
+
+Already installed in this game folder. To rebuild (run from Tools\roomkit):
+
+  python make_assets45.py      textures -> GFX\map\indev_b45drawers, crack, flame, hole, panel (.png)
+  python make_docs45.py        notes    -> GFX\items\docb45_*.jpg
+  python gen_b45.py --game     rooms    -> GFX\map\room2b47old939, room2b47morgue, room3b47offshoot,
+                                            room2b47damaged (.rmesh/_lm1.png), IndevU45Data.bb
+  python wire45.py             Main.bb, MapSystem.bb, UpdateEvents.bb, rooms.ini, items.ini, strings.ini
+  then from the game folder:
+  "I:\New folder (5)\BlitzPRO.Legacy.v2.100\bin\blitzcc.exe" -o Game.exe Game.bb
+
+Tests: RoomTest_views45.txt. Console aliases: old939, morgue, offshoot, damaged.
+
+CREATED  IndevU45.bb, IndevU45Data.bb, INSTALL_batch45.txt, RoomTest_views45.txt
+         Tools\roomkit\make_assets45.py, make_docs45.py, rooms_b45.py, gen_b45.py, wire45.py
+         GFX\map\room2b47old939 / room2b47morgue / room3b47offshoot / room2b47damaged (.rmesh + _lm1.png)
+         GFX\map\indev_b45*.png; GFX\items\docb45_939, _morgue, _offshoot, _collapse (.jpg)
+MODIFIED Main.bb, MapSystem.bb, UpdateEvents.bb, Data\rooms.ini, items.ini, strings.ini (backups *.bak_u45),
+         Indev.bb (reset), IndevU26.bb (U45Frame fog), Changelog.txt (5e)

@@ -1,0 +1,43 @@
+
+;INDEV FORTY-SEVENTH BATCH - LEGACY ROOMS (INDEV ZONE) (generated, Tools\roomkit\gen_b47.py, IndevU47.bb)
+;=================================================
+
+[room2closetsolderones]
+descr=[Indev Zone] The old starting room: the gear laid out on a steel table - gas mask, battery, an orientation sheet - old cabinets, white chairs, and a white doorway you cannot look into.
+mesh path=GFX\map\room2closetsolderones.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=4
+set room=0.3
+set room priority=9000
+
+[room2oldconference]
+descr=[Indev Zone] The early conference room: one long table, white chairs - one of them knocked over - the whiteboard, a red book, the vent box in the ceiling.
+mesh path=GFX\map\room2oldconference.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=4
+set room=0.45
+set room priority=9000
+
+[room2oldmedibay]
+descr=[Indev Zone] The first medical bay: whitewashed walls, a row of beds, the treatment table under its lamp, cabinets and a sink.
+mesh path=GFX\map\room2oldmedibay.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=4
+set room=0.6
+set room priority=9000
+
+[room2oldcores]
+descr=[Indev Zone] The early core chambers: three bays off one corridor - the bell on its pedestal, the refining machine with its two booths, and the old man's corroded chamber.
+mesh path=GFX\map\room2oldcores.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=4
+set room=0.75
+set room priority=9000

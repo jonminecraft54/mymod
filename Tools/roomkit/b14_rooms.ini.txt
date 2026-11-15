@@ -1,0 +1,23 @@
+
+;INDEV FOURTEENTH BATCH - 2 rooms, 2 SCPs (generated, Tools\roomkit\gen_b14.py, IndevU14.bb)
+;=================================================
+
+[room2lampshop]
+descr=Lamp Room (Light Containment): a stained-glass lamp on a desk, with a storage room west holding the bulbs.
+mesh path=GFX\map\room2lampshop.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=1
+set room=0.45
+set room priority=9000
+
+[room2saddlestall]
+descr=Stall (Heavy Containment): straw, a rack with a black saddle, and the animal that stands up in the straw when the saddle is lifted.
+mesh path=GFX\map\room2saddlestall.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=2
+set room=0.55
+set room priority=9000

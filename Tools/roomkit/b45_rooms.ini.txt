@@ -1,0 +1,43 @@
+
+;INDEV FORTY-FIFTH BATCH - OLD 939, MORGUE, OFF-SHOOT HALL, DAMAGED WING (generated, Tools\roomkit\gen_b45.py, IndevU45.bb)
+;=================================================
+
+[room2b47old939]
+descr=The old SCP-939 chamber (Heavy Containment): a white gallery corridor with open windows over a deep dark pit, a red-lit hatch in its far wall; the audio-monitoring office and an old store.
+mesh path=GFX\map\room2b47old939.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=2
+set room=0.5
+set room priority=9000
+
+[room2b47morgue]
+descr=The Morgue (Light Containment): the records office and scrub room; behind the Level 4 door a wall of cold-storage drawers, sheeted gurneys, and two autopsy tables - one with someone still strapped to it.
+mesh path=GFX\map\room2b47morgue.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=1
+set room=0.5
+set room priority=9000
+
+[room3b47offshoot]
+descr=The Off-Shoot Hall (Light Containment, T-junction): three halls so dark you can barely see, holes in the floor, and a jammed door with flames licking from its seam.
+mesh path=GFX\map\room3b47offshoot.rmesh
+shape = 3
+commonness = 0
+disabledecals = true
+zone1=1
+set room=0.5
+set room priority=9000
+
+[room2b47damaged]
+descr=The Damaged Wing (Heavy Containment): rubble in the corner rooms under cracked windows, and the east hall where the ceiling came down - a turbine housing through two floors.
+mesh path=GFX\map\room2b47damaged.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=2
+set room=0.5
+set room priority=9000

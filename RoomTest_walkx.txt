@@ -1,0 +1,2 @@
+room2b30admin 0 165 -400 -700 150 -400
+room2b34humanoid 0 165 0 700 150 0

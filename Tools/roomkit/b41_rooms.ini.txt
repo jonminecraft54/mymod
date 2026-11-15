@@ -1,0 +1,53 @@
+
+;INDEV FORTY-FIRST BATCH - STAFF, MEDICAL, SECURITY, RECREATION, D-BLOCK (generated, Tools\roomkit\gen_b41.py, IndevU41.bb)
+;=================================================
+
+[room2b43staff]
+descr=Staff Wing (Entrance Zone): the break room with its vending machine and red chairs, the conference room and its projector, and the staff dormitories.
+mesh path=GFX\map\room2b43staff.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=3
+set room=0.6
+set room priority=9000
+
+[room2b43medical]
+descr=Medical Wing (Light Containment): the infirmary, the chemistry lab and its fume hood, and the research lab - microscopes, specimen tanks, cages, the x-ray lightbox, the dissection table.
+mesh path=GFX\map\room2b43medical.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=1
+set room=0.6
+set room priority=9000
+
+[room2b43security]
+descr=Security Wing (Heavy Containment): the armory, stripped and bloodied; a tiny dark storage room; and the guards' locker room with its dead-end toilets.
+mesh path=GFX\map\room2b43security.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=2
+set room=0.6
+set room priority=9000
+
+[room2b43rec]
+descr=Recreation Wing (Light Containment): the theater, rows of red seats before a screen that flashes hard enough to blind, and the gymnasium - barricades, bodies, or nothing at all.
+mesh path=GFX\map\room2b43rec.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=1
+set room=0.6
+set room priority=9000
+
+[room2b43dblock]
+descr=D-Block (Light Containment): D-class cells, open and bloodied, and the block's row of cells - empty now.
+mesh path=GFX\map\room2b43dblock.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=1
+set room=0.6
+set room priority=9000

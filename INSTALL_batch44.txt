@@ -1,0 +1,22 @@
+BATCH 44 - THE EARLY SCP-1074 ROOM + CRYO, THEATRE, GRAVITY LAB, GEO SITE, O5 RECORDS VAULT
+==============================================================================================
+
+Already installed in this game folder. To rebuild (run from Tools\roomkit):
+
+  python make_assets44.py      textures -> GFX\map\indev_b44*.png (indev_b44painting.png is a copy of
+                                            GFX\map\Props\scp1074.png)
+  python make_docs44.py        notes    -> GFX\items\docb44_*.jpg
+  python gen_b44.py --game     rooms    -> GFX\map\room2b46*.rmesh/_lm1.png, IndevU44Data.bb
+  python wire44.py             Main.bb, MapSystem.bb, UpdateEvents.bb, rooms.ini, items.ini, strings.ini
+  then from the game folder:
+  "I:\New folder (5)\BlitzPRO.Legacy.v2.100\bin\blitzcc.exe" -o Game.exe Game.bb
+
+Tests: RoomTest_views44.txt. Console aliases: old1074, cryo, theatre2, gravity, geology, o5.
+
+CREATED  IndevU44.bb, IndevU44Data.bb, INSTALL_batch44.txt, RoomTest_views44.txt
+         Tools\roomkit\make_assets44.py, make_docs44.py, rooms_b44.py, gen_b44.py, wire44.py
+         GFX\map\room2b46old1074 / cryo / theatre / gravity / geology / o5vault (.rmesh + _lm1.png)
+         GFX\map\indev_b44brick, cobble, painting, frost, pad, crystal, marble, hazard, signs (.png)
+         GFX\items\docb44_1074, _cryo, _theatre, _gravity, _geo, _o5 (.jpg)
+MODIFIED Main.bb, MapSystem.bb, UpdateEvents.bb, Data\rooms.ini, items.ini, strings.ini (backups *.bak_u44),
+         Indev.bb (reset), IndevU36.bb (U44SpeedMul in the speed multiplier), Changelog.txt (5d)

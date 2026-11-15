@@ -1,0 +1,13 @@
+
+;INDEV FORTY-EIGHTH BATCH - SCP-806 (generated, Tools\roomkit\gen_b48.py, IndevU48.bb)
+;=================================================
+
+[room2scp806]
+descr=SCP-806 (Heavy Containment): the screening room - the silver screen, the seats, the projector on its stand and Containment Locker 8 with the reels. Somebody has to keep watching.
+mesh path=GFX\map\room2scp806.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=2
+set room=0.55
+set room priority=9000

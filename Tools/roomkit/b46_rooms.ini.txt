@@ -1,0 +1,53 @@
+
+;INDEV FORTY-SIXTH BATCH - ALTERNATE TIMELINE (generated, Tools\roomkit\gen_b46.py, IndevU46.bb)
+;=================================================
+
+[room2b49checkpoint]
+descr=Checkpoint 9 (Heavy Containment): an abandoned security checkpoint - the booth, the coats on their hooks, a radio still switched on; the empty ready room.
+mesh path=GFX\map\room2b49checkpoint.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=2
+set room=0.5
+set room priority=9000
+
+[room2b49hidden]
+descr=Sector R (Light Containment): a research department struck off the site maps - dust on everything, sheeted equipment, the map with the sector blacked out, and the one researcher who never left.
+mesh path=GFX\map\room2b49hidden.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=1
+set room=0.5
+set room priority=9000
+
+[room2b49perslift]
+descr=Personnel Lift (Light Containment): a waiting hall with benches and a lift that goes down to the lower complex - an older facility below this one.
+mesh path=GFX\map\room2b49perslift.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=1
+set room=0.45
+set room priority=9000
+
+[room2b49sealed]
+descr=The Sealed Wing (Heavy Containment): rooms closed for decades - dust drifts, a calendar stopped years ago, chairs where people stood up and left, and the blast door to the rest.
+mesh path=GFX\map\room2b49sealed.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=2
+set room=0.5
+set room priority=9000
+
+[room2scp173oldercell]
+descr=The old SCP-173 cell (Light Containment): one tall concrete chamber under steel beams with a door at each end, a guard balcony, the control corner, and the big door to the old white cell.
+mesh path=GFX\map\room2scp173oldercell.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=1
+set room=0.5
+set room priority=9000

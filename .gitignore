@@ -1,0 +1,19 @@
+# crash dumps and logs (memory snapshots from your PC - keep them private)
+*.dmp
+crash_*.log
+*.log
+
+# backups made by the room tools
+*.bak
+*.bak_*
+*.bak_old
+
+# room test output and scratch
+RoomTest/
+Tools/roomkit/out/
+Tools/roomkit/previews/
+__pycache__/
+*.pyc
+
+# saves and local settings
+Saves/

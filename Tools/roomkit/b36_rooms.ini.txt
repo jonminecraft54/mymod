@@ -1,0 +1,23 @@
+
+;INDEV THIRTY-SIXTH BATCH - CONFECTIONERY AND SCP-1479 (generated, Tools\roomkit\gen_b36.py, IndevU36.bb)
+;=================================================
+
+[room2b36confect]
+descr=Confectionery Anomalies (Heavy Containment): the red-stencilled service corridor, the observation room onto SCP-1921 and SCP-3409-A, the surveillance room, and vehicle bay 3 below with the candy deliveries (SCP-1200, SCP-1916, SCP-3147).
+mesh path=GFX\map\room2b36confect.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=2
+set room=0.35
+set room priority=9000
+
+[room2b36taiga]
+descr=The coal plant basement and SCP-1479 (Light Containment): pipes, panels, the investigators' office and the cold-weather store - and the empty utility room that holds a night taiga, a lone cabin with a lantern, and eyes.
+mesh path=GFX\map\room2b36taiga.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=1
+set room=0.75
+set room priority=9000

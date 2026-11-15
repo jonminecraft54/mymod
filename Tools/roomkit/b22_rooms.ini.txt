@@ -1,0 +1,13 @@
+
+;INDEV TWENTY-SECOND BATCH - SCP-112-PT (generated, Tools\roomkit\gen_b22.py, IndevU22.bb)
+;=================================================
+
+[room2b22xmas]
+descr=SCP-112-PT, Santa Claus's bones (Light Containment): a reliquary chamber decorated for Christmas. Sometimes an old man in a bishop's robe is waiting by it.
+mesh path=GFX\map\room2b22xmas.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=1
+set room=0.6
+set room priority=50

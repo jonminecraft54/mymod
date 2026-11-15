@@ -1,0 +1,195 @@
+
+;INDEV v0.1-STYLE FILLER ROOMS (generated meshes, Tools\roomkit\gen_v01.py, IndevV01.bb)
+;=================================================
+
+[room2v_hall]
+descr=A plain early-pattern hallway: rust-banded concrete, three ceiling lamps, a bench.
+mesh path=GFX\map\room2v_hall.rmesh
+shape = 2
+commonness = 100
+disabledecals = true
+zone1=4
+
+[room2v_arch]
+descr=A tall hallway crossed by three concrete portal frames with a lamp in each leg, and steel beams between them.
+mesh path=GFX\map\room2v_arch.rmesh
+shape = 2
+commonness = 80
+disabledecals = true
+zone1=4
+
+[room2v_guard]
+descr=A guard post: a counter and an open hatch in the corridor wall, and whoever is still on duty behind it.
+mesh path=GFX\map\room2v_guard.rmesh
+shape = 2
+commonness = 45
+disabledecals = true
+zone1=4
+
+[room2v_medbay]
+descr=An office-zone corridor with benches and the old medical bay: green-striped walls, three beds, a body.
+mesh path=GFX\map\room2v_medbay.rmesh
+shape = 2
+commonness = 40
+disabledecals = true
+zone1=4
+
+[room2v_lockers]
+descr=A steel-floored passage lined with lockers. A researcher is sitting against the cabinets and will not be getting up.
+mesh path=GFX\map\room2v_lockers.rmesh
+shape = 2
+commonness = 45
+disabledecals = true
+zone1=4
+
+[room2v_surv]
+descr=A hallway with the old surveillance room off it: a console wall, two monitors, a swivel chair.
+mesh path=GFX\map\room2v_surv.rmesh
+shape = 2
+commonness = 40
+disabledecals = true
+zone1=4
+
+[room2v_pillars]
+descr=A wide hall with two rows of square concrete pillars.
+mesh path=GFX\map\room2v_pillars.rmesh
+shape = 2
+commonness = 60
+disabledecals = true
+zone1=4
+
+[room2v_pipes]
+descr=A narrow dark service passage with pipes under the roof, a duct fan in the wall and a red lamp.
+mesh path=GFX\map\room2v_pipes.rmesh
+shape = 2
+commonness = 55
+disabledecals = true
+zone1=4
+
+[room2v_cells]
+descr=A row of Class-D cells. One door still opens.
+mesh path=GFX\map\room2v_cells.rmesh
+shape = 2
+commonness = 45
+disabledecals = true
+zone1=4
+
+[room2v_lift]
+descr=A hallway with a lift down to a basement store.
+mesh path=GFX\map\room2v_lift.rmesh
+shape = 2
+commonness = 35
+disabledecals = true
+zone1=4
+
+[room2v_vent]
+descr=A hall built round a concrete plant block with vent grilles and lamps on every face, and two ceiling fans.
+mesh path=GFX\map\room2v_vent.rmesh
+shape = 2
+commonness = 50
+disabledecals = true
+zone1=4
+
+[room2cv_plain]
+descr=A plain early-pattern corner.
+mesh path=GFX\map\room2cv_plain.rmesh
+shape = 2C
+commonness = 100
+disabledecals = true
+zone1=4
+
+[room2cv_lamps]
+descr=An office-zone corner under red pendant lamps.
+mesh path=GFX\map\room2cv_lamps.rmesh
+shape = 2C
+commonness = 80
+disabledecals = true
+zone1=4
+
+[room2cv_post]
+descr=A corner with a pillar and an open store alcove.
+mesh path=GFX\map\room2cv_post.rmesh
+shape = 2C
+commonness = 60
+disabledecals = true
+zone1=4
+
+[room2cv_office]
+descr=An office-zone corner with a small office off it.
+mesh path=GFX\map\room2cv_office.rmesh
+shape = 2C
+commonness = 55
+disabledecals = true
+zone1=4
+
+[room3v_plain]
+descr=A plain early-pattern T junction.
+mesh path=GFX\map\room3v_plain.rmesh
+shape = 3
+commonness = 100
+disabledecals = true
+zone1=4
+
+[room3v_arch]
+descr=A T junction with a concrete portal frame across each arm.
+mesh path=GFX\map\room3v_arch.rmesh
+shape = 3
+commonness = 70
+disabledecals = true
+zone1=4
+
+[room3v_hub]
+descr=A T junction opened out into a hall round a central pier, with beams and a ceiling fan.
+mesh path=GFX\map\room3v_hub.rmesh
+shape = 3
+commonness = 55
+disabledecals = true
+zone1=4
+
+[room3v_booth]
+descr=A T junction overlooked by a checkpoint booth with a hatch and a door.
+mesh path=GFX\map\room3v_booth.rmesh
+shape = 3
+commonness = 50
+disabledecals = true
+zone1=4
+
+[room4v_plain]
+descr=A plain early-pattern crossroads.
+mesh path=GFX\map\room4v_plain.rmesh
+shape = 4
+commonness = 100
+disabledecals = true
+zone1=4
+
+[room4v_block]
+descr=A crossroads round a vent block, with a pillar in each corner and a ceiling fan.
+mesh path=GFX\map\room4v_block.rmesh
+shape = 4
+commonness = 60
+disabledecals = true
+zone1=4
+
+[room4v_beams]
+descr=A tall crossing under two layers of steel beams.
+mesh path=GFX\map\room4v_beams.rmesh
+shape = 4
+commonness = 60
+disabledecals = true
+zone1=4
+
+[room1v_173]
+descr=The old SCP-173 test yard: a tall hall, a gallery for the guard, and the open containment door.
+mesh path=GFX\map\room1v_173.rmesh
+shape = 1
+commonness = 30
+disabledecals = true
+zone1=4
+
+[room1v_store]
+descr=A dead-end storeroom: shelving, crates, a ceiling fan.
+mesh path=GFX\map\room1v_store.rmesh
+shape = 1
+commonness = 60
+disabledecals = true
+zone1=4

@@ -1,0 +1,63 @@
+
+;INDEV EIGHTEENTH BATCH - 6 rooms (The Hollowcrest) (generated, Tools\roomkit\gen_b18.py, IndevU18.bb)
+;=================================================
+
+[room2hcrecep]
+descr=The Hollowcrest reception (Heavy Containment): a counter with the night ledger and the anomaly register, a key rack, and a staff office east.
+mesh path=GFX\map\room2hcrecep.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=2
+set room=0.4
+set room priority=9000
+
+[room2hcguest117]
+descr=Guest Room 117 (Heavy Containment): a bed, a desk, a wardrobe and a telephone that is not connected to anything.
+mesh path=GFX\map\room2hcguest117.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=2
+set room=0.6
+set room priority=9000
+
+[room2hcservice]
+descr=Service lift (Heavy Containment): a lift between the lobby and a service corridor. Its floor display does not always show the floor you are on.
+mesh path=GFX\map\room2hcservice.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=2
+set room=0.3
+set room priority=9000
+
+[room2hcboiler]
+descr=Boiler chamber (Heavy Containment): an old boiler with a control panel that is warm to the touch. The gauge reads ninety with the boiler off.
+mesh path=GFX\map\room2hcboiler.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=2
+set room=0.35
+set room priority=9000
+
+[room2hckitchen]
+descr=Cold kitchen (Light Containment): steel counters, a fridge that starts up when you are alone, and a store to the west.
+mesh path=GFX\map\room2hckitchen.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=1
+set room=0.45
+set room priority=9000
+
+[room2hcballroom]
+descr=The Silent Ballroom (Heavy Containment): a long hall with a stage at one end, a broken chandelier, and a keycard on the stage.
+mesh path=GFX\map\room2hcballroom.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=2
+set room=0.55
+set room priority=9000

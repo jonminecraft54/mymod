@@ -1,0 +1,103 @@
+
+;INDEV "SIXTEEN SCPS" ROOMS (generated meshes, Tools\roomkit\gen_s16.py, IndevS16.bb)
+;=================================================
+
+[room2siv]
+descr=Small Items Vault (Indev). SCP-1045 the candle lantern, SCP-1510 the helmet, SCP-1125 the answer dice.
+mesh path=GFX\map\room2siv.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=1
+set room=0.3
+set room priority=14000
+
+[room2bio]
+descr=Biological Holding (Indev). SCP-1513 potted pets, SCP-1515 in a wire enclosure, SCP-1517 in a freezer, SCP-1519 in saline.
+mesh path=GFX\map\room2bio.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=1
+set room=0.7
+set room priority=14000
+
+[room2origin]
+descr=Procedure 1512-Alpha hall (Indev). A tendril of SCP-1512 has come up through the floor; a worksheet at each end.
+mesh path=GFX\map\room2origin.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=2
+set room=0.25
+set room priority=14000
+
+[room2purge]
+descr=Foam-lined fan hall (Indev). SCP-1518, the bubble fountain; loose bubbles until the fans are purged.
+mesh path=GFX\map\room2purge.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=2
+set room=0.6
+set room priority=14000
+
+[room2review]
+descr=Surveillance Review (Indev). SCP-1110 on the review monitor, SCP-1250 tapes and a deck.
+mesh path=GFX\map\room2review.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=3
+set room=0.3
+set room priority=14000
+
+[room2lecture]
+descr=Lecture Room 2 (Indev). Most of SCP-1313 is still on the board.
+mesh path=GFX\map\room2lecture.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=3
+set room=0.7
+set room priority=14000
+
+[room2site41]
+descr=A section of Site 41 (Indev). SCP-1312: a fence, a guard, and three figures of one flat colour each.
+mesh path=GFX\map\room2site41.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=4
+set room=0.15
+set room priority=14000
+
+[room2cell49]
+descr=Humanoid Cell 49 (Indev). SCP-1516, the Written Man, behind glass; three word cards on the desk.
+mesh path=GFX\map\room2cell49.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=4
+set room=0.45
+set room priority=14000
+
+[room2vault117]
+descr=Vault 117 (Indev). A lift down to a piece of SCP-1511 that still speaks.
+mesh path=GFX\map\room2vault117.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=4
+set room=0.65
+set room priority=14000
+
+[room2bunker]
+descr=Secure Bunker (Indev). A lift down to SCP-1514-1A, its alarm, and a locker that opens when the inspection is logged.
+mesh path=GFX\map\room2bunker.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=4
+set room=0.85
+set room priority=14000

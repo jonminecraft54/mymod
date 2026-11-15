@@ -1,0 +1,33 @@
+
+;INDEV ELEVENTH BATCH - 3 photo rooms (generated meshes, Tools\roomkit\gen_b11.py, IndevT11.bb)
+;=================================================
+
+[room2hoistoffice]
+descr=Hoist Office (Light Containment): a control office with a monitor wall and a HOIST / DOOR panel. A keycard and an operator log lie on the desk.
+mesh path=GFX\map\room2hoistoffice.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=1
+set room=0.6
+set room priority=9000
+
+[room2shutterhall]
+descr=Shutter Hall (Heavy Containment): a long corridor with four grey containment shutters and red hanging lamps. A closure log lies on the floor in front of shutter 4.
+mesh path=GFX\map\room2shutterhall.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=2
+set room=0.4
+set room priority=9000
+
+[room2machinecorr]
+descr=Machine Corridor (Light Containment): a corridor with a glass window onto a machine alcove. A service memo lies on the machine top.
+mesh path=GFX\map\room2machinecorr.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=1
+set room=0.5
+set room priority=9000

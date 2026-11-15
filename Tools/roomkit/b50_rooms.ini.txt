@@ -1,0 +1,53 @@
+
+;INDEV FIFTIETH BATCH - RESEARCH COMPLEX (generated, Tools\roomkit\gen_b50.py, IndevU50.bb)
+;=================================================
+
+[room2b50lab02]
+descr=Research Laboratory 02 (Light Containment): benches, sinks, a fume hood and sample fridges - and SCP-061 on the east bench. The switch is by the door.
+mesh path=GFX\map\room2b50lab02.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=1
+set room=0.62
+set room priority=9000
+
+[room2b50chem]
+descr=Chemical Storage (Light Containment): steel shelving, drums, the eyewash station and the pipes overhead.
+mesh path=GFX\map\room2b50chem.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=1
+set room=0.7
+set room priority=9000
+
+[room2b50observe]
+descr=Experimental Observation Room (Heavy Containment): a gallery with a window wall over a sunken test chamber. In the pit: SCP-162.
+mesh path=GFX\map\room2b50observe.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=2
+set room=0.45
+set room priority=9000
+
+[room2b50office]
+descr=Researcher Office (Light Containment): three desks, cabinets and the whiteboard; the coffee went cold a long time ago.
+mesh path=GFX\map\room2b50office.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=1
+set room=0.52
+set room priority=9000
+
+[room2b50specimen]
+descr=Small Specimen Storage (Heavy Containment): shelves of sealed jars and two freezers. Do not linger by the north-west corner - SCP-020.
+mesh path=GFX\map\room2b50specimen.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=2
+set room=0.58
+set room priority=9000

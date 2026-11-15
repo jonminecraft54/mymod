@@ -1,0 +1,13 @@
+
+;INDEV FORTY-NINTH BATCH - SCP-087-B (generated, Tools\roomkit\gen_b49.py, IndevU49.bb)
+;=================================================
+
+[room2scp087b]
+descr=SCP-087-B (Light Containment): an old brick room with a narrow stairwell going down into the dark. Nobody has found the bottom.
+mesh path=GFX\map\room2scp087b.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=1
+set room=0.4
+set room priority=9000

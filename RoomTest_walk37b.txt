@@ -1,0 +1,4 @@
+room1scp028 0 165 0 -900 150 0
+room2b39reactor 0 165 0 -900 150 0
+room2b39hall 0 165 0 -900 150 0
+room2b39cells 0 165 0 -900 150 0

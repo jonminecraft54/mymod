@@ -1,0 +1,8 @@
+room2b49checkpoint 300 165 -600 -510 96 -205
+room2b49checkpoint 400 165 0 560 80 0
+room2b49hidden 300 165 -600 990 200 -300
+room2b49hidden 400 165 300 640 100 120
+room2b49perslift 300 165 -560 -400 150 0
+room2b49perslift 0 -540 0 960 -550 0
+room2b49sealed 300 165 -100 950 150 0
+room2b49sealed -400 165 -500 -770 210 -380

@@ -1,0 +1,87 @@
+"""The second document of each of the sixteen SCPs (handwritten notes, GFX\\items\\doc<number>b.jpg).
+Design.md asks for two documents per new SCP: the typed file says what it is, the note says what
+somebody here found out about it. Same layout as the notes in make_docs2.py."""
+from make_docs2 import note
+
+NOTES = {
+    'doc1045b': ({0: 'Vault log - lantern, locker 17', 1: 'Tested with a pine-scented candle.',
+                  2: 'The figure had a voice. Tech. Ruiz', 3: 'asked to be moved off the project.',
+                  5: 'Burn time on a stub: under half a', 6: 'minute. It felt like longer.',
+                  8: 'Scrape the cup after. Bag the', 9: 'scrapings. Do not ask what they are.'}, '- V. Okafor'),
+    'doc1510b': ({0: 'Interview 11 - summary', 1: 'Subject wore the helmet 4 min.',
+                  2: 'P.C.A. asked for his cohort, then', 3: "looked at the cut on the subject's",
+                  4: 'arm and dressed it. Well.', 6: 'Subject woke exhausted, shaking.',
+                  7: 'No memory. Wound clean.', 9: 'Not more than once in three', 10: 'minutes. He hates being woken.'},
+                 '- Dr. Stevenson'),
+    'doc1125b': ({0: 'To whoever opened the pack:', 1: 'I rolled it to see if I should', 2: 'roll it. It said Yes.',
+                  4: 'Yes felt wonderful. No knocked', 5: 'the wind out of me. Maybe just', 6: 'means again.',
+                  8: 'Two rolls is a game. After the', 9: 'third I could not pick a sandwich', 10: 'without it. Put it DOWN.'},
+                 '- Halloran, stores'),
+    'doc1250b': ({0: 'Tape 44 - note on the label', 1: 'Recorded 09:10, corridor mics.', 2: 'Played back at 09:40.',
+                  4: 'It says where the sculpture is.', 5: 'Two times in three it is right.',
+                  6: 'The third time it is right about', 7: 'somewhere else.', 9: 'Give it 20 seconds to rewind.'},
+                 '- Review desk'),
+    'doc1110b': ({0: 'Property counter - losses', 1: '2 keycards, a wristwatch (stopped', 2: 'at the minute it was taken),',
+                  3: 'one first aid kit, my lunch.', 5: 'All on the counter when someone', 6: 'pressed PLAY.',
+                  8: 'CLEAR THE COUNTER FIRST.', 9: 'An empty counter costs nothing.'}, '- Sgt. Bray'),
+    'doc1312b': ({0: 'CONTAINMENT PROCEDURE', 1: 'ITEM: ONE (1) ORANGE, TALKING.', 2: 'CLASS: NOT OURS.',
+                  4: 'ITEM TO BE KEPT IN CELL UNTIL', 5: 'WRITTEN UP. ITEM MAY THEN BE', 6: 'FORGOTTEN.',
+                  8: 'ITEM TAKES THINGS FROM DESK.', 9: 'DESK TO BE RESTOCKED.'}, '- WHITE'),
+    'doc1313b': ({0: 'Lecture Room 2 - sealed 14:20', 1: 'Dr. Lund got to the fifth line', 2: 'before anyone stopped him.',
+                  4: 'Reading it is fine. FOLLOWING', 5: 'it is not. If you catch yourself', 6: 'working the next step, look at',
+                  7: 'the floor.', 9: 'If the lights go: the door is', 10: 'at the far end from the board.',
+                  11: 'Run. It leaves when you do.'}, '- MTF Delta-10'),
+    'doc1511b': ({0: 'Vault 117 - fragment 1511-C-3', 1: 'From the wrecked one. Still talks.',
+                  3: 'Sit near it a quarter of a minute.', 4: 'You come away calmer. It runs', 5: 'dry; give it a few minutes.',
+                  7: 'One line in six is not about', 8: 'paradise. Write those down. Do', 9: 'not think about them on the lift.'},
+                 '- Outpost B'),
+    'doc1512b': ({0: 'Procedure 1512-Alpha, this hall', 1: 'Sheet at each door. Hold the', 2: 'pencil to it and work - about',
+                  3: 'five seconds of honest sums.', 5: 'Do NOT believe your answer.', 6: 'Niels believed his.',
+                  8: 'You get a minute before it creeps', 9: 'back. Walk through it and you', 10: 'will not know which door is which.'},
+                 '- Site-166 liaison'),
+    'doc1513b': ({0: 'GROW-A-PET - care sheet (mine)', 1: 'Pot 2: watered daily, lamp on.', 2: 'Came up a sort of cat. Likes a',
+                  3: 'scratch behind the leaves. Good', 4: 'for the nerves, once a shift.', 6: 'Pot 3: I forgot. Three weeks.',
+                  7: 'It is not in the pot any more.', 8: 'It moves when you look away.', 9: 'It is not angry. It just left.'},
+                 '- J. Pell'),
+    'doc1515b': ({0: "Enclosure B - keeper's note", 1: 'Five, always five. They watch', 2: 'the door. They are counting, and',
+                  3: 'it is not you they want.', 5: 'No pregnant staff past the', 6: 'yellow line. No animals at all.',
+                  8: 'They chirp before a hunt. In', 9: 'here it is only a chirp.'}, '- Reserve liaison'),
+    'doc1517b': ({0: 'WHO LEFT THE FREEZER OPEN', 1: 'They are fine frozen. A bit over', 2: 'a minute of room air and the',
+                  3: 'shells crack. It ticks first.', 5: 'SHUT THE DOOR. Then read the', 6: 'labels.',
+                  8: 'If your skin goes shiny and', 9: 'smells of sweets: leave the room.', 10: 'It will not hurt. That is the',
+                  11: 'trouble.'}, '- Site 23 transfer team'),
+    'doc1518b': ({0: 'Fan hall - before you cross', 1: 'Count the bubbles. Seven loose', 2: 'today.',
+                  4: 'FAN PURGE, either end. Thirty', 5: 'seconds. They go into the east', 6: 'wall and the foam holds them.',
+                  8: 'Each one that touches you leaves', 9: 'with a piece. Four pieces is', 10: 'about all a person has.'},
+                 '- Containment, shift C'),
+    'doc1519b': ({0: 'Lamplighter - feeding rota', 1: '06:00 / 14:00 / 22:00. Saline', 2: 'topped up Fridays.',
+                  4: 'Cradle output: one cell every', 5: 'three minutes or so. Press and', 6: 'take. It does not mind.',
+                  8: '"Per accendere le lampade" - the', 9: 'Florentine note. Five hundred', 10: 'years of lighting lamps.'},
+                 '- Dr. Aveline'),
+    'doc1516b': ({0: 'Cell 49 - word rations', 1: 'PAN - it knows bread. Edible.', 2: 'VENDA - bandage. Works.',
+                  3: 'PILA - battery. Holds a charge.', 5: 'ONE card per visitor. It keeps', 6: 'count. Never CUCHILLO. Never',
+                  7: 'LLAVE.', 9: 'It says thank you. You will', 10: 'see it, not hear it.'}, '- Dr. Marquez'),
+    'doc1514b': ({0: 'Bunker - inspection, 20 min', 1: 'Hand on the panel. One second.', 2: 'Hand OFF the panel.',
+                  4: 'The log opens the supply locker.', 5: 'That is the only perk of this', 6: 'post.',
+                  8: 'Three seconds is tampering. The', 9: 'room does not ask twice. Ask', 10: "Dunmore. You can't. That's him",
+                  11: 'on the floor.'}, '- shift lead'),
+}
+
+TITLES = {
+    'doc1045': 'Document SCP-1045', 'doc1045b': 'Lantern Test Log', 'doc1110': 'Document SCP-1110', 'doc1110b': 'Property Counter Losses',
+    'doc1125': 'Document SCP-1125', 'doc1125b': 'Note Left with the Die', 'doc1250': 'Document SCP-1250', 'doc1250b': 'Tape 44 Label',
+    'doc1312': 'Document SCP-1312', 'doc1312b': 'A Containment Procedure for You', 'doc1313': 'Document SCP-1313',
+    'doc1313b': 'Lecture Room 2 Seal Notice', 'doc1510': 'Document SCP-1510', 'doc1510b': 'Interview 11 Summary',
+    'doc1511': 'Document SCP-1511', 'doc1511b': 'Vault 117 Fragment Note', 'doc1512': 'Document SCP-1512',
+    'doc1512b': 'Procedure 1512-Alpha Note', 'doc1513': 'Document SCP-1513', 'doc1513b': 'GROW-A-PET Care Sheet',
+    'doc1514': 'Document SCP-1514', 'doc1514b': 'Bunker Inspection Note', 'doc1515': 'Document SCP-1515',
+    'doc1515b': "Enclosure B Keeper's Note", 'doc1516': 'Document SCP-1516', 'doc1516b': 'Cell 49 Word Rations',
+    'doc1517': 'Document SCP-1517', 'doc1517b': 'Freezer Notice', 'doc1518': 'Document SCP-1518', 'doc1518b': 'Fan Hall Crossing Note',
+    'doc1519': 'Document SCP-1519', 'doc1519b': 'Lamplighter Feeding Rota',
+}
+
+if __name__ == '__main__':
+    for name, (rows, sign) in NOTES.items():
+        note(name, rows, sign=sign)
+    assert set(NOTES) == {k for k in TITLES if k.endswith('b')}
+    print('%d notes written' % len(NOTES))

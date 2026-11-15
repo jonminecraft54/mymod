@@ -1,0 +1,13 @@
+
+;INDEV TWENTY-EIGHTH BATCH - SCP-983 (generated, Tools\roomkit\gen_b28.py, IndevU28.bb)
+;=================================================
+
+[room2b28monkey]
+descr=SCP-983 (Light Containment): the birthday monkey on its pedestal, Emergency Kit 135r by the door, and a board of today's birthdays.
+mesh path=GFX\map\room2b28monkey.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=1
+set room=0.55
+set room priority=9000

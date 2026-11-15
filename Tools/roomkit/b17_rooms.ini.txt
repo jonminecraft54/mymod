@@ -1,0 +1,23 @@
+
+;INDEV SEVENTEENTH BATCH - 2 rooms (The Forgotten Hotel) (generated, Tools\roomkit\gen_b17.py, IndevU17.bb)
+;=================================================
+
+[room2hotelcorr]
+descr=The Forgotten Hotel, floor H (Heavy Containment): a corridor with room H-16 east and the anomalous room H-17 west.
+mesh path=GFX\map\room2hotelcorr.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=2
+set room=0.5
+set room priority=9000
+
+[room2hotellift]
+descr=The Forgotten Hotel, lift lobby (Heavy Containment): a clerk at the desk, and the lift down to the laundry.
+mesh path=GFX\map\room2hotellift.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=2
+set room=0.3
+set room priority=9000

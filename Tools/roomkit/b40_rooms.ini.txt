@@ -1,0 +1,33 @@
+
+;INDEV FORTIETH BATCH - THE RESIDENTIAL SECTOR (generated, Tools\roomkit\gen_b40.py, IndevU40.bb)
+;=================================================
+
+[room2b42house1]
+descr=Residential Sector - the living floor (Light Containment): a living room with the television still on, a dining room set for six, the kitchen with SCP-1220's cassette, and a hallway of doors.
+mesh path=GFX\map\room2b42house1.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=1
+set room=0.7
+set room priority=9000
+
+[room2b42house2]
+descr=Residential Sector - the bedrooms (Light Containment): the sealed bedroom (SCP-1197), a bathroom with a flickering tube, the children's playroom with SCP-1192, and an attic store of dust-sheeted furniture.
+mesh path=GFX\map\room2b42house2.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=1
+set room=0.7
+set room priority=9000
+
+[room2b42house3]
+descr=Residential Sector - below stairs (Light Containment): basement storage (SCP-1355's boxes), the garage with an old car and SCP-1196's chairs, the model house, and a Foundation safehouse.
+mesh path=GFX\map\room2b42house3.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=1
+set room=0.7
+set room priority=9000

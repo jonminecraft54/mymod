@@ -1,0 +1,33 @@
+
+;INDEV THIRTY-EIGHTH BATCH - LONG HALLWAY, DISPLAY HALL, PARTY ROOM (generated, Tools\roomkit\gen_b38.py, IndevU38.bb)
+;=================================================
+
+[room2b40infhall]
+descr=Corridor L-40 (Light Containment): one long, tall white hallway with pillars and shutters, and double doors with two big windows at the far end - which take a lot longer to reach than they should.
+mesh path=GFX\map\room2b40infhall.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=1
+set room=0.5
+set room priority=9000
+
+[room2b40display]
+descr=Display Hall (Entrance Zone): the SCP-1148 chamber, split by a wall between a brightly lit half and a dark half, and the display hall and temporary containment - pending objects in glass cases and SCP-1039 on its plinth.
+mesh path=GFX\map\room2b40display.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=3
+set room=0.6
+set room priority=9000
+
+[room2b40party]
+descr=D-Block Social (Light Containment): the holiday party room - long tables, a buffet, paper chains and a banner, and a birthday cake nobody brought - and the vault with SCP-1117-1, the table that never empties.
+mesh path=GFX\map\room2b40party.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=1
+set room=0.6
+set room priority=9000

@@ -1,0 +1,13 @@
+
+;INDEV TWENTY-SEVENTH BATCH - SCP-2107 (generated, Tools\roomkit\gen_b27.py, IndevU27.bb)
+;=================================================
+
+[room2b27diet]
+descr=SCP-2107 storage (Light Containment): a CNSI storage room of Diet Ghost cans and a refrigerated unit, and a break room with the vending machine that once made fifteen of them.
+mesh path=GFX\map\room2b27diet.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=1
+set room=0.45
+set room priority=9000

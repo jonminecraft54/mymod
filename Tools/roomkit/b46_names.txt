@@ -1,0 +1,5 @@
+room2b49checkpoint
+room2b49hidden
+room2b49perslift
+room2b49sealed
+room2scp173oldercell

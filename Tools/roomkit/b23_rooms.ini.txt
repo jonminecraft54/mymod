@@ -1,0 +1,13 @@
+
+;INDEV TWENTY-THIRD BATCH - SCP-6483 (generated, Tools\roomkit\gen_b23.py, IndevU23.bb)
+;=================================================
+
+[room2b23santa]
+descr=SCP-6483, Nicolas Roberts (Light Containment): the quarters of a reality bender who only ever makes Christmas, with peppermint walls and a reality anchor monitor.
+mesh path=GFX\map\room2b23santa.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=1
+set room=0.4
+set room priority=9000

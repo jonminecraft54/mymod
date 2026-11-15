@@ -1,0 +1,21 @@
+BATCH 43 - LIFT LOBBY (with a working lift), CHECKPOINT, OFFICE WING
+==============================================================================================
+
+Already installed in this game folder. To rebuild (run from Tools\roomkit):
+
+  python make_docs43.py        notes    -> GFX\items\docb43_*.jpg
+  python gen_b43.py --game     rooms    -> GFX\map\room2b45lobby / checkpoint / offices (.rmesh/_lm1.png),
+                                            IndevU43Data.bb
+  python wire43.py             Main.bb, MapSystem.bb, UpdateEvents.bb, rooms.ini, items.ini, strings.ini
+  then from the game folder:
+  "I:\New folder (5)\BlitzPRO.Legacy.v2.100\bin\blitzcc.exe" -o Game.exe Game.bb
+
+No new textures: everything reuses existing ones. Tests: RoomTest_views43.txt.
+Console aliases: lobby (hoist), checkpoint, offices.
+
+CREATED  IndevU43.bb, IndevU43Data.bb, INSTALL_batch43.txt, RoomTest_views43.txt
+         Tools\roomkit\make_docs43.py, rooms_b43.py, gen_b43.py, wire43.py
+         GFX\map\room2b45lobby, room2b45checkpoint, room2b45offices (.rmesh + _lm1.png)
+         GFX\items\docb43_hoist, _checkpoint, _contraband, _memo (.jpg)
+MODIFIED Main.bb, MapSystem.bb, UpdateEvents.bb, Data\rooms.ini, items.ini, strings.ini (backups *.bak_u43),
+         Indev.bb (reset), Changelog.txt (5c)

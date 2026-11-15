@@ -1,0 +1,84 @@
+versioninfo
+{
+	"editorversion" "400"
+	"mapversion" "1"
+	"formatversion" "100"
+	"prefab" "0"
+}
+world
+{
+	"id" "1"
+	"mapversion" "1"
+	"classname" "worldspawn"
+	"skyname" "sky_day01_01"
+	solid
+	{
+		"id" "2"
+		side
+		{
+			"id" "3"
+			"plane" "(-62 1 25.5) (62 1 25.5) (62 0 25.5)"
+			"material" "miscsigns10"
+			"uaxis" "[1 0 0 0] 0.25"
+			"vaxis" "[0 -1 0 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "4"
+			"plane" "(-62 0 0) (62 0 0) (62 1 0)"
+			"material" "miscsigns10"
+			"uaxis" "[1 0 0 0] 0.25"
+			"vaxis" "[0 -1 0 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "5"
+			"plane" "(-62 1 25.5) (-62 0 25.5) (-62 0 0)"
+			"material" "miscsigns10"
+			"uaxis" "[0 1 0 0] 0.25"
+			"vaxis" "[0 0 -1 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "6"
+			"plane" "(62 1 0) (62 0 0) (62 0 25.5)"
+			"material" "miscsigns10"
+			"uaxis" "[0 1 0 0] 0.25"
+			"vaxis" "[0 0 -1 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "7"
+			"plane" "(62 1 25.5) (-62 1 25.5) (-62 1 0)"
+			"material" "miscsigns10"
+			"uaxis" "[1 0 0 256] 0.25"
+			"vaxis" "[0 0 -1 500] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "8"
+			"plane" "(62 0 0) (-62 0 0) (-62 0 25.5)"
+			"material" "miscsigns10"
+			"uaxis" "[1 0 0 256] 0.25"
+			"vaxis" "[0 0 -1 500] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+	}
+}

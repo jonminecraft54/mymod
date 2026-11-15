@@ -1,0 +1,43 @@
+
+;INDEV TWENTY-FIFTH BATCH - 18 SCPs, three blocks and the office suite (generated, Tools\roomkit\gen_b25.py, IndevU25.bb)
+;=================================================
+
+[room2b25block1]
+descr=Containment block, SCP-115, SCP-124, SCP-136, SCP-160, SCP-239, SCP-250.
+mesh path=GFX\map\room2b25block1.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=1
+set room=0.5
+set room priority=9000
+
+[room2b25block2]
+descr=Containment block, SCP-263, SCP-303, SCP-310, SCP-342, SCP-378, SCP-447.
+mesh path=GFX\map\room2b25block2.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=2
+set room=0.5
+set room priority=9000
+
+[room2b25block3]
+descr=Containment block, SCP-488, SCP-527, SCP-689, SCP-668, SCP-2662, SCP-040.
+mesh path=GFX\map\room2b25block3.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=3
+set room=0.5
+set room priority=9000
+
+[room2b25offices]
+descr=Office suite (Entrance Zone): a researcher's office, a hoist control room, records and a break room off one corridor.
+mesh path=GFX\map\room2b25offices.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=3
+set room=0.4
+set room priority=9000

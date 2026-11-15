@@ -1,0 +1,53 @@
+
+;INDEV THIRTY-SEVENTH BATCH - SCP-028, REACTOR, ARCHIVE, BALCONY HALL, CELLS (generated, Tools\roomkit\gen_b37.py, IndevU37.bb)
+;=================================================
+
+[room1scp028]
+descr=SCP-028 (Light Containment): the white shutter corridor, the guard post, a supply room - and through the east door, an abandoned storage yard in still fog and the sealed room round SCP-028.
+mesh path=GFX\map\room1scp028.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=1
+set room=0.4
+set room priority=9000
+
+[room2b39reactor]
+descr=Heavy Water Reactor Core (Heavy Containment): the control room and decontamination; the gantry over the glowing pool, the crane bridge, and a slow service lift to the pool-floor walkway where SCP-006-B is kept.
+mesh path=GFX\map\room2b39reactor.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=2
+set room=0.5
+set room priority=9000
+
+[room2b39archive]
+descr=Deep Storage Archives (Entrance Zone): the reading room, the document store and the deep archive - twelve ceiling-high motorised shelves that shift on their own.
+mesh path=GFX\map\room2b39archive.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=3
+set room=0.5
+set room priority=9000
+
+[room2b39hall]
+descr=Balcony Hall (Light Containment): a tall white hall with a railed balcony, offices on the balcony, red pendants, stairs and a staff lift between the floors; a supply room and a cell off the shutter corridor.
+mesh path=GFX\map\room2b39hall.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=1
+set room=0.6
+set room priority=9000
+
+[room2b39cells]
+descr=Cell Block (Light Containment): the shutter corridor, two cells with a toilet, sinks and a cot, and D-block through the east door - a second shutter corridor with three open cells. Cell 6 is out of use.
+mesh path=GFX\map\room2b39cells.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=1
+set room=0.6
+set room priority=9000

@@ -1,0 +1,2 @@
+room2hckitchen 120 165 0 700 110 0
+room2hcballroom -300 165 250 300 120 -250

@@ -1,0 +1,4 @@
+room2hcrecep 0 165 -300 0 110 0
+room2hcguest117 150 165 -20 300 110 -110
+room2hcservice -200 165 300 -340 200 150
+room2hcboiler 120 165 0 560 160 0

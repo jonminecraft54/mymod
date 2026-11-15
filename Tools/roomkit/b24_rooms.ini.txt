@@ -1,0 +1,53 @@
+
+;INDEV TWENTY-FOURTH BATCH - 25 SCPs, four blocks and Storage 6H (generated, Tools\roomkit\gen_b24.py, IndevU24.bb)
+;=================================================
+
+[room2b24block1]
+descr=Containment block, SCP-018, SCP-027, SCP-101, SCP-134, SCP-181, SCP-262.
+mesh path=GFX\map\room2b24block1.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=1
+set room=0.5
+set room priority=9000
+
+[room2b24block2]
+descr=Containment block, SCP-300, SCP-314, SCP-387, SCP-423, SCP-426, SCP-432.
+mesh path=GFX\map\room2b24block2.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=2
+set room=0.5
+set room priority=9000
+
+[room2b24block3]
+descr=Containment block, SCP-504, SCP-524, SCP-847, SCP-871, SCP-1230, SCP-1733.
+mesh path=GFX\map\room2b24block3.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=1
+set room=0.5
+set room priority=9000
+
+[room2b24block4]
+descr=Containment block, SCP-2030, SCP-2317, SCP-409, SCP-191, SCP-2399, SCP-1000.
+mesh path=GFX\map\room2b24block4.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=3
+set room=0.5
+set room priority=9000
+
+[room2b24store6h]
+descr=Storage Room 6H (Light Containment): shelving, benches and posters, and a lift down to the top landing of SCP-087.
+mesh path=GFX\map\room2b24store6h.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=1
+set room=0.5
+set room priority=9000

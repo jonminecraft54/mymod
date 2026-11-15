@@ -1,0 +1,33 @@
+
+;INDEV TWENTY-NINTH BATCH - SCP-820-JP, SCP-867, SCP-120 / LUNAR AREA-32 (generated, Tools\roomkit\gen_b29.py, IndevU29.bb)
+;=================================================
+
+[room2b29blade]
+descr=SCP-820-JP inspection dock (Heavy Containment): an unmanned submarine circles a deep tank and surfaces for inspection; across the corridor, the souvenir stall that grew round the knife.
+mesh path=GFX\map\room2b29blade.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=2
+set room=0.5
+set room priority=9000
+
+[room2b29spruce]
+descr=SCP-867 Bio-Containment Section E (Heavy Containment): four blood-red spruces under irrigation, and the NBC prep and herbicide decontamination room.
+mesh path=GFX\map\room2b29spruce.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=2
+set room=0.6
+set room priority=9000
+
+[room2b29pool]
+descr=SCP-120 outbuilding (Entrance Zone): the pink paddling pool under guard and the operators' dial room. Its ninth destination - Lunar Area-32 on Mare Imbrium - is built into the same room, far above.
+mesh path=GFX\map\room2b29pool.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=3
+set room=0.55
+set room priority=9000

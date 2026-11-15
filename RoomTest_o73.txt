@@ -1,0 +1,2 @@
+room2scp173oldercell 0 165 600 0 150 1024
+room2scp173oldercell 0 165 -600 0 150 -1024

@@ -1,0 +1,25 @@
+BATCH 42 - THE PANOPTICON, THE TOY BOX (3-way), THE VAULT (4-way), THE CELLAR
+SCPs: 127, 439, 1577, 154, 4139, 466   (+ rotation fix for batches 37-41)
+==============================================================================================
+
+Already installed in this game folder. To rebuild (run from Tools\roomkit):
+
+  python make_assets42.py      textures -> GFX\map\indev_b42*.png, GFX\npcs\indev_b42veins.jpg,
+                                            GFX\items\flare1577.png, bracelets154.png
+  python make_docs42.py        notes    -> GFX\items\docb42_*.jpg
+  python gen_b42.py --game     rooms    -> GFX\map\room2b44panopticon, room3b44toybox, room4b44vault,
+                                            room2b44cellar (.rmesh/_lm1.png), IndevU42Data.bb (shape 3/4 in the ini)
+  python wire42.py             Main.bb, MapSystem.bb, UpdateEvents.bb, rooms.ini, items.ini, strings.ini
+  then from the game folder:
+  "I:\New folder (5)\BlitzPRO.Legacy.v2.100\bin\blitzcc.exe" -o Game.exe Game.bb
+
+Note: room4b44vault is set to zone 2 (HCZ) in Data\rooms.ini - the Entrance Zone had no free 4-way slot.
+Tests: RoomTest_views42.txt, RoomTest_walk42.txt. Console aliases: panopticon, toybox, vault, cellar.
+
+CREATED  IndevU42.bb, IndevU42Data.bb, INSTALL_batch42.txt, RoomTest_views42.txt, RoomTest_walk42.txt
+         Tools\roomkit\make_assets42.py, make_docs42.py, rooms_b42.py, gen_b42.py, wire42.py
+         GFX\map\room2b44panopticon / room3b44toybox / room4b44vault / room2b44cellar, indev_b42*.png
+         GFX\npcs\indev_b42veins.jpg; GFX\items\docb42_*.jpg, flare1577.png, bracelets154.png
+MODIFIED Main.bb, MapSystem.bb, UpdateEvents.bb, Data\rooms.ini, items.ini, strings.ini (backups *.bak_u42),
+         Indev.bb, IndevHazards.bb, IndevPills.bb, IndevSide.bb (save v17),
+         IndevU37.bb, IndevU38.bb, IndevU39.bb, IndevU40.bb, IndevU41.bb (rotation fix), Changelog.txt (5b)

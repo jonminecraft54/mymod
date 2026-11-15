@@ -1,0 +1,4 @@
+room2b41research 0 165 -800 0 150 900
+room2b41warehouse 0 165 -800 0 150 900
+room2b41testcon 0 165 -800 0 150 900
+room2b41testcon 300 165 -520 900 150 -520

@@ -1,0 +1,33 @@
+
+;INDEV TENTH BATCH - 3 photo rooms (generated meshes, Tools\roomkit\gen_b10.py, IndevT10.bb)
+;=================================================
+
+[room2researchoffice]
+descr=Research Office (Light Containment): an office with filing cabinets and a desk. A keycard and a note explain why the team left.
+mesh path=GFX\map\room2researchoffice.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=1
+set room=0.6
+set room priority=9000
+
+[room2medexam]
+descr=Medical Examination (Light Containment): a tiled exam room with a steel table. A patient record and first aid on the table.
+mesh path=GFX\map\room2medexam.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=1
+set room=0.5
+set room priority=9000
+
+[room2liftlobby]
+descr=Lift Lobby (Heavy Containment): a lobby with a round pillar and a lift down to a basement hall with a maintenance log.
+mesh path=GFX\map\room2liftlobby.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=2
+set room=0.3
+set room priority=9000

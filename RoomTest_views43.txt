@@ -1,0 +1,8 @@
+room2b45lobby 300 165 -560 0 150 0
+room2b45lobby 300 -539 -300 660 -560 0
+room2b45lobby 0 -539 300 -400 -560 -400
+room2b45checkpoint 100 165 -300 -100 160 -660
+room2b45checkpoint 300 165 0 560 140 0
+room2b45checkpoint 600 165 300 860 60 800
+room2b45offices -300 165 -400 -700 120 -450
+room2b45offices 300 165 0 900 120 -700

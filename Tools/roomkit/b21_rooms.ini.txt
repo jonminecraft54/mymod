@@ -1,0 +1,43 @@
+
+;INDEV TWENTY-FIRST BATCH - 8 wings (16 SCPs) (generated, Tools\roomkit\gen_b21.py, IndevU21.bb)
+;=================================================
+
+[room2b21block1]
+descr=Containment block, SCP-038, SCP-063, SCP-1171, SCP-507.
+mesh path=GFX\map\room2b21block1.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=1
+set room=0.5
+set room priority=9000
+
+[room2b21block2]
+descr=Containment block, SCP-2521, SCP-343, SCP-1437, SCP-1609.
+mesh path=GFX\map\room2b21block2.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=2
+set room=0.5
+set room priority=9000
+
+[room2b21block3]
+descr=Containment block, SCP-2006, SCP-120, SCP-093, SCP-1981.
+mesh path=GFX\map\room2b21block3.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=1
+set room=0.5
+set room priority=9000
+
+[room2b21block4]
+descr=Containment block, SCP-151, SCP-050, SCP-216, SCP-662.
+mesh path=GFX\map\room2b21block4.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=3
+set room=0.5
+set room priority=9000

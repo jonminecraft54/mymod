@@ -1,0 +1,33 @@
+
+;INDEV THIRTY-NINTH BATCH - RESEARCH, WAREHOUSE B, TEST CONTAINMENT (generated, Tools\roomkit\gen_b39.py, IndevU39.bb)
+;=================================================
+
+[room2b41research]
+descr=Research Department (Entrance Zone): one big open floor - the glass labs of SCP-586 and SCP-1176, open-plan desks, a whiteboard bay and the staff lounge with its fireplace and kitchenette.
+mesh path=GFX\map\room2b41research.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=3
+set room=0.65
+set room priority=9000
+
+[room2b41warehouse]
+descr=Warehouse B (Light Containment): a pillared concrete hall of crated pallets, the red stencil, barred containment cells along the north wall - SCP-1562's slide in one - and SCP-1370 in its glass case.
+mesh path=GFX\map\room2b41warehouse.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=1
+set room=0.65
+set room priority=9000
+
+[room2b41testcon]
+descr=Test Containment 4 (Heavy Containment): a tall white observation hall with a guard balcony and a big window onto the test chamber - and SCP-1013 inside it. Do not meet its eyes.
+mesh path=GFX\map\room2b41testcon.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=2
+set room=0.6
+set room priority=9000

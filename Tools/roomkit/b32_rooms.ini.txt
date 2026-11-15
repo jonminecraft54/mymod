@@ -1,0 +1,13 @@
+
+;INDEV THIRTY-SECOND BATCH - GATE V (generated, Tools\roomkit\gen_b32.py, IndevU32.bb)
+;=================================================
+
+[room2b32gatev]
+descr=Gate V (Entrance Zone): the underground emergency exit - the antechamber and its heavy gate, a 1024-deep stairwell, the bulkhead tunnel and the exit atrium with the open hatch to the mountains.
+mesh path=GFX\map\room2b32gatev.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=3
+set room=0.75
+set room priority=9000

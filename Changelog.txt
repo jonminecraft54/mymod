@@ -1,0 +1,2596 @@
+==========================================================================
+ SCP: Containment Breach - Indev
+ Changelog - v0.1
+==========================================================================
+
+ An "Indev" prototype build of SCP: Containment Breach. The facility has a
+ smaller SCP roster with more depth, lots of new anomalous items, and new
+ player systems and HUD.
+
+
+--------------------------------------------------------------------------
+ 1. ROSTER AND FACILITY
+--------------------------------------------------------------------------
+
+ Core SCP roster
+  - The facility's core SCPs are now SCP-173, SCP-106, SCP-079, SCP-895,
+    SCP-914, SCP-513, SCP-990 (secret), SCP-420-J and SCP-789-J.
+  - Removed from generation: SCP-008, 012, 035, 049, 066, 205, 294, 372,
+    682, 860, 939, 966, 970, 1048, 1123, 1162, 1499, 714, 1025, 148 and 427.
+    Their rooms and events are commented out and tagged [INDEV CUT].
+  - SCP-096 is no longer a room of its own. It appears only through the
+    SCP-096 photo document (see below).
+  - SCP-500 is back in the Medical Bay.
+  - Restored: SCP-008 (its room and the Medical Bay 008-1 zombie event),
+    SCP-012, SCP-035, SCP-1499 and SCP-500 (room2scps2) and SCP-714,
+    SCP-1025 and SCP-860 (room2scps). All were re-added on their old
+    rooms with a very high placement priority so they always fit.
+
+ Map
+  - The map is now 24 wide and 32 tall, to fit the new Indev Zone.
+  - Key rooms have a very high placement priority, so they always fit.
+  - Zones were reorganised:
+      - Medical Bay: Light Containment Zone
+      - room2ccont, room2offices4: Heavy Containment Zone
+      - Reception (room4info): Entrance Zone
+      - SCP-895 and SCP-513 rooms: Light Containment Zone
+      - The security room (room2sl) is back in the Light Containment
+        Zone, where it is in the original game. It had been moved to the
+        Heavy Containment Zone for a while.
+  - room3servers2 was cut.
+  - The Prototype Room (roompj) is now placed in one Heavy Containment
+    Zone dead end every run. SCP-718 lives there.
+  - Test rooms testroom3x3 and testroom4x4 are forced into the Light
+    Containment Zone. The zone now always gets at least two 4-way
+    crossroads for them.
+  - The Light Containment to Heavy Containment checkpoint starts locked
+    down again, as in the original game. Pull the lever in the security
+    room (room2sl, Level 3 door) to lift the lockdown; the checkpoint
+    doors then open with a Level 3 keycard. While the security room sat
+    in the Heavy Containment Zone the lockdown had been switched off,
+    because the lever was behind the checkpoint it unlocks.
+
+ Indev Zone (new)
+  - A new fourth zone between the Heavy Containment Zone and the Entrance
+    Zone. The route is now Light Containment -> Heavy Containment ->
+    Indev Zone -> Entrance Zone.
+  - Filler rooms: room2indevclosets, room2indevclosets1, room3indevtunnter
+    and room4indevtunnter. Dead ends and corners there use Heavy
+    Containment rooms.
+  - room2checkpointindev: a new checkpoint between the Heavy Containment
+    Zone and the Indev Zone, with two Level 4 keycard doors.
+  - For doors and ambience, the Indev Zone counts as Heavy Containment.
+  - Saves from before this update may load incorrectly. Start a new game.
+
+ Facility generation
+  - 5 starting layout styles, picked per seed.
+  - Rare loops: circular corridors, alternate routes and shortcuts in the
+    Heavy Containment Zone.
+  - Layout validation. Maps are regenerated until every room can be
+    reached and there are no large enclosed empty areas.
+  - Broken sections: a few doors are jammed shut for good, but only where
+    another route exists.
+  - Filler 4-way rooms can face any direction.
+  - Debug report for rooms that can't be reached.
+
+ SCP-914 chamber
+  - The SCP-914 chamber door now has a keypad instead of a keycard slot.
+  - The code is on a new note found in the storage closets (room2closets).
+  - SCP-914 now refines every item. Items with no hand-written recipe get
+    the generic treatment:
+      Rough     - broken down to raw substance: dust on the floor, item
+                  gone
+      Coarse    - stripped down. Comes out as "Worn", charge or uses cut
+                  in half
+      1:1       - reworked into another item of the same kind, if one
+                  exists (same "group" in Data\items.ini)
+      Fine      - one grade purer: plain -> "Refined" -> "Pure". Charge
+                  or uses x1.5, up to 100
+      Very Fine - straight to "Pure" (full charge), but 1 in 5 goes past
+                  the point of holding together and comes out as powder
+  - Grade names (Worn/Refined/Pure) are added to the item's own display
+    name and are saved next to the .cbsav file, so the grade survives
+    quick-loading and normal loading.
+  - Recipes for specific items can be added to a new Data\refine914.ini
+    file, checked before the built-in recipes.
+
+
+ New and changed rooms
+  - room2oldclosets: three new doors. A wall button that floated in the
+    wrong spot now sits on the wall.
+  - room2scp1074room (Light Containment Zone): SCP-1074's painting room.
+  - room2newroom1 (Light Containment Zone): "Sublevel Blackout" event.
+  - room2newroom2 (Heavy Containment Zone): "Remote Detonation" event.
+  - room2newroom8 (Heavy Containment Zone): "Omega Silo" event.
+  - room2newroom65 (Heavy Containment Zone): "Dead Circuit" event.
+  - room1newscproom (Light Containment Zone): SCP storage cells with
+    SCP-109, SCP-963 and SCP-2295.
+  - room2newoffices2 (Entrance Zone): three side offices behind a plain
+    door, a keypad door and a Level 3 keycard door. Holds SCP-005,
+    SCP-1471, a note with the keypad code, a battery and a first aid kit.
+    The code changes every game.
+  - room2newcaferoom (Entrance Zone): a two-level cafeteria. The SCP-458
+    pizza box is on a lower-floor table, with an SCP-3521 capsule left
+    next to it.
+  - Every door in the Indev Zone now uses the old SCP:CB door panel
+    (GFX\map\door.x), so the whole zone reads as older than the rest of
+    the facility. Doors in the other zones are unchanged.
+  - In December (any year), a distant old-fashioned instrumental
+    Christmas tune drifts through any of the office rooms: room2offices,
+    room2offices2, room2offices4, room2poffices, room2poffices2 and
+    room2newoffices2. It's kept quiet - it's meant to sound as if it's
+    reaching you through the vents. It fades in and out as you enter and
+    leave, and it stops the moment December ends. It uses your existing
+    SFX\Radio\ChristmasOn-Site Radio.ogg.
+    The tune is streamed rather than kept in memory, so nothing sits in
+    RAM the other eleven months of the year.
+  - room2newroomtest6: one end of the corridor is now a Level 5 keycard
+    reader, so the wing with Chamber T6 is card-gated as well as keypad-
+    gated. It survives saving and loading.
+  - room3indevtunnler4 (Indev Zone): a three-way tunnel junction. An
+    east-west corridor with a split south leg that runs down as two
+    parallel tunnels.
+  - room44indevtunnter (Indev Zone): a four-way maintenance tunnel
+    crossroads. The zone is already guaranteed one crossroads, so it
+    always turns up.
+  - room2173cages (Indev Zone): a three-door hall of SCP-173 holding
+    cages, with a second cage level below it reached from inside the room.
+  - room2newroomtest6 (Indev Zone): a corridor with a big west hall and
+    Chamber T6, a sealed side room behind a keypad door. SCP-268 stands
+    on a display plinth inside, with its file on the floor beside it. The
+    code note is on the desk in the west hall, with a battery and a first
+    aid kit. The code changes every game.
+  - All new rooms are placed through the forced-room setting, not at
+    random.
+
+ New sign textures
+  - GFX\map\miscsigns5.jpg: hazard signs (DANGER, ABORT, ARMED/SAFE, FUEL
+    FEED VALVE, BREAKER 1-3, LOWER LEVEL, KEEP LIGHTS ON, SUBLEVEL B,
+    GENERATOR, STAIRS, radiation symbol, hazard stripes).
+  - GFX\map\miscsigns6.jpg: name plates for the new SCPs and staff, room
+    names (SILO HALL, LAUNCH CONTROL, RECORDS ROOM, PAINTING STORAGE,
+    LOCKERS, BOILER ROOM), NO ENTRY and an INDEV SECTOR logo plate.
+
+ Main menu
+  - New Indev main menu: new background, a FACILITY LOG panel and a
+    blinking REC light.
+  - The version line reads "Indev v0.1 (base v...)" and no longer overlaps
+    other text.
+
+
+--------------------------------------------------------------------------
+ 2. CORE SCP REWORKS
+--------------------------------------------------------------------------
+
+ SCP-173
+  - New model and texture: a rougher, cracked concrete sculpture with
+    painted features.
+  - Random starting position.
+  - You may catch sightings of it in the distance.
+
+ SCP-079 (the facility AI)
+  - Plays with the lights, doors, cameras and alarms.
+  - Tells half-truths over the intercom.
+
+ SCP-106
+  - After an encounter it may corrode doors open or seal rooms shut.
+  - Sealed doors are unsealed before saving.
+
+ SCP-513
+  - A phantom bell you may or may not have heard.
+
+ Old Bill (SCP-513-1)
+  - Every 1-3 minutes (2-4 minutes after an encounter) a cowbell clangs
+    over the intercom.
+  - A few seconds later Old Bill appears behind you and stalks you along
+    the path you walked. He creeps while watched and moves fast when you
+    look away.
+  - Stare at him for 4 seconds and he fades. If he catches you, you get
+    hurt and he vanishes. Otherwise he gives up after about 2 minutes.
+  - Console: "oldbill" rings the cowbell right away.
+
+ SCP-990 (secret)
+  - A very rare dream while you rest by holding the blink key.
+  - The dream area is picked at random each run.
+
+
+--------------------------------------------------------------------------
+ 3. NEW SCPs IN ROOMS
+--------------------------------------------------------------------------
+
+ SCP-718 - Eye on a stalk (Prototype Room)
+  - Stay in its sight and paranoia builds in stages until you smash it.
+  - Its fluid causes blisters. A copy of the eye grows on the floor, or
+    on you.
+  - A first aid kit can cut the copy out, and it hurts.
+  - Hazmat suits, MJOLNIR armour and CF-1 glasses all protect against it.
+
+ SCP-719 - 1975 GE Porta-Color TV (room2offices4)
+  - Click it to switch it on or off.
+  - Watch it too long and the broadcast drifts toward a burning, sun-
+    worshipping channel while the radiation doubles.
+  - Switching it off resets it. Leaving it on makes it overload.
+
+ SCP-993 - "Bobble the Clown" TV (room2offices2)
+  - Look at the screen and Bobble's episode starts. You get a stabbing
+    headache and black out for the whole show.
+  - SCP-173 plays fair while you're out.
+  - The TV has a power switch: click it while it shows static.
+  - CF-1 glasses reduce the episode to a headache.
+
+ SCP-738 - "The Devil's Deal" (dead-end room)
+  - A desk, a chair and a throne. Sit in the chair and a voice makes you
+    offers.
+  - Controls: [1-5] make a request, [B] bargain, [Y] accept, [N] refuse.
+  - Deals are fulfilled to the letter, and the price is always paid.
+  - Three deals per run.
+
+ SCP-330 - "Take Only Two" (cafeteria)
+  - A bowl of candy on a table. Click it to take a piece.
+  - The count resets after 10 minutes.
+  - Take a third piece and you lose both hands:
+      - heavy bleeding;
+      - you drop everything you're holding;
+      - you can't pick anything up except first aid, SCP-9282 and
+        SCP-8228.
+  - SCP-9282 or SCP-8228 grows the hands back.
+  - Candy relieves stress.
+  - Console: "heal" restores your hands. "restore330", "scp330" or
+    "reset330" restores the bowl.
+
+ SCP-122 - Star night light (Medical Bay)
+  - While it's on in the same room: stress melts away, new stress barely
+    builds, sanity recovers and paranoia fades.
+  - Click it to unplug it or plug it back in.
+  - It flickers now and then, and loses power during outages.
+
+ SCP-1074 - "Out of the Painting" (room2scp1074room)
+  - A painting of a woman on a beach. Stare at it for about a second and
+    it pulls you toward it, while its music plays.
+  - Look away long enough and it lets go. Get too close and you're locked
+    in place while it talks to you.
+  - Stare too long and you die of catatonia.
+  - Afterwards the painting shows behind your eyelids when you blink for
+    3 minutes.
+  - A fake Class-D may appear in a doorway, then vanish when you get close
+    or blink.
+  - Leaving the room releases you at any stage. If it can't reach you
+    within 20 seconds, it gives up.
+
+ SCP-109 - "The Infinite Canteen" (room1newscproom)
+  - A WW2 army canteen that never runs dry.
+  - Drinking refills stamina, clears blur, heals a little, slows bleeding,
+    lowers stress and flushes some radiation.
+  - Drink again within 12 seconds and water gets into your lungs. The 4th
+    quick drink drowns you.
+  - Can't be used with a gas mask or hazmat suit.
+  - SCP-914: Rough bursts it. Fine/Very Fine frosts it over.
+
+ SCP-963 - "Immortality" (room1newscproom)
+  - Carry it and the next death is taken by the mind inside it: you get back up,
+    healed. It needs 2 minutes between saves.
+  - Two saves work. The third death is final, and the amulet keeps the body.
+  - Using it shows how much of you is still you.
+  - SCP-914 does nothing to it.
+
+ SCP-2295 - "The Bear with a Heart of Patchwork" (room1newscproom)
+  - A patchwork teddy bear in an open toy chest.
+  - Use it while hurt or bleeding and it stitches felt into your wounds:
+    injuries and bleeding fully healed. It then needs 4 minutes.
+  - Otherwise it hugs you, which lowers stress.
+  - SCP-914: Rough/Coarse tears it (10 minutes to repair). Fine/Very Fine
+    restuffs it, ready at once.
+
+ SCP-005 - Skeleton Key (room2newoffices2)
+  - Select it like a keycard: every card reader treats it as Level 6.
+  - While held, keypad doors within reach unlock for good.
+  - Doors locked down by the facility still stay shut.
+
+ SCP-1471 - "MalO ver1.0.0" phone (room2newoffices2)
+  - Use the phone and the app installs itself. It can't be uninstalled.
+  - Every minute or two a black-furred figure with a dog's skull stands
+    behind you, out of sight. Turn and see it and it vanishes. It raises
+    stress but never hurts you.
+  - The installed app is kept in your save.
+  - SCP-914 Rough/Coarse destroys the phone and ends it.
+
+ SCP-268 - "Cap of Neglect" (room2newroomtest6, Chamber T6)
+  - A brown felt fez with a black tassel, on a plinth behind a keypad
+    door. Put it on from the inventory.
+  - While it is worn nobody registers you: security cameras never confirm
+    a sighting, so the Mobile Task Force is never told where you are, and
+    being unobserved lets your stress bleed away.
+  - It does NOT work on SCP-173, which reacts to being looked at rather
+    than to being remembered.
+  - The cost is time, and it never carries over between uses:
+      2:00  the edges go soft, and the fez no longer comes off on the
+            first try - you have to hold on to it
+      3:00  you lose your own name
+      4:10  you are forgotten entirely, and that is the end of the run
+  - Taking it off clears everything at once.
+  - Whether it is on is kept in your save.
+  - SCP-914 Rough/Coarse tear the felt apart. Everything finer hands it
+    back working exactly the same.
+  - New model, texture, icon, document and note, and a new steel display
+    plinth prop, all generated.
+
+ SCP-458 - "The Never-Ending Pizza Box" (room2newcaferoom)
+  - A Foundation cafeteria pizza box on a table. Use it to eat a slice of
+    your favourite pizza.
+  - Each slice refills stamina, lowers stress, heals a little and slows
+    bleeding.
+  - More than 3 slices within a minute: you feel sick and the box stays
+    empty for 2 minutes.
+  - SCP-914: Rough/Coarse squashes it. Fine/Very Fine adds extra toppings
+    (the next slice heals much more).
+
+
+--------------------------------------------------------------------------
+ 3b. NEW EVENTS
+--------------------------------------------------------------------------
+ Every event is saved with your game, and stops (NPCs stand still,
+ timers freeze) when you leave its room.
+
+ "Sublevel Blackout" (room2newroom1)
+  - Dr. Harlan and a Class-D, Rodriguez, walk in and talk to you.
+  - Rodriguez goes down the ramp to reset a breaker. The lights die, he
+    screams and is gone, and blood is all that's left.
+  - The generator brings the lights back and Harlan runs.
+  - Sublevel items: a maintenance log and a first aid kit.
+
+ "Remote Detonation" (room2newroom2)
+  - Dr. Voss and Miller (a Class-D) meet you: both warheads were armed
+    before the lockdown.
+  - Take the elevator upstairs, where SCP-079 greets you on the intercom.
+  - Pull the ALPHA and OMEGA levers down to disarm the warheads.
+  - Come back down and they thank you and leave.
+  - Upstairs: the detonation log and a Level 3 keycard.
+
+ "Omega Silo" (room2newroom8)
+  - Dr. Okafor explains that SCP-079 started a silo launch.
+  - Upstairs a 3:00 countdown starts, with an alarm, flickering lights and
+    an on-screen timer.
+  - Pike, a Class-D hiding in the silo hall, points the way.
+  - Close the red fuel valves on both tanks, then pull the ABORT lever on
+    the terminal wall. The lever stays locked until both valves are shut.
+  - Open tanks vent scalding steam every few seconds. SCP-079 taunts you
+    as the clock runs down.
+  - Abort: the alarm stops and a Level 4 keycard drops. Fail: you die
+    upstairs, or take heavy injuries downstairs.
+  - Document: Omega Silo Launch Log.
+
+ "Dead Circuit" (room2newroom65)
+  - Dr. Reyes waits upstairs and tells you about the Hollow, a pitch-black
+    figure that only moves while nobody is looking.
+  - Pull three breaker levers on the lower level (west records room,
+    south wall, north-east wall).
+  - The Hollow closes in when you look away. Stare at it and it flinches
+    away. Within reach it breathes on you first, which gives you a second
+    to turn around.
+  - A catch drains stamina and raises stress. The third catch kills you.
+  - Technician Hale (upstairs) and Tobias (a Class-D on the lower level)
+    give hints and tell you where the next breaker is.
+  - All three breakers on: the generator starts, the Hollow burns away,
+    and Reyes gives you her night vision goggles.
+  - Items: Lower Level Night Shift Notes and a first aid kit.
+
+
+--------------------------------------------------------------------------
+ 4j. FOUR ROOMS, FOUR MORE SCPs (2026-10-03, ninth batch)
+
+ Four generated rooms, each placed once per map, for SCP-457, SCP-016,
+ SCP-152 and SCP-280. Built by Tools\roomkit\gen_b9.py; game code in
+ IndevS04.bb and the generated IndevS04Data.bb. New models: the burning
+ man, D-016-1, the book, SCP-280 and its eyes. New synthesised sounds:
+ the fire's scream, sprinkler mist, a hose, the blast shutter,
+ echolocation clicks, UV hum, a page turning, a low drone.
+ Console: teleport 457, teleport 016, teleport 152, teleport 280.
+
+ NOT YET PLAYED IN-GAME: compiles, files check out, seen only in the
+ offline previews (Tools\roomkit\previews\annex_rooms_b9.jpg).
+
+  - room2burn457  Fire Post 457 (HCZ) and a lift down to the chamber.
+                  The gallery has a blast window, a FUEL button, a BLAST
+                  SHIELD button and the mist lever.
+      SCP-457   small and under its dry shelter while the misting
+                sprinklers run. Each press of FUEL past the daily
+                allotment makes it bigger and bolder, and it chars a new
+                message into the back wall; the third one asks you to
+                turn the water off. With the mist off it grows, splits in
+                two, the two fight, and the flare comes through the
+                window seal (harmless behind the blast shield, bad in the
+                gallery, fatal in the chamber). Turning the mist back on
+                in time stops it. An emergency system then holds the mist
+                on for a minute.
+                Inside the chamber (Level 3 door, two airlocks): heat
+                without a hazmat suit, a hose that drives it back to its
+                shelter, and a dead technician with a Level 4 card. Left
+                unfed and wet, it only comes for you if you go near the
+                shelter.
+  - room2cold016  BC-L5 wing (HCZ), the reference corridor a fourth time:
+                  a UV decon lock, the cold room behind the corridor
+                  window, two subjects' quarters, the lab.
+      SCP-016   the dish is sealed in its cube. A culture tray was dropped
+                on the cold room floor: walk near it without a gas mask
+                or hazmat suit and you are infected, unless the UV cycle
+                was run first (button in the lock, 8 seconds). Searching
+                D-016-2's body bare-handed infects you too (he has a
+                Level 3 card). The disease: a minute of itching eyes and
+                coughing, then bleeding into the lungs, then at two and
+                a half minutes you bleed out (survivable only if you were
+                in good shape). If your stress reaches 60 while you have
+                it, it rebuilds you instead: injuries and blood loss
+                cleared, stamina drain more than halved for five minutes.
+                D-016-1 swims in its tank and turns to face you.
+  - room2read152  the scan archive (HCZ) and a lift up to Reading Room 49
+                  (Level 2 door, a guard who wants quiet).
+      SCP-152   click the book. The last page describes the present:
+                which zone SCP-173 is in, whether SCP-106 is hunting, how
+                long until SCP-079 acts. Older pages are older endings.
+                Every minute or two the book vanishes for one second and
+                comes back as a new edition whose last entry is another
+                way you died in one of the other rooms - a hint. The
+                copier gives you a copy of the last page.
+  - room2dark280  Dark Cell 280 (Indev zone), built from the second
+                  reference screenshot: a dim tiled hall round a chamfered
+                  block, a door in the block, a door in each side wall
+                  (cell lighting control, equipment store).
+      SCP-280   kept in the dark inside the block. Inside the cell you see
+                almost nothing without night vision goggles, and it
+                glides at you; four seconds in its hands kills. The LAMP
+                lever backs it into its corner, eyes showing, and you can
+                work by the door (stay a metre away). The FLOOD lever
+                lights the whole cell: it vanishes and reappears out in
+                the hall, and hunts you there through the walls until
+                the floods have been off for a while or you leave. A
+                dead technician in the cell has night vision goggles.
+
+ Fans: a ceiling fan in Fire Post 457, a wall fan and a big fan on the
+ chamber level; a wall fan in the cold room and a ceiling fan in the lab;
+ a ceiling fan on the reading room landing; a wall fan in the dark hall
+ and a ceiling fan in the equipment store. Lifts: Chamber 457 (down),
+ Reading Room 49 (up). NPCs: a fire technician, the BC-L5 duty officer,
+ an archivist, the reading room guard, the night technician, and three
+ bodies.
+
+ Against Design.md again: four more new SCPs, added because they were
+ asked for by number.
+
+--------------------------------------------------------------------------
+ 4i. FIVE ROOMS, EIGHT MORE SCPs (2026-10-02, eighth batch)
+
+ Five generated rooms, each placed once per map, for SCP-956, 2983,
+ 095-FR, 3355, 4255, 1933, 6895 and 1225. Built by Tools\roomkit\gen_b8.py;
+ game code in IndevS08.bb and the generated IndevS08Data.bb. New models:
+ the pinata, a unicycle, the SCP-4255-1 sleigh, a reindeer (eight on the
+ deck), the ornament, a parcel. New synthesised sounds: the marshmallow
+ choir, Geiger counter, criticality flash, sleigh bells, teletype, fire.
+ Console: teleport 956, teleport 095, teleport yule, teleport 3355 ...
+
+ NOT YET PLAYED IN-GAME: compiles, files check out, seen only in the
+ offline previews (Tools\roomkit\previews\annex_rooms_b8.jpg).
+
+  - room2yule       Containment 4-Y (LCZ), the reference corridor a third
+                    time, four cells:
+      SCP-2983  pour the milk (the marshmallows sing), eat it (oatmeal:
+                stamina, a little healing, twice); a code card in the box,
+                type it into the vendor terminal and a prize lands in your
+                lap (up to three).
+      SCP-1933  a drunk Santa. His wrapped bottle: the first sip is safe
+                (stress relief); each sip after has a growing chance of
+                killing you outright.
+      SCP-1225  the ornament is on the tree: near it your batteries rot and
+                you get angry. Take it down and lock it in its steel box;
+                the supply locker then opens, and what is left in it
+                depends on how fast you were.
+      SCP-6895  MTF Kappa-31's staging room (suits, unicycles). Sir
+                Nicholas himself can appear next to you anywhere in the
+                facility when you are badly hurt or stressed - a first aid
+                kit or eggnog - up to three times a game.
+  - room2pinata     Humanoid Cell 956 (Indev): SCP-956 walks the edge of its
+                    cell and then stares at one wall; it ignores adults.
+                    The cold store's candy (SCP-956-1): a seizure three
+                    minutes later, one in three survive. Run the
+                    incinerator and Dr. N. gives you his Level 3 card.
+  - room2demoncore  Bunker 095-FR (HCZ), down a lift: radios, navigators
+                    and night vision die; a Geiger counter; every two and
+                    a half minutes a flux peak with a 12-second siren - be
+                    in the shielded control room with the door shut, or
+                    take a dose (death within three metres of the core).
+                    Lifting the shell on the Los Alamos bench is fatal.
+  - room2argos      St. Nick's Workshop (Indev) and a lift down to the
+                    Argos bunker: talk to Nick at the terminal, one line at
+                    a time (interrupt him three times and he locks the
+                    lift for twenty seconds). After the fifth line a
+                    package drops down the chute with what you need, and
+                    the printer gives you the manifest.
+  - room2chrono     Department of Chronology hangar (HCZ), the BTKAI unit
+                    (it tells you the SCP-055 keypad code), and a lift up
+                    to the launch deck: the sleigh, eight reindeer, a hatch
+                    of night sky, Stan Clane. Stay on the deck and a version
+                    of SCP-4255 appears with a gift you need (once per
+                    visit, three times in all).
+
+ Fans: two big fans in the bunker, one in the Argos bunker (plus two wall
+ fans), one in the hangar; ceiling fans in SCP-1933's cell, the Kappa-31
+ room and the Cell 956 observation room. Lifts: Bunker
+ 095-FR (down), Argos (down), launch deck (up).
+
+ Against Design.md again: eight more new SCPs, added because they were
+ asked for by number. SCP-095-FR is from the French branch (scp-int).
+
+
+--------------------------------------------------------------------------
+ 4h. TEN ROOMS, TEN MORE SCPs (2026-10-02, seventh batch)
+
+ Ten generated rooms, each placed once per map, for SCP-052, 024, 482,
+ 953, 1269, 1440, 2701, 3325, 4258 and 6096. Built by
+ Tools\roomkit\gen_b7.py; game code in IndevS10.bb and the generated
+ IndevS10Data.bb. New models (GFX\npcs): the R4 subway car and its door
+ leaves, a nine-tailed fox, a kennel dog, the sheet, the mailbox, an
+ SCP-3325-1 with a moving jaw, a studio guardian, a liver cart, the
+ straitjacket. New sounds (SFX\Indev\*.wav, synthesised): the train,
+ barking, applause, buzzer, jingle, confined wind, puppet voices, a
+ jukebox loop and more. Console: teleport plus the SCP number or the
+ room's short name (teleport 052, teleport diner).
+
+ NOT YET PLAYED IN-GAME (same as 4f, 4g): compiles, files check out, seen
+ only in the offline previews (Tools\roomkit\previews\annex_rooms_b7.jpg).
+
+  - room2subway052  59th St. platform (HCZ), down a lift, after the
+                    reference photo of the green R4 car. SCP-052 pulls in
+                    (on a timer, or at once when your PC clock reads :57),
+                    opens for 45 seconds and leaves. Stay on the platform
+                    and it just goes. Ride it and you come back with
+                    something, come back hurt with a note ("Send no
+                    more"), get let off in another part of the facility,
+                    or get thrown off dead. Standing on the track when it
+                    comes kills you; steps at the north end. A Gamma-6
+                    guard; a 1979 passenger who gives you his statement.
+  - room2hall99     Hallway 99 (LCZ), the reference corridor a second time,
+                    with six dog kennels and SCP-953's cell standing open.
+                    A "researcher" calls you towards her and you drift
+                    that way; within reach she kills you. She will not
+                    come among the kennels, and KENNEL ALERT (two panels)
+                    sets the dogs barking, which drives her off as a fox.
+                    A cart delivers liver up and down the hall.
+  - room2gameshow   Sound Stage 024 (Indev) and its observation lab (lift
+                    up). STAY or LEAVE. Round one: be on a white square
+                    when the buzzer sounds. Round two: reach the podium in
+                    fifteen seconds. Going back to the start brings out a
+                    guardian. Three strikes and you lose (death). Then
+                    TAKE IT (first aid, battery) or RISK IT (50%: Level 5
+                    card and a very fine first aid kit; 50%: death). You
+                    can play once; the tape turns up in the mailbox.
+  - room2diner      Freddy's Diner (EZ), SCP-4258: batteries in radios,
+                    navigators and night vision die at the door; free
+                    coffee (stamina, stress), pie on a second visit
+                    (heals a little), a jukebox, stress relief while
+                    inside. The windows change to wherever the last
+                    customer came from.
+  - room2sheet      Humanoid Chamber 6096 (HCZ), a hotel room. After a
+                    while it gets up. Usually it wants the Class-D in
+                    Holding 6096-B and you are pulled to hold the door.
+                    Sometimes it wants you: Symanski grabs you, it walks
+                    at you, and only you can act - drop the ceiling fan on
+                    it with the FAN HOIST lever (Level 4 card) or run.
+  - room2block15    Cell Block 15 (HCZ), vaulted, 1840s. Step into Cell 667
+                    while the INTAKE page is on the clipboard: the door
+                    shuts, thirteen seconds, then 24 seconds of black and
+                    a lot of stress, and after-effects for two minutes.
+                    A third time kills. Tear the page off first and the
+                    cell stays inert.
+  - room2mailbox    Property 1269 (Indev): street, lawn, house. The mailbox
+                    gives you a letter, then follows you round the house
+                    whenever you look away (window, shower curtain,
+                    doorway, corner). After six moves the lights go and
+                    you have ten seconds to get off the property.
+  - room2psych      Psychiatric Observation (LCZ): SCP-482. Put it on and
+                    stress is held at zero (no items, less stamina) for
+                    1.5 to 2.5 minutes. Get back to the attendant to have
+                    it removed, or the changes start, and a minute later
+                    it kills you. Removed in time, the stress comes back.
+  - room2realchar   Real Characters Industries (Indev): the TV studio, and
+                    a lift down to LG-1: growth tubes, pens, steel drums,
+                    a glass chamber. One SCP-3325-1 is loose and bites.
+                    Take meat from the pens and throw it down to distract
+                    it; throw it into the chamber and press the panel to
+                    lock it in for good.
+  - room2wait1440   Interview Room 142 (HCZ): SCP-1440. Staying near him
+                    makes things fail in turn (lights, a crack, a burst
+                    pipe); after about 48 seconds near him the ceiling
+                    comes down. One hand of cards may win you an item.
+                    Leave after things start breaking and he is gone when
+                    you come back, leaving his cards and a note.
+
+ Fans: a vent fan over the subway track and two in the car, a wall fan
+ in Hallway 99, Cell Block 15 (two), LG-1; ceiling fans in the diner
+ (two), the 6096 room, Interview Room 142, Psychiatric Observation; a
+ stage fan. Lifts: 59th St. (down), Sound Stage 024 (up), Real
+ Characters (down). NPCs: Gamma-6 guard, passenger 052-27, the
+ "researcher", Freddy and three customers, Symanski, D-5531, a guard and
+ a returned prisoner in Cell Block 15, the 1269 resident, the 482
+ attendant and a patient, SCP-1440.
+
+ Against Design.md again: ten more new SCPs, added because they were
+ asked for by number. SCP-052, 024, 2701, 1269, 4258 and 3325 are places
+ in their articles; here each is a reconstruction or a piece of the
+ original moved into the site.
+
+
+--------------------------------------------------------------------------
+ 4g. SEVEN ROOMS, THIRTEEN MORE SCPs (2026-10-02, sixth batch)
+
+ Seven generated rooms, each placed once per map, for SCP-971, 1079,
+ 1080, 1081, 1082, 1083, 1145, 1200, 1879, 1916, 1921, 2789 and 3182.
+ Built by Tools\roomkit\gen_b6.py; game code in IndevS13.bb and the
+ generated IndevS13Data.bb. Every SCP has a label, a typed document and
+ a handwritten note. Console: teleport plus the SCP number or the room's
+ short name (teleport 1145, teleport grocery).
+
+ NOT YET PLAYED IN-GAME (same as 4f): compiles, files check out, seen
+ only in the offline previews (Tools\roomkit\previews\annex_rooms_b6.jpg).
+
+  - room2scps4      Containment 4-L (LCZ), rebuilt from the reference
+                    corridor screenshot: sloped pilaster feet, bulkheads,
+                    black door plates, a window onto a machine niche.
+      SCP-1079  bonbons: one sweats a little blood out as pink foam;
+                more in one sitting get worse fast; the fourth kills.
+      SCP-1916  moon rocks: each changes how fast stamina drains for a
+                minute or so (Lunar Lime light, Jovian Jelly heavy...).
+                Two while one is still working hurts you.
+      SCP-1200  three gum packs, flavour unknown until chewed: Lemons,
+                Sunshine (stress relief), Rubik's Cube (hurts a little),
+                Moon's Shadow (you bleed slowly for two minutes).
+                An SCP-1200-A stands in a glass case and watches.
+      SCP-971   pick up the menu, use the phone: a ration turns up at
+                your feet about a minute later, wherever you are.
+  - room2storage13  Storage Unit 13 (Indev)
+      SCP-1080  the black chamber and its worker (SCP-1080-1). Call him
+                over, lead him to the broken tug, point at it: he fixes
+                it and moves the pallet off the store door (loot).
+      SCP-1081  the speaker's switch. SHUTDOWN takes your voice (stress
+                climbs); REACTIVATE within three minutes gives it back.
+      SCP-1082  the safe nobody may open, and Document 1082-25.
+      SCP-1083  the quartz skull: a heavy dose of stress, and you come
+                back knowing the office keypad code. Twice hurts.
+  - room2beefbelly  an SCP-2789 instance in the canteen (EZ): three staff
+                    and Bill the owner (he gives you his card). The bell
+                    gets you a ration. The free burger kills you two and a
+                    half minutes later, wherever you are.
+  - room2grocery    SCP-3182's Aisle 3 (Indev): walking down Aisle 3 (or
+                    being in the store between 19:52 and 20:52 on your PC's
+                    clock) starts a 45-second Deimos Event: dark, door gone,
+                    shapes in the aisles, other people's memories. When the
+                    gurgling starts, get out of Aisle 3.
+  - room2testhouse  Test House 1879 (EZ), up a lift: a closet door knocks.
+                    Open it and SCP-1879-2 sells you something (first aid,
+                    battery, Level 3 card or night vision) for a strange
+                    price. Click him to buy; walk away to refuse. Each
+                    refusal raises the price; the third time he hits you.
+  - room2nagasaki   Chamber 1145 (HCZ), down a lift: the lamp breaker trips,
+                    the teddy comes to whoever is nearest, and the dose
+                    climbs every 30 seconds. Pick it up to stop it, then
+                    push the breaker on the far wall back up. Two Class-D
+                    in their cells talk to you.
+  - room2ltstorage  Long-Term Storage 6D (HCZ): SCP-1921's kiosk. Eat the
+                    black floss, then play the calliope: The Skater's Waltz
+                    relieves stress for two minutes, When You're Smiling
+                    clears it at once. Drinking the Clown Milk kills you.
+
+ Fans: an extractor in Storage Unit 13, two ceiling fans in Beefbelly
+ Bill's, one each in the grocery and Storage 6D. Lifts: Test House 1879
+ (up) and Chamber 1145 (down).
+
+ Against Design.md again: thirteen more new SCPs, added because they
+ were asked for by number. SCP-1082 is a set piece by design (no access
+ is ever authorised), and SCP-3182 is shown as its Aisle 3 fixtures
+ moved to the site, since the original is a store in Missouri.
+
+
+--------------------------------------------------------------------------
+ 5g. LOADING TIMES, FPS AND STABILITY (2026-11-12)
+
+  Measured with the room test (new PROF lines in RoomTest\log.txt; startup
+  stages in RoomTest\boot.txt) before and after every change. Launch to
+  playable: about 28 s -> 16-17 s (intro videos skipped).
+  Map generation, seeds, room placement and connectivity are untouched.
+  - NPC navigation (InitWayPoints): ~6.1 s -> ~0.8 s.
+    * Every waypoint link got its own debug line mesh - about 8,000 mesh
+      entities, only visible in wireframe mode, built at load and carried
+      through every frame. Now only with the -waylines launch flag. This
+      also helps FPS.
+    * Links are found with a 7-unit grid instead of comparing every
+      waypoint with every other, and the line-of-sight tests are cast with
+      only the nearby rooms visible (a far room cannot block a ray shorter
+      than 7 units). Links are filled in the original order.
+  - Room textures: the texture/material cache was searched name by name
+    (three full scans per mesh surface) and was case-sensitive, so e.g.
+    Pipes.jpg was decoded 37 times. It now has a hash index and ignores
+    case: 1,015 texture decodes -> 792. Surfaces with no texture no longer
+    try to load one.
+  - Footstep sounds: the per-step material lookup uses the same index (it
+    scanned ~800 materials up to three times per footstep), and mixed-case
+    textures now get their surface's footstep sound (they never matched
+    before).
+  - Lightmaps: 35 room lightmaps were 2048x2048 (~21 MB of video memory
+    each). Downscaled to 1024 - softer by a hair, a quarter of the memory
+    (~550 MB less), faster to load. Originals kept in
+    GFX\map\lightmaps_2048_backup\.
+  - INI files: GetINIString read the cached file from the top, a character
+    at a time, for every single key. Files are now indexed by section once
+    (first section of a name wins, as before) and read in one block.
+    LoadEntities: ~5.2 s -> ~3.5 s.
+  - Loading screen: redrawn at most ~30 times a second instead of hundreds
+    of full redraws while the map is built.
+  - Startup: the intro videos (2-7 s) can be skipped as a whole with any
+    key or mouse click (a key used to skip only the current video); the
+    "play startup video" option and -novid still turn them off.
+  - Fix: a missed InitWayPoints quirk - once one pair passed the height
+    check, it stayed passed for the rest of the list; now checked per pair.
+  - Stability: checked on several seeds - all 225 forced rooms placed, no
+    crashes; FPS in the newest rooms 170-305 (was 154-275 for the same
+    views).
+
+--------------------------------------------------------------------------
+ 5f. ROOM SLOTS FIXED IN EVERY ZONE (2026-11-11)
+
+  Some forced rooms ("set room" in rooms.ini) were left out of the map
+  because their zone had no free slot of their shape.
+  - Map generator (MapSystem.bb, ForceRooms): the "force more crossroads"
+    step reset its counter to 0 straight after working out how many it
+    needed, so it almost never forced any. Fixed, and it now forces as many
+    4-way slots in each zone as that zone has forced 4-way rooms
+    (IndevForcedDemand), at least the map option.
+  - Zones rebalanced: Light and Heavy Containment wanted more forced 2-way
+    rooms than some maps give them (66 vs 71, 63 vs 61). 26 themed rooms
+    that are not tied to a zone moved to the Indev Zone (zone 4): the
+    Residential Sector, the Christmas rooms, the party room, Corridor L-40,
+    the recreation wing, the diet/monkey/blade/spruce/ocean/B4 rooms, the
+    deep vault, the damaged wing, the gravity lab, the panopticon, and the
+    older block/store/hoist/utility wings. Demand per zone is now 55 / 48 /
+    41 / 44 against at least 71 / 61 / 81 / 65 slots.
+  - Room test: logs every zone's slot counts (SLOTS lines) for balancing.
+  - Checked on six seeds: all 225 forced rooms placed every time (before:
+    up to three missing per seed - room4info, the two old tunnel crossroads,
+    the damaged wing, room2offices4).
+  - Data\rooms.ini backup before the move: Data\rooms.ini.bak_rezone.
+
+--------------------------------------------------------------------------
+ 5e. OLD SCP-939 CHAMBER, MORGUE, OFF-SHOOT HALL, DAMAGED WING (2026-11-11, batch 45)
+
+  Each room rolls a variation once per game, so it plays differently.
+  - room2b47old939 (HCZ): the unused old SCP-939 chamber (ref. 225/226) - a
+    white gallery corridor with three open observation windows over a deep
+    dark pit: ribbed panels, a rust band, a red-lit hatch, a ladder, bones.
+    Variations: the pack still down there (voices of the dead calling up,
+    red teeth catching the light), silence and an open hatch, or one voice
+    that knows your designation. Drop into the pit and you don't come out.
+    The audio-monitoring office (the reel-to-reel) and an old store.
+  - room2b47morgue (LCZ): records office, scrub room; behind a Level 4 door
+    the morgue - a wall of cold-storage drawers (each pull is different),
+    sheeted gurneys, two autopsy tables; table 2 has someone still strapped
+    down in a lot of blood, and its variation decides how still they stay.
+    35% chance SCP-106 comes up through the floor on your first visit.
+  - room3b47offshoot (LCZ, 3-way): the Off-Shoot Hall - so dark (close fog,
+    one red lamp) you see a few metres; four dark patches in the floor, two
+    of them real holes (which two changes each game) - fall in and you die;
+    a jammed door with flames at the seam, hot enough to burn; 45% chance
+    SCP-106 is waiting.
+  - room2b47damaged (HCZ): after the user's sketches - a corner room with a
+    rubble pile under a cracked window, a small room with a fallen monitor
+    and a smashed window, and the east hall where the ceiling came down: a
+    turbine housing through two floors, rubble and slabs; aftershocks, and
+    falling debris if you stand under the hole.
+  - SCP-939 summary written from the wiki page (CC BY-SA 3.0). The game's
+    939 NPC only works in its own cut room, so the pit's 939s are an event.
+
+--------------------------------------------------------------------------
+ 5d. THE EARLY SCP-1074 ROOM AND FIVE DISTINCTIVE SITES (2026-11-11, batch 44)
+
+  - room2b46old1074 (LCZ): the old brick wing (ref. 222/223) - blue-grey
+    brick, stone setts, bare bulbs. SCP-1074's early event: the painting
+    tipped against the corner, its easel down, a dead researcher in a pool
+    of blood, papers on the floor. Look at the painting too long: dizziness
+    and a racing heart, then you collapse beside him. A store of sheeted
+    junk.
+  - room2b46cryo (HCZ): Cryogenic Research Facility - six frosted, glowing
+    suspension pods under feed pipes (Pod 4 knocks back), the monitoring
+    room, the LN2 store. The hall is so cold stamina won't recover past half.
+  - room2b46theatre (EZ): Experimental Testing Theatre - a round test floor
+    under a surgical lamp ringed by a three-tier gallery; murmurs from the
+    empty seats, applause when you step into the light, a live PA mic.
+  - room2b46gravity (HCZ): Gravity Testing Chamber - tall and padded, field
+    rings in floor and ceiling, crates floating and turning in the air. On
+    the chamber floor you move a third faster; the control-room switch
+    drops the field and every crate with it.
+  - room2b46geology (LCZ): Geological Anomaly Research Site - a rock cavern
+    round a glowing teal crystal formation, a drill rig, core racks, the
+    seismograph; tremors every minute or so; the crystal's hum soothes and
+    gives you headaches.
+  - room2b46o5vault (EZ): O5 Classified Records Vault - black marble,
+    panelled walls, record cabinets, the long reading table and its green
+    lamp (Level 5 door). The terminal gives a Level 5+ card holder the index
+    card; everyone else gets ACCESS DENIED.
+  - Every corridor follows the HD standards: pipes and a cable tray along
+    the ceiling, hazard stripes at the thresholds, room and warning signs,
+    fluorescent plus red emergency or blue local light.
+
+--------------------------------------------------------------------------
+ 5c. LIFT LOBBY, CHECKPOINT, OFFICE WING (2026-11-11, batch 43)
+
+  Three rooms remade closely from the user's reference screenshots:
+  - room2b45lobby (LCZ): an elevator lobby round a heavy octagonal pillar
+    with a dark band (ref. 219); three lift doors - one working, two out of
+    service with dead call panels. The working lift goes down to the hoist
+    control office (ref. 217): a monitor wall, the HOIST and DOOR switch
+    plates (both do something), the desk with its red binder, filing
+    cabinets, and a locker you can hide in (enemies lose track of you while
+    you stand in it).
+  - room2b45checkpoint (HCZ): a dark poured-concrete corridor with a guard
+    booth (ref. 212) - the guard sits behind a counter window and talks to
+    you; with a Level 3 card or better he opens the screening hall. The
+    guards' quarters (locked), the weapons-check room, and the screening
+    hall: a scanner arch that beeps at you anyway, the inspection table, a
+    holding cell.
+  - room2b45offices (EZ): offices behind windows off the striped corridor
+    (ref. 214), and an open office floor with two glass-fronted offices and
+    a telephone that keeps ringing (answer it).
+  - Four notes (docb43_*). Lights tuned brighter after the in-game check.
+
+--------------------------------------------------------------------------
+ 5b. THE PANOPTICON, THE TOY BOX, THE VAULT, THE CELLAR (2026-11-11, batch 42)
+
+  Four rooms from the user's site write-ups, including the first 3-way and
+  4-way rooms of these batches:
+  - room2b44panopticon (HCZ, 2-way): Facility B's mass humanoid containment
+    - a ring of twelve barred cells in two tiers (cots, an upper catwalk and
+    rail) round an octagonal observation tower with a glass cab; the floor
+    emblem; a D-class in an open cell, the dead in another; the feeling of
+    being watched from the tower.
+  - room3b44toybox (HCZ, 3-way): C-Block - three containment chambers each
+    with its own small lab behind a window: SCP-127 (the living gun - it
+    groans and bites), SCP-439 (doze crouched by the terrarium and it moves
+    in: pinches and blurred spells until SCP-500), and SCP-1577's empty test
+    room with the flare gun (item: a blinding flare, then the aircraft comes
+    over a minute later; three flares). The block armory and offices.
+  - room4b44vault (HCZ, 4-way): D-Block - four vaults with round vault
+    doors off a crossroads: SCP-4139 (rearrange its magnet drawings - a
+    different effect each time), SCP-154 (item: the bow of light), the
+    backup servers, the sensitive archives.
+  - room2b44cellar (HCZ, 2-way): E-Block - the ribbed tunnel wired with
+    demolition charges, the blast control room (locked detonator), the
+    airlock, and SCP-466 behind thick glass: come close and its vessels hit
+    the glass.
+  - 3-/4-way support: gen_b42 writes shape = 3/4.
+  - Fix (batches 37-41): the room code assumed rooms are never turned, but
+    the map generator turns a room after filling it. Player positions, the
+    archive shelves, the reactor and hallway zones, the SCP-1148 pull, the
+    basement wake-up and the crush teleport now go through the room's own
+    transform (U37LX/LY/LZ, IxPlace) and work at any rotation.
+  - Save v17.
+
+--------------------------------------------------------------------------
+ 5a. STAFF, MEDICAL, SECURITY, RECREATION AND D-BLOCK ROOMS (2026-11-11, batch 41)
+
+  Thirteen rooms from the community's room ideas, built from original SCP:CB
+  walls, tiles, doors, lockers, desks, chairs, monitors and the vending
+  machine; one or two features each.
+  - room2b43staff (EZ): Break Room (vending machine, microwave, fridge, round
+    tables with red chairs, wrappers; a memo, a cup, sometimes SCP-860 by the
+    coffee and a keycard), Conference Room (table and chairs, water
+    dispenser, a projector that is not plugged in showing a face), Staff
+    Dormitories (bunks, desks, a half-typed test log, cold coffee).
+  - room2b43medical (LCZ): Infirmary (beds, surgical tray, first aid, eye
+    drops), Chemistry Lab (benches of glassware, a running fume hood),
+    Research Lab (microscopes, glowing specimen tanks, cages, an x-ray
+    lightbox with one ribcage too many, the dissection table).
+  - room2b43security (HCZ): Armory (Level 3; stripped lockers, a vest and a
+    mask left behind, blood, a dead guard), Storage Room (tiny and dark,
+    shelves of paper, a gas mask on the little cabinet), Locker Room (rows
+    of lockers and benches, toilets at the back as a dead end; one locker
+    has a body in it).
+  - room2b43rec (LCZ): Theater (rows of red seats; the screen flashes hard
+    enough to blind you while you are in there), Gymnasium (different each
+    game: barricaded guards who order you back to shut the door, bodies
+    and a broken barricade, or empty and wrecked).
+  - room2b43dblock (LCZ): two open, bloodied D-class cells with orientation
+    sheets, SCP-420-J sometimes in a corner, and the block's row of cells.
+  - Fix: SCP-1013 no longer freezes you over and over while you cross the
+    observation hall. Outside the chamber it now takes a long stare from
+    right at the window, the freeze is 2.5 s, and you get 15 s before it
+    can happen again.
+
+--------------------------------------------------------------------------
+ 4z. THE RESIDENTIAL SECTOR (2026-11-11, batch 40)
+
+  An abandoned home rebuilt inside the facility: twelve connected house
+  rooms in three wings. Each wing is an original concrete facility corridor
+  with four house rooms off it (two each side, joined by an inner doorway).
+  House surfaces - wallpaper, carpet, wood floors, wooden doors, lamps -
+  only inside the house rooms; one or two unique features per room.
+  - room2b42house1, the living floor: Living Room (the television still on,
+    showing this room from behind you), Dining Room (a table set for six,
+    one place warm), Kitchen (SCP-1220's cassette - play it safely, repeat a
+    word and a small anomaly opens: wheat, an ox, a flood, silence),
+    Residential Hallway (many doors; each one is a different surprise).
+  - room2b42house2, the bedrooms: the Sealed Bedroom (SCP-1197 - shut the
+    entrance, open SCP-1197-1, meet your double; the entrance locks for the
+    session), Bathroom (the flickering tube), Children's Playroom (toys,
+    drawings, SCP-1192 the cockatoo who writes like a lost child), Attic
+    Storage (dust sheets over everything).
+  - room2b42house3, below stairs: Basement Storage (SCP-1355 - boxes that
+    move when unwatched and sing; stay and you wake in the corridor without a
+    voice), the Garage (an old car and SCP-1196's chairs, which follow you
+    and bark about your posture, louder the longer you stay), the Model
+    House (a perfect miniature of this house), the Foundation Safehouse.
+  - Six notes (docb40_*). Save v16.
+
+--------------------------------------------------------------------------
+ 4y. RESEARCH DEPARTMENT, WAREHOUSE B, TEST CONTAINMENT 4 (2026-11-11, batch 39)
+
+  Three very big rooms - each is one open space filling the whole map cell
+  (2000 x 1720) - and five new SCPs:
+  - room2b41research (EZ): glass-walled labs, open-plan desks, a whiteboard
+    bay and a staff lounge (wood-plank ceiling, brick fireplace, armchairs,
+    kitchenette with a checkered splashback).
+    SCP-586: near it, every message on screen has one word swapped for a
+    wrong one. SCP-1176: drain its honey from the sarcophagus faucet
+    (honey1176); eat it and find out if you are compatible (full heal) or
+    not (violently sick) - decided once per run.
+  - room2b41warehouse (LCZ): Warehouse B - square concrete pillars, pallets
+    of crates, the red SCP stencil, wall lamps, two blocks of barred
+    containment cells. SCP-1370 in its glass case: open it and it attacks
+    you, loudly and badly. SCP-1562, the slide, in an open cell: go down
+    crouched (head-first) and you vanish into a tunnel and come out in
+    another room of the facility; standing, it is just a slide.
+  - room2b41testcon (HCZ): a tall white observation hall with a guard
+    balcony and stairs, consoles at a big red-framed window onto the test
+    chamber (Level 4 door). SCP-1013: meet its eyes - through the window
+    too - and you are paralysed for five seconds; inside the chamber it
+    bites while you cannot move, and four bites calcify you.
+  - Reused original textures throughout; new ones only for brick, carpet,
+    honey, wrappings, the green metal, scales and the voltmeter face.
+    Five notes (docb39_*). NPCs pinned out of the way. Save v15.
+
+--------------------------------------------------------------------------
+ 4x. CORRIDOR L-40, THE DISPLAY HALL, THE D-BLOCK SOCIAL (2026-11-11, batch 38)
+
+  - room2b40infhall (LCZ): one long, wide, tall white hallway (ref. 148/149:
+    pillars, shutters, ceiling lights), double doors with two big windows
+    at the far end. Walking north it loops you back two pillar bays, three
+    times, in a dark haze, before you can reach the doors.
+  - room2b40display (EZ): the SCP-1148 chamber - a wall splits it into a
+    brightly lit half and a dark half, the window between. Stay in the lit
+    half: paranoia, figures in the reflection (hood, wings, eyes), then you
+    are turned to face the window and drawn to it; reach it and you are
+    pulled in. Leave the lit half to break it. Through the east door: the
+    display hall / temporary containment - seven pending-classification
+    objects in glass cases, each with its own quirk, and SCP-1039 on an open
+    plinth: now and then it takes one item from your inventory, which turns
+    up at its feet.
+  - room2b40party (LCZ): the D-block holiday social, with its own music
+    (SFX\Music\SCP-x1x.ogg, Music slot 26) - long tables, buffet, paper
+    chains, a banner, and a birthday cake nobody brought. Look at it too
+    long: dread, then you eat a slice. SCP-1117-1, the table in the vault
+    (Level 4), does the same and hands you a plate (food1117). Either makes
+    you SCP-1117-3: plates of food appear when you are tired, your stamina
+    ceiling sinks, exhaustion kills after about 20 minutes; an ordinary
+    ration makes you violently ill and the second one stops your heart.
+    SCP-500 cures it.
+  - Original SCP:CB textures, chairs, lockers and doors throughout; new
+    textures only for the window, placards, paper chains, banner, cake,
+    food and the doll. 512 lightmaps. Five notes (docb38_*). Save v14.
+
+--------------------------------------------------------------------------
+ 4w. SCP-028, THE REACTOR, THE DEEP ARCHIVE, THE BALCONY HALL AND D-BLOCK (2026-11-11, batch 37)
+
+  - room1scp028 (LCZ) "Knowledge": the white shutter corridor (ref. 134/137),
+    the guard post and a supply room (ref. 132: white shelves, benches, the
+    red WE ARE HERE TO PROTECT YOU poster, the SCP banner, a camera). Through
+    the east door (Level 3): an abandoned storage yard in still grey fog, no
+    rain, dead leaves on cracked concrete - and the sealed concrete room round
+    SCP-028. Stand in the 2 m cube in its middle for four seconds: a white
+    flash and one piece of knowledge - a keypad code (AccessCode, then the
+    914, 268 and offices codes), the map revealed for five rooms round you,
+    or a secret SCP-914 recipe (SCP-006-B on Very Fine makes SCP-500). Each
+    exposure drops IndevMemory a whole stage; from the third, migraines.
+  - room2b39reactor (HCZ): control room, decontamination; through the east
+    door a gantry over a heavy water pool with a blue Cherenkov glow (baked
+    blue light + a scrolling runtime water surface), a crane bridge, and a
+    service lift (the CB lift, two stops) down to the pool-floor walkway with
+    SCP-006-B in the sealed tray. Radiation everywhere in the hall; with no
+    hazmat suit or MJOLNIR armour you die in 45 seconds.
+  - room2b39archive (EZ): reading room, document store, and the deep archive:
+    twelve ceiling-high motorised shelves (runtime cubes) that move the open
+    aisle every 20-35 s. Caught between them: Injuries +1.4, Bloodloss +35.
+    They block line of sight (pick-mode obscurers). Dust fog, flickering tubes.
+  - room2b39hall (LCZ): ref. 133/136 - a two-storey white hall with a railed
+    balcony, two offices with windows on the balcony, red pendants, stairs and
+    a staff lift between the floors; two D-class below and a guard above.
+  - room2b39cells (LCZ): ref. 134/137 shutter corridor and ref. 135/138 cells
+    (toilet, two sinks, a steel cot); D-block through the east door with three
+    open cells, a D-class in Cell 1, a shutter that knocks back, and a loose
+    vent in Cell 6 with a note behind it.
+  - Five notes: docb37_028 (summary of the SCP wiki page, CC BY-SA 3.0),
+    docb37_reactor, docb37_archive, docb37_cells, docb37_hall.
+  - 512 textures, lightmaps capped at 512 with coarse luxels (about 2,000
+    triangles a room); every room checked for overlapping solids and blocked
+    doorways, every doorway walk-tested in game.
+  - Save data version 13 (SCP-028 uses, recipe, codes; D-block knocks/vent).
+  - Bigger rooms: in room1scp028, room2b39reactor, room2b39hall and
+    room2b39cells the two small side rooms are now one big west hall
+    (740 x 1960, 4.2 m high): a full supply store with the guard post;
+    a control room with a decontamination bay; the store with a holding cell;
+    a ward of four cells. NPCs spawn well apart, clear of furniture.
+
+--------------------------------------------------------------------------
+ 4v. CONFECTIONERY ANOMALIES, SCP-1479'S TAIGA, AND AN ATMOSPHERE PASS (2026-11-06, batch 36)
+
+  - New HD textures to the brief: 1024 poured concrete, 1024 industrial
+    diamond-plate floor, 512 riveted panels, grime and warning decals, the
+    red stencilled SCP (ref. 121), a monitor wall (ref. 126), bay lane
+    markings and a hazard-framed bay door (ref. 122), a taiga night
+    backdrop (ref. 131). A reusable red emergency lamp and small ceiling
+    fixture; dim baked light; 512 lightmaps for the new rooms.
+  - room2b36confect (HCZ): the service corridor (red SCP stencil, pipe
+    bundles, dropped beams); the observation room (ref. 124) onto two sealed
+    cells - SCP-1921's kiosk in a cage, SCP-3409-A's chocolate fungus; the
+    surveillance room (ref. 126); and vehicle bay 3 below (ref. 122) with a
+    transport truck and the candy deliveries.
+  - room2b36taiga (LCZ): a coal plant basement, the investigators' office,
+    the cold-weather store - and SCP-1479: a night taiga in fog with pines,
+    grave crosses, a cabin with a lantern (ref. 131), and eyes in the trees
+    that are gone when you come close. A radio shows the walls.
+  - Five candy SCPs: SCP-1200 (Tastes Like gum, five sticks: Lemons,
+    Sunshine - you glow, Putty - you mend, Running, Chewing Gum), SCP-1916
+    (six jawbreakers: Mars, Venus, the Moon, Jupiter, the black one, '?' -
+    you move as if the gravity changed), SCP-3147 (a Tongue Twister - it
+    takes two), SCP-1921 (the kiosk; the sample hatch gives black floss
+    that goes to work on your memory - SCP-500 clears it), SCP-3409 (the
+    chocolate fungus). HD models: the kiosk, the truck, the cabin, and the
+    gum, jar, lollipop and floss items.
+  - Atmosphere pass on the six deep storage areas (06-11): red emergency
+    lamps, grime at the foot of the walls, dimmer pendants.
+  - Fixed: this batch's notes first overwrote three of the mod's own
+    document images (doc1200, doc1916, doc1921); they were restored from the
+    copy in scp_btw_mymod_v5.4.5 and the new notes renamed docb36_*.
+  - Side save version 12. Teleport names: confect, candy, bay3, taiga, cabin,
+    1479b and the candy numbers. Tested in game (views at 162-285 FPS,
+    -test36, save/load).
+
+--------------------------------------------------------------------------
+ 4u. STORAGE AREAS 10-11: THE CELL BLOCK AND THE BUNKER (2026-11-06, batch 35)
+
+  - Two more underground storage areas (the batch-34 storage room, made
+    configurable), after reference images 107-114:
+      room2b35cellblock  HCZ  Area 10 (ref. 108): barred cells with bunks
+                              and their occupants visible inside, an upper
+                              tier of cells along a railed gallery, long
+                              ceiling light panels, the Foundation emblem
+                              painted on the floor; a surveillance room
+                              (ref. 113/114) and a guard locker room
+      room2b35bunker     EZ   Area 11 (ref. 111/109/110/107): board-marked
+                              concrete walls, ceiling and partitions,
+                              square pillars, oval bulkhead lamps, pallets
+                              of boxes behind yellow rails; a generator and
+                              lockdown room (ref. 112), and an old stone
+                              passage with arched ribs and lamps ending at
+                              a welded door
+    Both pass the room checker.
+  - Twenty-three SCPs: 060, 366, 478, 517, 569, 646, 746, 799, 806, 886,
+    1388, 1429, 1479, 1512-EX, 1579, 1779, 1912, 2581, 2816, 2890, 3337,
+    3369, 5069 - each a unit with a placard, an interaction and a side
+    effect. Specials: the blankets (799) warm you and then feed; the moths
+    (478) storm the glass; the amoebae (1429) glow on your skin; the
+    coin-eater (1779) takes SCP-762-EX from your pocket and grows; the
+    anecdote (3369) leaves someone laughing in your head; Grandmother
+    Predictions (517) deals fortunes that come true; the marble heads (569)
+    drift; the projector (806) shows someone behind you; the taiga
+    photograph (1479) leaks cold.
+  - New HD models: the fortune machine, the jewelled projector, a marble
+    head (x3, floating), the mossy cedar giant, the organ printer, the
+    coin-eating reptile. Four items with HD models: SCP-2890 top hat (put it
+    on Mr. Brass, a mannequin, the cedar giant or SCP-3228 and it lives),
+    SCP-2816 paintbrushes, SCP-1388 (a small super power for a minute),
+    SCP-1912 (the watch that ticks backwards, and so do your scrapes).
+  - Five registry pages. Side save version 11. Teleport names: storage10,
+    storage11, cellblock, bunker and every SCP number.
+  - Tested in game: 15 views at 143-560 FPS; every special and item driven
+    by -test35, and a save/load round trip.
+
+--------------------------------------------------------------------------
+ 4t. DEEP STORAGE AREAS 06-09: A HUNDRED SCPs UNDERGROUND (2026-11-06, batch 34)
+
+  - Four new rooms after reference images 100-106. Each is a corridor
+    with two side rooms and a STORAGE AREA door: a mezzanine with a
+    railing, stairs down to a sunken storage floor (white walls under a
+    riveted trim, black ceiling, white tiles, steel beams, red pendant
+    lamps), with 11 alcoves along the east wall, 4 along the west, and a
+    centre row of glass display plinths and big objects:
+      room2b34humanoid  HCZ  Area 06: humanoid cells with observation
+                             windows and intercoms; the surveillance room
+                             (ref. 103/104) and the HCZ lockdown control
+                             (ref. 105)
+      room2b34objects   LCZ  Area 07: objects; the printing office
+                             (ref. 106) and the stationery room
+      room2b34bio       HCZ  Area 08: tanks and pens, the brass ovoids, the
+                             Venus fountain, the grey sphere; the server
+                             room (ref. 100) and the lab
+      room2b34site45    EZ   Area 09: the Site-45 records, SCP-1619's
+                             drawn door, five cells; the control room
+                             (ref. 102) and the records office (ref. 103)
+    All four pass the room checker (no overlaps, nothing in a doorway or
+    on the stairs, clear aisles).
+  - Every SCP on the list (SCP-1969-EX does not exist: SCP-1969, the
+    disco ball, stands in for it; SCP-711-FR is read from the French
+    wiki) is a unit with a placard, an interaction and a side effect.
+  - New HD models: Mr. Brass (629), a Troupe mannequin (5147), the Chore
+    Buddy (1508), the calcified infant's cradle (5199), the cold rabbit
+    (2792), the red fridge (1731), the Zenith set (1970), the rosewood
+    chair (1445), the disco ball (1969, turning), the top (3016, spinning),
+    the -2 kg weight (2597), the trapezohedron (2414), the bowl and spoon
+    (1404), the LaserJet (1473), the photocopier (4566), the octopus
+    (5582), a dodo (711-FR), the shrub (324), the okapi (1807), the brass
+    ovoids (1564), the Venus fountain (1575), the grey sphere (3085).
+  - Ten new items with HD models: SCP-1974-EX dice, SCP-3866 tablets (a
+    ten-second sleep that feels like a month), SCP-3709 stapler (staples
+    the nearest door shut), SCP-3803 card case, SCP-1841 travel book
+    (takes you somewhere), SCP-1255 grapes (a sprout grows - SCP-500 kills
+    it), SCP-4193 caplets, SCP-5604 tablets, SCP-2983 cereal, SCP-5701
+    Polaroid (the photo develops when you next get hurt).
+  - Special behaviours: SCP-1273's nightlight, SCP-1667's shoes walk you
+    west, SCP-5582 steals from your pockets and leaves it elsewhere in the
+    room, SCP-711-FR's dodo escapes into the future, SCP-2368 hurts if you
+    linger, SCP-1374 writes to you, SCP-3811 takes your fear, SCP-5151
+    judges you (it knows if you fired SCP-865), SCP-1508 dresses your
+    wounds, SCP-3634 makes you tell the truth, SCP-1976 ...
+  - Eighteen registry pages on the mezzanines. Side save version 10.
+    Teleport names: storage06-09 and every SCP number.
+  - Tested in game: 28 views at 138-274 FPS; the items and specials driven
+    by -test34, and a save/load round trip.
+
+--------------------------------------------------------------------------
+ 4s. TWENTY-THREE NEW SCPs, FOUR NEW HD ROOMS AND VAULT 4612 UNDERGROUND (2026-11-06, batch 33)
+
+  - Four new rooms after reference images 90-99, each a corridor with
+    side rooms, each passing the room checker (no overlapping props,
+    nothing in a doorway, nothing over a door button, a clear walk):
+      room2b33toys     LCZ  the white storage corridor (ref. 96): riveted
+                            trim, black skirting, roll-up shutters in black
+                            frames, a drop ceiling, dark red pendant lamps.
+                            Hall 8 (Little Misters) and the Wondertainment
+                            store
+      room2b33archive  EZ   the peach-striped corridor (ref. 93) with name
+                            plates and pendants. Site-73's secure archive,
+                            the decommissioned room, a research bullpen
+                            (ref. 91), Dr. Tolentino's office (ref. 92)
+      room2b33bio      HCZ  the dark corridor (ref. 99): black bands,
+                            buttresses chamfered at the foot, beams, bare
+                            bulbs, a machinery recess. Bio-Site 84 annex
+      room2b33deep     HCZ  the bulkhead corridor (ref. 95), the Site-91
+                            liaison bullpen and Director Varga's office -
+                            and through a Level 3 door, a stairwell 768
+                            down to VAULT 4612: charred stone blocks cut
+                            with cuneiform, the altar under a cold blue
+                            light
+  - New HD models: the SCP-3938 bicycle, SCP-1007's coffin, the SCP-696
+    typewriter, the SCP-252-EX bomb casing, SCP-L043's turntable, SCP-4612-A
+    on its altar (six arms, crystal palms, the blue incision), SCP-2394 and
+    its tank, SCP-1563 on its stake, the SCP-3743-A-1 Way with its icon, the
+    SCP-4712 vault door, an SCP-5079-1 bed, the SCP-5267 diorama. New items
+    with HD models and icons: SCP-1007-1 (key), SCP-4876 (Pixel Buddy
+    drive), SCP-4890 (book), SCP-232 (Atomic Zapper), SCP-865 (pistol),
+    SCP-762-EX (coin), SCP-667-2's remains (specimen case), SCP-7042
+    (sketchbook). New textures: wall styles, floor tiles, drop ceiling,
+    glyph stone, name plates, and the screens and boards of every SCP.
+  - What they do:
+      SCP-1007   ages a year a minute; dies at 75. Turn the key by the
+                 coffin: a year younger each turn; after death, he wakes
+      SCP-3537   a new body every visit; the intercom: what it "could" do
+      SCP-3938   ride it: somewhere else in the facility (not the Moon)
+      SCP-4876   use the drive: Sam, Texty, Terry, Bo - and rarely -H
+      SCP-4890   use the book: endless purple space and Dr. Papertainment
+      SCP-232    put a battery in (from your inventory): gee whiz
+      SCP-865    use, use again: fired at your own hand - powder burns,
+                 and a bad memory gone (stress cleared)
+      SCP-696    neutralized - press it three times
+      SCP-762-EX heads, every time. Six flips and you find out why
+      SCP-1563   unfed since the breach: it goes for your throat (SCP-500
+                 makes it let go)
+      SCP-2394   shut the drip: it wakes and blinks round the room; touch it
+                 and it takes you somewhere; after 30 seconds it is gone
+      SCP-3419   -Alpha on the intercom; hands on the glass
+      SCP-7042   use it: an animal is drawn - and arrives
+      SCP-4612   the heat off the body, the crystals (do not touch), the
+                 Akiva meter that only rises; something knocks on SCP-4712
+      SCP-L043   each play, a little more of it gone
+      SCP-252-EX, SCP-667-2, SCP-3743, SCP-5079, SCP-5512, SCP-5267, SCP-7284:
+                 displays, boards and records to read
+  - Twenty-three new notes (summaries in our own words, CC BY-SA 3.0).
+    Side save version 9 keeps SCP-1007's age, the zapper's battery, the
+    coin flips, SCP-2394, SCP-L043 and the Akiva reading. Teleport names:
+    1007, 3537, 3938, ... 5267, hall8, site73, site84, site91, vault4612.
+  - Tested in game: all 20 views, 154-292 FPS; every mechanic above driven
+    by -test33, and a save/load round trip.
+
+--------------------------------------------------------------------------
+ 4r. GATE V - THE UNDERGROUND EMERGENCY EXIT, AND THREE NEW ENDINGS (2026-11-05, batch 32)
+
+  - room2b32gatev (EZ), after reference images 80-87, all inside one
+    map cell on two levels:
+      the antechamber   white walls, a black ceiling, an observation
+                        gallery with dark windows, a checkpoint desk; on
+                        the south wall the heavy GATE V door in a massive
+                        steel frame with a red band and the black GATE V
+                        sign, the card reader, the break-glass release
+      the stairwell     1024 deep: four flights of steps, landings,
+                        yellow handrails, a central core, level markers
+      the tunnel        steel bulkheads every 220 over a grating floor,
+                        pipes, sodium lights, the alarm breaker box
+      the atrium        a skylight, a gallery with a railing, the exit
+                        console, and the open vault hatch (new HD model)
+                        onto snow and mountains
+  - How it works: a Level 4/5/6 keycard opens the gate quietly. Breaking
+    the glass opens it for anyone - and alarm circuit 7-V sends Nine-
+    Tailed Fox to wait at the hatch (new HD silhouettes). Cut the breaker
+    in the tunnel before you reach the atrium and nobody comes.
+  - Three new endings, shown as ENDING V1 / V2 / V3 with their own text:
+      V1  out through the hatch with nobody waiting: snow, sky, freedom
+      V2  into Nine-Tailed Fox at the hatch: recontained
+      V3  fire the seal charges at the console with them at the hatch:
+          the passage comes down on them and you climb out through the
+          dust - Gate V is gone
+  - The room passes the room checker (109 solids, no overlaps, every
+    passage clear from the door to the hatch). Two new notes. Side save
+    version 7. Teleport: gatev / gate5 / emergencyexit.
+  - New Gate V events:
+      lockdown     two minutes after the glass breaks the PA counts down
+                   and the heavy door shuts and locks (a Level 4 card
+                   still opens it; the release is spent)
+      the stairs   the lights flicker and buzz now and then; once, on the
+                   way down, footsteps on the landing above stop when you
+                   stop
+      the tunnel   a pipe joint bursts into scalding steam (stand under it
+                   and it hurts)
+      the radio    Epsilon-11 report in position at the hatch; or, if you
+                   cut circuit 7-V in time, someone writes it off as a
+                   fault and holds at Gate B
+  - Fixes: the ending text now sits under the logo instead of under the
+    game's subtitles. After a quick load Gate V's door, its lockdown and
+    the response unit come back as saved (side save version 8). The same
+    quick-load bug is fixed for the SCP-820-JP submarine, the SCP-120
+    pool, the SCP-4427 sphere, the SCP-2648 amalgam and the SCP-3069
+    specimen (their models stopped moving or showing after a quick load).
+  - Tested in the game by script: real clicks on the break-glass, the
+    breaker and the console; save mid-gate, scramble, quick-load; all
+    three ending screens with their text.
+  - More Gate V fixes:
+      no PA     the site's Nine-Tailed Fox announcements no longer play
+                in Gate V or once an ending has begun (one already
+                playing is stopped when you go in), so their subtitles
+                no longer cover the ending text
+      siren     one siren channel only: it restarts when it has finished
+                instead of piling a new copy on top every six seconds
+                (and on top of the break-glass sound); it stops when the
+                breaker is cut, when you leave, and at the hatch
+      steam     the burst pipe hisses (it used the radio's static)
+  - The endings play out before the ending screen:
+      V1  you walk out of the hatch into the wind and a white-out
+      V2  the unit stops you in front of them - "STOP RIGHT THERE!",
+          rifle lights in your eyes, a hood (one subtitle, not two;
+          before, you walked straight through them to the hatch)
+      V3  you climb out through the dust into the wind
+    and the ending screen itself has its own sound: the wind for V1 and
+    V3, radio static for V2.
+  - New item: the Gate V Access Card (keygatev). The game's own keycard
+    model with a new face in the style of the level cards, from the
+    user's blue template: SCP / Secure. Contain. Protect, a "V" level
+    box, GATE V ACCESS CARD and serial 05-0591326-GATEV on the stripe,
+    the chip, and the warning line; its inventory icon is rendered at
+    the angle of the game's card icons (Tools\roomkit\make_keygatev.py).
+    It lies on Site Director Dr. T. Sherman's desk in the Site-42
+    administration wing (room2b30admin, Entrance Zone) - you have to go
+    and get it; the Gate V reader and the evacuation protocol note on
+    the checkpoint desk say where it is kept. It opens the GATE V reader
+    quietly (no alarm). It opens no other door. It
+    shows like the other cards when selected and can be clipped to the
+    clipboard.
+
+
+--------------------------------------------------------------------------
+ 4q. SCP-467, THE CONFESSIONAL PHONE BOOTH, AND FIVE ITEMS (2026-11-05, batch 31)
+
+  - room2b31booth (EZ, after reference images 77-79): the SCP-467
+    chamber - the booth itself (new HD model: weathered green steel,
+    glazed panes, a folding door ajar, the lit TELEPHONE sign, the empty
+    plate where the old phone hung), the guard post with a confiscated
+    radio, the recorder, the test log; Dr. Rights' office; the research
+    open office; the secretarial / security staff break room.
+  - SCP-467: stand in the booth with a communication device (any radio,
+    the SCP-1471, SCP-2935 or SCP-4433 phone) and it rings - your mother,
+    your victim's family, the researcher next door on your haircut, your
+    own voice giving back forgotten memories, today's guard confessing
+    where they left a keycard (it is really there)... Once a "day" (six
+    minutes). In November and December (the PC's clock) the calls turn
+    darker: the dead, people who never existed, screaming.
+  - room2b31items (LCZ): the anomalous item wing, five new SCPs with HD
+    models, each doing what its file says:
+      SCP-178   3-D glasses: put them on and tall entities stand round
+                you, curious. Touch one (walk into it or click it) and
+                the lacerations start - they do not stop.
+      SCP-198   the striped mug in a sealed case on a digital scale.
+                Open the case: alarm. Hold it: it bonds to your hand,
+                fills itself, and you waste away unless you drink. It
+                will not stay dropped. Only death frees you.
+      SCP-207   cola: no more rest, faster and faster (up to double
+                speed) - and five minutes later the body gives out.
+                SCP-500 saves you.
+      SCP-1079  Bubblebath Bonbons: one per sitting is harmless pink
+                foam; each more is far worse; four kill.
+      SCP-1650  the clay oil pot: tilt it 45/50/65/90 degrees for olive
+                oil, oleander poison, airless lamp oil, blood-erasing
+                red oil. Use again straight away to drink.
+  - Both rooms pass the Site-42 room checker (no overlaps, nothing in a
+    wall or a doorway, no picture over a door button, a clear walk down
+    the corridor). Seven new notes. Side save version 6.
+  - Teleport: 467 / booth, 178 / 198 / 207 / 1079 / 1650 / itemwing.
+  - SCP texts summarised from scp-wiki.wikidot.com (CC BY-SA 3.0); the
+    SCP-207 bottle carries a plain "COLA" label, no brand.
+
+
+--------------------------------------------------------------------------
+ 4p. SITE-42: SAPIENT OBJECT CONTAINMENT (2026-11-05, batch 30)
+
+ Six rooms in the style of the reference images (peach-striped EZ
+ offices with pendant lamps, white LCZ walls under black ceilings,
+ pilastered corridors, shutters, the humanoid cell). Every room is a
+ corridor with side rooms that never touch or overlap.
+  - room2b30admin (EZ): Site Director Dr. T. Sherman's office, Media
+    Relations & Support (1,204 public inquiries today), the Ethics
+    Subcommittee for Sentient & Sapient Anomalies, the Multi-U Dept.
+  - room2b30a4 (LCZ): Safe-Class Wing A4. Room G14 holds SCP-2758-A,
+    who cannot leave it; its door takes only the custom ID card from
+    Safe-class locker #2758. Talk to him at the microphone rig.
+  - room2b30b4 (HCZ): Euclid-Level Wing B4. SCP-4427 is coned off in
+    the corridor - a warm 60 cm sphere you only see on thermal. 44
+    contacts; be the 45th and a minute and a half later one of them
+    changes (maybe you: heat flares, SCP-500 calms them). Room 35
+    holds SCP-4427-B, who forgets you every time.
+  - room2b30ocean (HCZ): SCP-3069 monitoring - a deep specimen in the
+    tank, the Atlantic map, MTF Gamma-6's room, the SCP-3069-A replica.
+  - room2b30outpost (EZ): Outposts 4433-A / 4434. Carry the flip phone
+    and it rings: RESTRICTED. Three calls from "family" and you go
+    home, unless you hang up. On thermal, five figures stand round you
+    while they call. The SCP-4434 evidence room: an SCP-4434-C skull
+    and the Figure A recreation.
+  - room2b30store (LCZ): SCP-2648 in its shipping container, humming.
+    Anything dropped in there is taken in, and it grows.
+  - New HD items (Tools\roomkit\make_hd30.py): thermal camera, flip
+    phone, Room G14 ID card, SCP-3069 specimen jar. New HD props: the
+    SCP-2648 amalgam, the SCP-3069-A replica, the tank specimen, the
+    SCP-4434-C skull. Nine new notes. New sound: a phone ring.
+  - Saves keep SCP-4427's count and trait and SCP-4433's calls (side
+    save version 5). Teleport: site42, g14, 4427, 3069, 4433, 2648.
+  - SCP texts summarised from scp-wiki.wikidot.com (CC BY-SA 3.0); only
+    the in-universe Site Director appears, nothing from real life.
+  - Overlap fixes: the SCP-3069, outpost and SCP-2648 side rooms were
+    built too short for their furniture (props stood in the walls); they
+    now run the full length. Pilasters no longer stand in the Wing A4
+    doorways; card readers, the intercom and the Hume display no longer
+    cover the doors' own buttons; beds no longer poke through cell walls;
+    chairs, shelves, consoles and banners no longer clip each other.
+    Name plates now sit over the doors. G14 and Room 35 have clean white
+    walls (reference 66). More detail in every corridor: pipes, cable
+    trays, vents, extinguisher cabinets, a water cooler, roll-up
+    shutters, lane lines, a stanchion cordon round SCP-4427.
+  - Wing B4: the SCP-4427 cordon and its cones blocked the whole corridor
+    (the widest gap was narrower than the player). The cordon is now a
+    tight 120 x 120 square round the sphere with walkways of 130 on both
+    sides, the cones are gone, and two more lights brighten the corridor.
+    The room checker now also proves every corridor has a clear walk of
+    at least 100 from end to end.
+  - rooms_b30.py checks itself: every solid, model and wall picture is
+    recorded, and the build stops if any two overlap, anything leaves its
+    room, blocks a doorway, or covers a door button.
+
+
+--------------------------------------------------------------------------
+ 4o. SCP-820-JP, SCP-867, SCP-120 AND LUNAR AREA-32 (2026-11-05, batch 29)
+
+  - room2b29blade (HCZ): SCP-820-JP's inspection dock. An unmanned
+    submarine circles a deep tank and surfaces at the dock for ten
+    seconds about once a minute; while it is up, its hatch holds the
+    knife. Across the corridor, the souvenir stall that grew round it:
+    pennants, free cookie samples, a pig mascot nobody is wearing.
+  - New item: SCP-820-JP (scp820jp), a stone knife with a snake coiled
+    up the blade (new model, Tools\roomkit\make_scp820.py). Keep it in
+    one room too long and its transmitter beeps; stay put and a
+    retrieval team takes it back. Look at it too often and you start
+    to want to use it somewhere everyone would see (stress, blur).
+  - room2b29spruce (HCZ): SCP-867, Bio-Containment Section E. Four
+    blood-red spruces on soil under irrigation, a remote rover. Brush
+    against one without the hazmat suit and a seed is injected: it
+    sleeps five minutes, then about a minute of agony, then death.
+    Cures: the herbicide injector (new item herbicide867, two in the
+    decon room), the herbicide shower, or SCP-500.
+  - room2b29pool (EZ): SCP-120's fortified outbuilding. The pink pool
+    glows in the colour of its destination; the operators' dial moves
+    it on, and so does every use. Step in carrying six things or fewer:
+      9 (grey)  Lunar Area-32 - one-sixth gravity; the SCP-120 Reception,
+                the observatory (Earth over Mare Imbrium), the cargo
+                bay with the supply lander home, and by lift Sub-Level
+                1: the sealed SCP-001 vault, the SCP-L001 records
+                terminal (lost SCP-001 files), the SCP-2219 "PORRIDGE"
+                test room (remote proxy, or play it yourself), storage
+      black     a Lagrange point: lost
+      others    an Earth outpost; Sigma-6 bring you back hours later
+  - The SCP-120 pool in containment block 3 is now a training replica.
+  - Seven new notes: SCP-820-JP, SCP-867, SCP-120, Document #120-22,
+    the Lunar Area-32 arrival advisory, SCP-2219, the SCP-L001 memo.
+  - Saves keep SCP-120's setting, an SCP-867 seed, and the knife's
+    state (side save version 4).
+  - Teleport names: 820 / blade, 867 / spruce, 120 / pool / lunar / moon.
+  - HD models (Tools\roomkit\make_hd29.py): SCP-820-JP is now a 13 700-
+    triangle knife - a knapped flint blade with real flake facets, a
+    turquoise mosaic grip between engraved gold bands, and a feathered
+    serpent coiling up to the tip (scaled skin, gold eyes, forked
+    tongue, crest). SCP-867 is a 11 000-triangle blood-red spruce:
+    crooked trunk with root flare, sixteen whorls of drooping branches
+    under masked needle fronds, baked light and shade. The trees in
+    Section E are the model now (an invisible ring keeps you off the
+    trunk, but you can still brush the branches).
+  - Lunar Area-32's Sub-Level 1 has a registry board with the anomalies
+    its facility dossier lists (SCP-2493 ... SCP-9042, their classes)
+    and the three held on that level (SCP-001, SCP-L001, SCP-2219).
+  - SCP texts summarised from scp-wiki.wikidot.com (CC BY-SA 3.0).
+
+
+--------------------------------------------------------------------------
+ 4n. SCP-983, THE BIRTHDAY MONKEY, AND NEW CANDY (2026-10-30, batch 28)
+
+  - room2b28monkey (LCZ): SCP-983's chamber in the style of the storage-
+    room reference (banner, red poster, white shelving, benches): the
+    monkey on its pedestal, Emergency Kit 135r by the door, a board of
+    today's birthdays, a case of collected candies, two notes (the SCP
+    summary and Document 135r, the sing-along guidelines).
+  - New model: the monkey (Tools\roomkit\make_scp983.py) - a carved wooden
+    face with a grin of square teeth and red glass eyes, a faded red
+    ringmaster's vest with a brass button, yellow-green sleeves, striped
+    trousers, the tarnished brass bell raised and the striking rod.
+  - Each new game rolls whether today is D-9341's birthday (one in three;
+    the board says). Otherwise the monkey is just an old toy. On your
+    birthday it backflips and sings a verse every 3.5 s, and every verse
+    ages you a year (less stamina, from 30 a blurring view, at 60 death -
+    and a black candy). Click in time with "IT'S YOUR BIRTHDAY!" six
+    verses in a row to stop it: "BIRTHDAY!", a backflip, a gumdrop.
+  - Seven gumdrops (new model and textures): luminescent (all six
+    perfect: the years back, fully healed, and a minute later a blinding
+    flash of light), clear (four perfect: the years back), red, green,
+    yellow, purple (small effects), black (can't be eaten - you can only
+    stare into it). Kept in the save with the birthday and the years.
+  - SCP-330's sweets use the new wrapper textures (grape, lemon, apple,
+    cherry) and matching icons; the old ones are kept as .bak_wrapper.
+  - Models with more than 1500 triangles placed by IndevScpMesh are not
+    made collision meshes.
+  - Console: 983, scp983, monkey. Test switch: -test983 (birthday, and a
+    perfect sing-along).
+  - Fix: SCP-983 could be picked up from across the room. It now needs
+    arm's length (1.2 m; the board, kit and candy case 1.5 m), its click
+    point is at its chest where you look, and singing along only counts
+    within 3 m of it.
+  - Source: scp-wiki.wikidot.com/scp-983 (CC BY-SA 3.0).
+
+
+--------------------------------------------------------------------------
+ 4m. SCP-2107 "DIET GHOST" (2026-10-30, batch 27)
+
+  - New item scp2107: a light blue Diet Ghost can (its own 3D model, label,
+    sticker and inventory icon; Tools\roomkit\make_scp2107.py). Drink it
+    from the inventory: 30-60 s later you are haunted for 2-4 minutes per
+    can - footsteps behind you, whispering, knocking, flickering lights,
+    a nearby door slamming, a cold breath, something pale at the edge of
+    sight. More cans: longer, more often, and from the third can it can
+    shove and scratch you. Kept in the save. Code in IndevU27.bb.
+  - room2b27diet (LCZ): the CNSI storage room from the reference image -
+    white walls, black ceiling, dark floor, two white shelving units with
+    cans, the SECURE. CONTAIN. PROTECT. banner, posters, benches, a camera
+    and a refrigerated unit (one cold can, once); across the corridor a
+    break room whose vending machine drops one can, once. A summary note.
+  - Console: 2107, scp2107, dietghost. Test switch: -test2107.
+  - Source: scp-wiki.wikidot.com/scp-2107 (CC BY-SA 3.0).
+
+
+--------------------------------------------------------------------------
+ 4l. BUG FIXES FROM PLAYTESTING (2026-10-30)
+
+  - Announcer: seven voice files had been swapped for recordings in a
+    different voice - the MTF announcement and six lines of the SCP-173
+    chamber intro (Franklin and the scientists' conversation). The
+    originals are back; the replacements are kept as *.bak_voice.
+  - Doors that scripts shut directly (lockdowns, events) closed without a
+    sound. Every door is now watched: when one starts to close and no door
+    sound is playing, it gets the normal close sound (IndevDoorCloseSound).
+  - Door buttons sank into the 64-unit walls of the side rooms (SCP-953's
+    cell and every side room of the generated batches). Each door's buttons
+    are now put on the face of the wall it is in (IndevButtonsToWall).
+  - SCP-513: the bell state is now kept in the save (<save>.indev, also
+    holding the memory meter and SCP-113), so loading - quick or from the
+    menu - can't re-roll it. A playthrough hears it once at most.
+  - The SCP-963 / SCP-109 / SCP-2295 storage room (room1newscproom) was
+    rebuilt: the old mesh had skewed walls, no cell doors, signs reading
+    SCP-1025 and SCP-860, almost no light, and SCP-109's cell outside the
+    room's grid cell. Now a lit hall with three cells behind doors, each
+    with a pedestal, a lamp and its own sign (Tools\roomkit\room_scpstorage.py).
+  - SCP-718 no longer floats: it stands on the floor and only snaps to a
+    floor found close below it.
+  - The Electrical Center (room2ccont) generates in the Entrance Zone again,
+    as in the original game.
+  - Bunker 095-FR: the siren used the lift's sound channel, so the lift's
+    moving sound only started at its stops; the siren has its own channel
+    now. The control-room computers face the chairs, and the lead walls are
+    64 thick so the heavy door fits.
+  - Omega Silo (room2newroom8): an invisible collision floor under the
+    lower level stops falls through the seams between its floor pieces, and
+    new waypoints down the lower tunnel let SCP-173 and NPCs path through.
+  - SCP-113's model was a copy of SCP-348's bowl, so its stone texture never
+    fitted. It is now a small polished pebble (Tools\roomkit\make_scp113.py).
+  - The cafeteria's SCP-294 model was missing from the props folder.
+  - Dr. Bright is no longer named anywhere: SCP-963's document, death
+    message and comments now speak of "a former host".
+
+ New
+  - Gender icon (HUD, above the memory meter): once SCP-113 has changed
+    you, a male or female symbol shows which you are now. Kept in the save.
+
+ Checked in the game (room test switches in IndevAutoTest.bb)
+  - -testsave: a real save and quick-load keeps SCP-513's state, the
+    memory meter, SCP-113's uses and the gender icon. A save from before
+    this build (no .indev file) now rolls the SCP-513 bell once, as a new
+    game does, instead of switching it off; the next save keeps the roll.
+  - The SCP-095-FR lift's moving sound plays while the lift travels.
+  - -test173: SCP-173 placed at the far end of the silo's lower tunnel
+    reaches the player.
+  - -testitem <name>: SCP-113's pebble, now twice as large (about the size
+    of the old model), is easy to see on the floor and on its plinth.
+
+
+--------------------------------------------------------------------------
+ 4k. OUTDOOR EXPANSION (2026-10-24, batch 26)
+
+ An unnamed outdoor area connected to the facility, with evergreen
+ forest, rain and fog, and two new indoor wings. Built by
+ Tools\roomkit\gen_b26.py (rooms_b26.py, make_assets26.py,
+ make_docs26.py); game code in IndevU26.bb.
+
+  - room2b26exit (EZ)     Surface exit: a checkpoint lobby with a terminal
+                          and a lift UP to the surface - an exit hut, a
+                          security booth, a striped barrier, fences, a
+                          RESTRICTED AREA sign, floodlights, a wet road with
+                          utility poles and an abandoned car, a utility shed
+                          with a generator, about 70 evergreens, rocks,
+                          fallen logs, a clearing, and a tree line all round.
+                          While outside: grey fog, an overcast sky and rain;
+                          wind, and now and then something in the trees.
+  - room2b26labs (LCZ)    Forest research laboratory, abandoned medical
+                          ward, secure equipment storage, damaged security
+                          control room (its console sparks).
+  - room2b26utility (HCZ) Rainwater drainage chamber (it drips),
+                          underground utility station, forest observation
+                          room (a figure between the trees, closer each
+                          time), a store of rain gear.
+  New textures: mossy and damp concrete, weathered metal, mud, wet grass,
+  wet asphalt and road, bark, needles, rock, the tree line, a rain-
+  streaked window, floor markings, a warning sign, terminal and cracked
+  screens, an electrical panel and the rain overlay. Seven new notes.
+  Clickable: the checkpoint and lab terminals, the generator, the car,
+  the power panel. Console: surface, labs26, utility26.
+
+ Fixes
+  - SCP-513 rang far too often: every load and quick load re-rolled the
+    event and reset its count, so quick-saving brought the bell back
+    again and again, and the room it rang in kept ringing on later
+    visits. Now the roll is made once, for a new game; about a third of
+    playthroughs hear the bell, and those hear it exactly once. The room
+    it rang in only flickers, rarely.
+  - Containment blocks (batches 20, 21, 24, 25): SCPs that were coloured
+    boxes now use the game's own models (tanks, crates, cabinet, book,
+    lamp, television, paper, wallet, hazmat suit, bottle, electronics,
+    skull, the SCP-458 pizza box, the SCP-113 stone, the SCP-513 bell,
+    the vending machine), fitted to size at load, or stand in their cell
+    as figures (SCP-027, 040, 134, 181, 191, 239, 527, 689, 847, 2662).
+    Table in Tools\roomkit\scp_models.py; code in IndevScpProps.bb.
+  - Storage 6H: SCP-087's message and click used the lift's pivot instead
+    of its own; fixed.
+  - The lifts did not move in any room added since batch 13: the surface
+    exit, SCP-354's pool room, the hotel lift lobby, The Hollowcrest's
+    service lift, the hoist room and Storage 6H. Their doors and buttons
+    were built but nothing ran the lift. Each now calls IndevLiftTick
+    (IndevAnnex.bb) every frame; the service lift's floor display and the
+    surface's forest event moved to another timer so they no longer clash
+    with the lift's.
+
+
+--------------------------------------------------------------------------
+ 4j. TWENTY SCPs, TWENTY EVENTS, THE OFFICE SUITE (2026-10-23, batch 25)
+
+ Data in Tools\roomkit\scps_b25.py, which generates the notes and the
+ click and event tables (IndevU25Table.bb); game code in IndevU25.bb.
+
+  - room2b25block1 (LCZ)  SCP-115, 124, 136, 160, 239, 250
+  - room2b25block2 (HCZ)  SCP-263, 303, 310, 342, 378, 447
+  - room2b25block3 (EZ)   SCP-488, 527, 689, 668, 2662, 040
+    Click each SCP for its effect. Each also has a low-frequency event of
+    its own while you are within 6 m (every 40-160 s: a sound, a line,
+    sometimes stress): the truck's engine, the soil turning over, the
+    doll's rustle, the drone overhead, the girl's wishes, the skeleton's
+    step, the TV audience, the Doorman's knock, the flame, the train
+    whistle, the brain worm's idea, the slime, the meteor, Mr. Fish's
+    humming, the dark corner, the knife, "FHTAGN!", the many-legged thing.
+  - room2b25offices (EZ)  Office suite from the reference images: the
+    researcher's office (filing cabinet, desk, hanging lamp, observation
+    window), the control room (consoles, HOIST and DOOR panel, red lamp),
+    records, and a break room. A researcher talks; the intercom pages every
+    2-4 minutes.
+  Console: block25a .. block25c, offices, or scp plus the number.
+
+ Fixes
+  - The batch 20 wings no longer duplicate SCP-330 and SCP-2295, which
+    were already in the game: their cells now hold SCP-111 (the
+    dragon-snails) and SCP-241 (Good Home Cooking), with new notes.
+
+
+--------------------------------------------------------------------------
+ 4i. TWENTY-FIVE MORE SCPs AND STORAGE ROOM 6H (2026-10-23, batch 24)
+
+ Four six-cell containment blocks and a storage lobby with a lift. The SCPs
+ are data in Tools\roomkit\scps_b24.py, which generates their notes and the
+ Blitz table IndevU24Table.bb; game code in IndevU24.bb. Each SCP has its
+ own coloured object or picture and a summary document; click it for its
+ effect (stress, injuries, stamina, blur, sound). Six cells to a room so
+ the map does not run out of slots: every new room is placed on all seeds
+ tested.
+
+  - room2b24block1 (LCZ)  SCP-018, 027, 101, 134, 181, 262
+  - room2b24block2 (HCZ)  SCP-300, 314, 387, 423, 426, 432
+  - room2b24block3 (LCZ)  SCP-504, 524, 847, 871, 1230, 1733
+  - room2b24block4 (EZ)   SCP-2030, 2317, 409, 191, 2399, 1000
+  - room2b24store6h (LCZ) Storage Room 6H (from a reference image):
+                          shelving, benches, a SECURE. CONTAIN. PROTECT.
+                          banner, and a lift down to SCP-087's stairwell.
+  SCP-426 and SCP-847 also speak up the first time you come near, and
+  SCP-087 cries from the bottom of the stairs.
+  Console: block24a .. block24d, store6h, or scp plus the number.
+  Fix: SCP-6483's event light no longer uses the room's lever slots.
+
+
+--------------------------------------------------------------------------
+ 4h. OCTOBER 2026 ROOMS: SCP-3008, 27 MORE SCPs, CHRISTMAS ROOMS
+     (2026-10-23, batches 19-23)
+
+ New rooms built by Tools\roomkit\gen_b19.py .. gen_b23.py; game code in
+ IndevU19.bb .. IndevU23.bb and the generated IndevU19Data.bb ..
+ IndevU23Data.bb. Every room was loaded in-game by the room test, and the
+ walkway check finds nothing blocking a path in any of them. SCP texts
+ are short summaries of the SCP Wiki articles (CC BY-SA 3.0); the room
+ geometry and textures are original.
+
+ Reference-image rooms (batch 19)
+  - room2b19office    Office 19-A (EZ): filing cabinet, desk, two framed
+                      river photos. A researcher faces you and talks.
+  - room2b19gallery   Observation gallery (LCZ): a railed balcony; two
+                      Class-D wait below and an attendant stands above.
+  - room2b19hoist     Hoist control (HCZ): consoles, a HOIST panel you can
+                      press, and a lift down to an overflow cell.
+  - room2b19storage   Storage B (LCZ): roll-up shutters; one rattles every
+                      30-70 s.
+  - room2b19h09       SCP-H09 (HCZ, our own concept): a neon Foundation
+                      emblem that redraws itself, and sometimes shows
+                      behind bars (stress +5).
+  - room2b19cells     Cell Block D (LCZ): two cells; knocking from D-19B.
+
+ SCP-3008 and containment wings (batch 20)
+  - room2b20store3008 SCP-3008 (HCZ): a furniture-store floor. After 45 s
+                      the store "closes" and four staff in yellow come
+                      for you; touching them hurts.
+  - room2b20wing999   SCP-999 (follows you, lowers stress) and SCP-131
+                      (two eye pods that follow you).
+  - room2b20wing529   SCP-529 (pet Josie: stress -5) and SCP-330 (the
+                      third sweet hurts).
+  - room2b20wing458   SCP-458 (pizza heals a little, once a minute) and
+                      SCP-261 (random snacks).
+  - room2b20wing2295  SCP-2295 (heals you fully, once) and SCP-113 (hurts,
+                      once).
+
+ Four containment blocks, sixteen SCPs (batch 21)
+  - room2b21block1 (LCZ)  SCP-038, 063, 1171, 507
+  - room2b21block2 (HCZ)  SCP-2521, 343, 1437, 1609
+  - room2b21block3 (LCZ)  SCP-2006, 120, 093, 1981
+  - room2b21block4 (EZ)   SCP-151, 050, 216, 662
+    Click-to-use SCPs; 1171 writes in the frost, 507 vanishes and comes
+    back, 343 talks, 2006 jumps out once, 120 teleports you to a random
+    room of the zone, 151 drowns you if you stare at it, 216 gives a
+    random item every 2 minutes, 662 calls Mr. Deeds.
+    First built as eight two-cell wings; merged into four blocks so that
+    every new room fits in the map.
+
+ Christmas rooms (batches 22-23)
+  - room2b22xmas   SCP-112-PT, Santa Claus's bones (LCZ): a reliquary
+                   with the skeleton in a bishop's robe, a tree and
+                   presents. Stand by it for 10 s and SCP-112-PT-1
+                   appears: he talks, gives one gift, and fades after
+                   2 minutes. Source: scp-pt-br.wikidot.com/scp-112-pt.
+  - room2b23santa  SCP-6483, Nicolas Roberts (LCZ): peppermint walls,
+                   supper table, fireplace. Click the reality anchor
+                   monitor for a 60 s Nativitatis Event (red suit, glow,
+                   carols, stress -20, stamina and some health back).
+
+ Console teleports: office19, gallery, hoist, storageb, h09, cellblock,
+ 3008, 999, 529, 458, 2295, wing038 .. wing093 (the blocks), xmas,
+ 6483 (also scp plus the number for most).
+
+ Known issues
+  - SCP-3008's staff and the two Christmas NPCs are recoloured Class-D
+    models: the staff still have faces, and the spirit has no beard.
+  - SCP-330 and SCP-2295 already existed as items before batch 20; fixed
+    in batch 25 (the cells now hold SCP-111 and SCP-241).
+  - One room-test run crashed in the SCP-3008 store and never again in
+    later runs; the cause is unknown.
+  - Some timed and click effects have not been seen in a test yet (the
+    hoist ride, the shutters, the knocking, most block SCPs).
+  - room4info and a few older test rooms miss the map on many seeds; this
+    was already the case before these batches.
+
+
+--------------------------------------------------------------------------
+ 4g. HOTEL ROOMS AND SITE ROOMS (2026-10, batches 12-18)
+
+  - Batches 12-14: a balcony room; six rooms for SCP-249, 354, 247, 1762,
+    1983, 3038, 3041, 3045, 3046, 3056, 4666, 5094, 377, 978, 019 and
+    1337 (Miss J's lesson plays on the schoolhouse PC); the lamp shop
+    (SCP-4035) and the saddle stall (SCP-3886).
+  - Batch 15: usable items: SCP-377 fortune cookie, SCP-978 camera,
+    SCP-3041 knife, SCP-1337 sweater.
+  - Batch 17: The Forgotten Hotel: corridor with room H-17 (its phone
+    rings, its light flickers, its door plate reads H-71 as you pass)
+    and a lift lobby with a clerk and a lift down to the laundry.
+  - Batch 18: The Hollowcrest (original): reception, Guest Room 117
+    (the phone rings), service lift (its display flips G/S), boiler
+    room, cold kitchen, silent ballroom.
+  - Furniture that blocked the walkways in reception, the incidents room
+    and the hotel lobby was moved aside.
+
+
+--------------------------------------------------------------------------
+ 4f. TEN CONTAINMENT ROOMS, SIXTEEN SCPs (2026-10-02, fifth batch)
+
+ Ten generated rooms, each placed once per map (they are forced, not
+ filler), holding sixteen SCPs from the SCP Wiki. Built by
+ Tools\roomkit\gen_s16.py; game code in IndevS16.bb and the generated
+ IndevS16Data.bb. Every SCP has a yellow label on the wall, a typed
+ document and a handwritten note. Console: teleport plus the SCP number
+ or the room's short name (teleport 1518, teleport bunker).
+
+ NOT YET PLAYED IN-GAME. It compiles, every room file re-parses and
+ every texture, model, sound and item it names exists, but the rooms
+ have only been seen in the offline preview renderer
+ (Tools\roomkit\previews\annex_rooms_s16.jpg).
+
+ Light Containment
+  - room2siv      Small Items Vault (Level 2 door)
+      SCP-1045  the candle lantern. Light the stub: 25 seconds of a
+                shadow that screams, and your stress climbs with it.
+      SCP-1510  the bronze helmet. Put it on: you black out, wake with
+                your wounds bound and bleeding stopped, stamina gone and
+                stress up. Once every three minutes.
+      SCP-1125  the answer die. Yes refills stamina and calms you, No
+                empties it. From the third roll on it only costs you.
+  - room2bio      Biological Holding (Level 1 door)
+      SCP-1513  a potted pet to stroke (stress relief, 90 s cooldown),
+                and a second one that moves when you look away.
+      SCP-1515  five rodents in a wire enclosure. They watch you. That
+                is all they do.
+      SCP-1517  a freezer left ajar. Shut the door within about 75
+                seconds of being in the room or the shells hatch and the
+                room quietly injures you. Eating a sphere kills you.
+      SCP-1519  the lamplighter in its saline tank. The cradle beside it
+                gives one battery every three minutes.
+
+ Heavy Containment
+  - room2origin   Procedure 1512-Alpha hall
+      SCP-1512  grey slime across the hall: walking through burns you,
+                blurs your sight and drains stamina. Hold the mouse on
+                either worksheet for five seconds and it draws back for
+                a minute.
+  - room2purge    foam-lined fan hall
+      SCP-1518  the bubble fountain and seven loose bubbles. A touch
+                costs a large injury. FAN PURGE (a button at each end)
+                pins them in the east wall for thirty seconds.
+
+ Entrance Zone
+  - room2review   Surveillance Review (Level 2 door)
+      SCP-1110  the review monitor. Press PLAY and every item lying on
+                the property counter is robbed. The counter starts with
+                supplies on it: take them first.
+      SCP-1250  a tape deck that says how near SCP-173 is. One time in
+                three it is describing somewhere else.
+      A researcher in the room tells you which order to do it in.
+  - room2lecture  Lecture Room 2
+      SCP-1313  most of the equation is on the board. Look at it for
+                about ten seconds (it warns you three times) and the
+                lights go out and a bear is in the room for 40 seconds.
+                It leaves if you do.
+
+ Indev zone
+  - room2site41   a section of Site 41
+      SCP-1312  a guard, a fence, and three flat-coloured figures. Past
+                the gate the black one walks at you; caught, you spend
+                35 seconds in their cell. Loot on the white one's desk.
+  - room2cell49   Humanoid Cell 49
+      SCP-1516  the Written Man behind glass. Pass it one of three word
+                cards (PAN, VENDA, PILA) and it makes a ration, a first
+                aid kit or a battery. One card per game.
+  - room2vault117 Vault 117, down a lift
+      SCP-1511  a fragment that still speaks. Standing by it relieves
+                stress (up to 30 points, then it needs a few minutes).
+  - room2bunker   Secure Bunker, down a lift
+      SCP-1514  the alarm is sounding. Touch the panel briefly: alarm
+                off, supply locker opens. Hold on for three seconds and
+                the room shoots you.
+
+ New fans: a ceiling fan in the vault and in Biological Holding, duct
+ fans in the 1512 hall and by Cell 49, two purge fans that spin up in
+ the 1518 hall, an extractor in the bunker.
+ New NPCs: SCP-1516, the three SCP-1312 figures, the Site 41 guard, the
+ review-room researcher, the bear, and two bodies.
+
+ Against Design.md: the "small number of new SCPs" pillar. Sixteen in
+ one batch is a lot; they were added because they were asked for by
+ number. SCP-1515 is deliberately only a set piece (the article's
+ behaviour has no place in a game). SCP-1312, SCP-1511, SCP-1512 and
+ SCP-1514 are shown as a contained piece or an outpost of the real
+ thing, since the originals are a building, a migration route, an
+ 80,000-tonne growth and a satellite network.
+
+
+--------------------------------------------------------------------------
+ 4e. v0.1-STYLE FILLER ROOMS, "w" SERIES (2026-10-02, fourth batch)
+
+ 55 more generated rooms for the Indev zone, random filler like batch 4d.
+ Built by Tools\roomkit\gen_v02.py; game code in IndevV02.bb and the
+ generated IndevV02Data.bb. Console: teleport plus the room name.
+
+ Hallways (24): room2w_narrow, _wide, _tall, _ribs, _oct (eight-sided
+  hall), _consoles (control room: two console units, bench), _meeting
+  (meeting room: table, white chairs, whiteboard), _whitedoor (records
+  room with a doorway of white light), _canteen (vending machines),
+  _lab (glazed laboratory), _generator (plant bay, duct fan), _bridge
+  (walkway overhead), _mezz (mezzanine up a flight of steps), _lift2
+  (lift up to a store), _dogleg (baffle walls), _checkpoint (glazed
+  guard booth, guard), _cages (wire cages), _infirm (ward, body),
+  _archive (filing room), _boiler (tanks, ceiling fan), _gallery (side
+  galleries), _lockdown (blast frames, red lamps), _dclass (cell block,
+  body), _pumps (tanks, duct fan)
+ Corners (10): room2cw_tight, _round, _tall, _bench, _guard (guard
+  hatch, guard), _store, _pipes (duct fan), _pillar, _lab, _cells
+ T junctions (9): room3w_narrow, _wide, _oct (ceiling fan), _office
+  (glazed conference room, a researcher who talks), _console, _beams,
+  _store, _pillars, _pipes (duct fan)
+ Crossroads (6): room4w_narrow, _oct, _pillars, _bridge, _fan (big
+  extractor fan), _dome
+ Dead ends (6): room1w_consoles, _meeting, _whitedoor, _ward (body,
+  ceiling fan), _cache (lift down to a supply cache), _tank (coolant
+  tank, duct fan, a technician who talks)
+
+ The storage, office, laboratory, canteen and ward rooms of this batch
+ take one roll on the existing rare-item table (IndevRareSpawn.bb), so
+ the mod's SCP pills and supplies can turn up in them.
+
+
+--------------------------------------------------------------------------
+ 4d. v0.1-STYLE FILLER ROOMS, INDEV ZONE (2026-10-02, third batch)
+
+ 24 generated rooms in the look of SCP:CB v0.1 (rust-banded concrete,
+ board-marked concrete, bare lamps). They are random filler for the Indev
+ zone, picked by commonness like vanilla hallways, so each run shows a
+ different mix. Built by Tools\roomkit\gen_v01.py; game code in
+ IndevV01.bb and the generated IndevV01Data.bb. Console: teleport plus
+ the room name, e.g. teleport room2v_arch.
+
+ Hallways (two doors)
+  - room2v_hall     plain hallway, three lamps, a bench
+  - room2v_arch     tall hallway, three concrete portal frames, beams
+  - room2v_guard    guard post behind a hatch; the guard talks to you
+  - room2v_medbay   benches and the old medical bay (beds, body, first
+                    aid kit, ceiling fan)
+  - room2v_lockers  steel passage with lockers and a dead researcher
+                    (often a Level 2 card next to him)
+  - room2v_surv     hallway with the old surveillance room
+  - room2v_pillars  wide hall with two rows of pillars
+  - room2v_pipes    narrow service passage: pipes, duct fan, red lamp
+  - room2v_cells    row of Class-D cells, one of which opens
+  - room2v_lift     hallway with a lift down to a basement store
+  - room2v_vent     hall round a vent block, ceiling fan
+ Corners
+  - room2cv_plain, room2cv_lamps (red pendant lamps), room2cv_post
+    (pillar and open store alcove), room2cv_office (small office)
+ T junctions
+  - room3v_plain, room3v_arch (portal frames), room3v_hub (central pier,
+    beams, ceiling fan), room3v_booth (checkpoint booth with a hatch)
+ Crossroads
+  - room4v_plain, room4v_block (vent block, pillars, ceiling fan),
+    room4v_beams (tall crossing under steel beams)
+ Dead ends
+  - room1v_173      the old SCP-173 test yard: tall hall, a guard up on
+                    the gallery, the open containment door
+  - room1v_store    storeroom with shelving, crates and a ceiling fan
+
+ Loot in these rooms is rolled per room when the map is built.
+
+
+--------------------------------------------------------------------------
+ 4c. ANNEX ROOMS, INDEV ZONE (2026-10-02, second batch)
+
+ Five more generated rooms, all in the Indev zone. Game code is in
+ IndevAnnex2.bb. Console: teleport blockhall / testcage / liftshaft /
+ cobserve / store4.
+
+ room2blockhall - Containment Block D / SCP-017 "Shadow Person"
+  - A dark hall with a concrete block standing in a sunken floor, lamps
+    and vents on every face, railed walkways along the walls and two
+    ramps down. A slit in the block shows the floodlit cage inside.
+  - Step down into the pit and the lamp circuit trips. The lamps fail
+    one bank every four seconds. The reset lever is on the north wall of
+    the pit and falls when the circuit trips: push it back up.
+  - If the last lamp goes out while you are still in the pit, you die.
+    On the walkways you only lose sanity until the standby circuit cuts
+    in. Leaving the room resets the circuit.
+  - Items in the pit: Level 3 card, strong first aid kit, 18V battery,
+    the lamp log. Document SCP-017 is on the south landing.
+
+ room1testcage - Test Chamber 4-A / SCP-131 "The Eye Pods"
+  - White tiled chamber with a wire cage, and steps up to a control
+    office with a window, a console wall and the cage lock lever.
+  - SCP-131-A sits on the table in the cage. Throw the lever, open the
+    gate, click the pod and it follows you.
+
+ room2liftshaft - Maintenance Shaft 4
+  - Corridor with a railed opening onto a tall pipe shaft hung with
+    chains, and a freight lift down to the bottom. The extractor fan at
+    the top cuts in and out and pulls the floor vapour up with it.
+  - SCP-131-B is hiding between the crates at the bottom. Supplies on
+    the shelves.
+
+ SCP-131 as a companion
+  - A pod follows the trail you walk and catches up after lifts.
+  - While a pod can see SCP-173, SCP-173 does not move, whether or not
+    you are looking. A pod blinks for about a second in every twenty,
+    and the two never blink together.
+  - The pods squeal when SCP-173 is near. They cower and watch nothing
+    while SCP-106 is close and hunting.
+
+ room2cobserve - Observation 4-C / SCP-999 "The Tickle Monster"
+  - An eight-sided tunnel turning into a corridor with an observation
+    window. The holding room door is unlocked.
+  - SCP-999 oozes over to you. Click it: stress and sanity are restored,
+    small injuries heal, stamina refills. It needs two minutes before it
+    can do it again.
+
+ room1store4 - Stores 4
+  - Brick storeroom with stalls, shelving and a ceiling fan. Gas mask,
+    ballistic vest, batteries, first aid, ration.
+  - The long crate in the middle stall is jammed: hold left-click on the
+    lid for two seconds for one of three better items.
+
+
+--------------------------------------------------------------------------
+ 4b. ANNEX ROOMS (2026-10-02 batch)
+
+ Six new rooms built from reference screenshots. The meshes, lightmaps,
+ signs, fan models, staff skins and documents are generated by the
+ scripts in Tools\roomkit (run build_all.py to rebuild them). Game code is
+ in IndevAnnex.bb. Console: teleport catwalk / cmaint / ventcore / archive
+ / overlook / whitedoor.
+
+ room2catwalk - Service Atrium 2-C (Light Containment)
+  - A tall hall with chamfered corners and a railed bridge overhead. A lift
+    on the east wall goes up to the gallery; across the bridge is the
+    Upper Store, behind a Level 2 door.
+  - Store: battery, eye drops, first aid kit, hand radio.
+  - The first time you walk out onto the bridge SCP-079 recalls the lift
+    for about half a minute. Work Order 2C-114 (on the hall floor) warns
+    you about it.
+  - A duct fan turns high on the west wall.
+
+ room2cmaint - Maintenance corner (Light Containment, corner room)
+  - White corridor with red pendant lamps, a janitor closet and
+    Electrical Centre 2-C behind a Level 2 door.
+  - The lever in the Electrical Centre drops the sector's remote door
+    relays: pull it down and SCP-079 stays quiet for several minutes.
+    It needs a few minutes before it works again.
+  - Items: gas mask (for the vent core), batteries, standing notice.
+
+ room2ventcore - Ventilation Core / SCP-015 (Heavy Containment)
+  - A tunnel lined with locker bays opens into a plant hall under red
+    emergency light. SCP-015 "Pipe Nightmare" has grown through the east
+    wall.
+  - The extraction fan has tripped: black particulate fills the east
+    half of the hall and hurts you unless you wear a gas mask or hazmat
+    suit. The start lever on the south wall starts the fan. For the first
+    14 seconds the pipes answer with jets from the leaking stub - stay
+    west of the piers - then the air clears.
+  - The red hand wheel is a trap, as Document SCP-015 says.
+  - Halloran, the plant technician, tells you all of this and gives up
+    his Level 3 card (tunnel locker) once the fan is running. Two more
+    lockers hold a battery and a first aid kit.
+
+ room2archive - Records Annex 3-C (Entrance Zone)
+  - Office corridor opening onto filing stacks under a ceiling fan.
+  - Dr. Imre, the archivist, explains where the SCP-055 keypad code is
+    and how many times it is safe to go in. Document SCP-055 is on the
+    shelf block.
+
+ room2overlook - Lower Gallery (Entrance Zone)
+  - A corridor with a glass balustrade over a records pit one storey
+    down. A lift goes down to it.
+  - Dr. Imre's office: his note with the SCP-055 code, and the closure
+    notice for the pit.
+  - In the pit: night vision goggles, a strong first aid kit - and Dr.
+    Vasko's body on a corrosion patch. Go near it and SCP-106 comes up
+    through the patch a few seconds later.
+
+ room1whitedoor - SCP-055 "[unknown]" (Entrance Zone, dead end)
+  - A dark, empty chamber behind a keypad door. The only thing in it is
+    a doorway of white light.
+  - Walk into the light and you come round outside it with no memory.
+    First visit: a note in your own handwriting with the code of the
+    keypad office on the personnel corridor. Second visit: a Level 4
+    card and a bad wound. A third visit kills you.
+
+ New staff: Halloran (plant technician) and Dr. Imre (archivist) use the
+ Class-D body with new skins.
+
+
+--------------------------------------------------------------------------
+ 4a. NEW SCPs (2026-09-23 batch)
+
+ SCP-2935 - "O, Death" (room1scp2935, Indev Zone)
+  - Reworked into a phased single-room sequence instead of one static
+    room: discovery -> static -> emergency broadcast -> space-time
+    transition -> dead-world silence -> distress log -> lockdown.
+  - Phase 1 (discovery): entering the room starts the radio on its own.
+  - Phase 2 (static): ~4s of static with a screen-shake pulse.
+  - Phase 3 (broadcast): staged Msg lines carry the actual Foundation
+    emergency broadcast text, timed like a real announcement.
+  - Phase 4 (transition): fog thickens briefly for the "crossing" beat,
+    then clears.
+  - Phase 5 (active): the room becomes the dead-world reality - near-
+    silent ambience, rare (1%/sec) stingers (static/distant radio/wind),
+    no monster, no NPCs. IndevStress ticks slowly the whole time.
+  - Phase 6 (distress log): reading doc2935c (the Site-81 distress ping
+    document) triggers the full 0313-0500 timestamp log to print one
+    line at a time, straight from the source material's timestamps.
+  - Phase 7 (lockdown): alarm blip, camera shake, "[LOCKDOWN COMPLETE]",
+    then permanent silence - the last beat of the sequence.
+  - Three new evidence items scattered on the floor: item2935paper (the
+    Hendricks County Flyer, dated Apr 19 2016), item2935phone (the dead
+    Samsung Note 5, last message about card night), item2935calendar
+    (the Site-81 desk calendar, every square crossed off through Apr 19
+    and nothing after). Each has its own Use-time flavour text pulled
+    directly from the recovered-artifacts log.
+  - Four full documents remain for players who want the complete files:
+    doc2935 (main SCP file), doc2935b (artifacts log), doc2935c
+    (distress pings - also the phase-6 trigger), doc2935d (the "You're
+    Death, too." audio transcript).
+  - Vanilla-first: built entirely from existing assets/functions
+    (StreamSound_Strict, PlaySound_Strict, CameraFogMode, CameraShake,
+    IndevStress, CreateItem). No new rooms or meshes were needed for
+    this pass - the full "cemetery -> road -> house -> Site-81 ->
+    Site-19" exploration chain from the design doc would need new
+    room meshes that don't exist yet in this build.
+
+ SCP-2536 - "Big Xmas" (permanent chamber + December office event)
+  - New dedicated room: room1scp2536 in the Indev Zone. A shape-1 endroom
+    that always contains the tree + wrapped present, regardless of the
+    current date. Reuses the room1scp770 rmesh with a different room
+    name and set room position so both chambers coexist on the same map.
+
+  - A 2 metre purple-and-white plastic Christmas tree with a speaker
+    at its base playing a looped festive tune. Only exists in the game
+    when Blitz's CurrentDate() reports December.
+  - Manifests once per run, in the first office room the player enters
+    during December (uses the existing IndevXmasIsOfficeRoom() check).
+    Music fades in, tree appears in the corner, a purple-wrapped
+    present (SCP-2536-1) sits in front of it.
+  - Walk onto the present to open it. The gift picker matches your
+    current need: heavy injuries -> firstaid, high infection -> SCP-500,
+    high stress -> SCP-420-J, otherwise a Level 4 keycard (opens the
+    SCP-770 chamber if you haven't finished the 173-B practice yet).
+  - Foundation guidance says do NOT accept. If you leave the room
+    without picking up the gift, the tree and present vanish after
+    three minutes and never respawn that run.
+  - Stress ticks up slightly while you stand near it. Vanilla-first:
+    reuses CurrentDate(), StreamSound_Strict, IndevStress, CreateItem.
+
+ SCP-770 - "Radiosynthetic Mould" (room1scp770, Indev Zone)
+  - A small iron-56 flask on the observation desk of a locked Keter cell,
+    gated behind an old-Indev door on a Level 4 keycard reader. The Level 4
+    key drops from SCP-173-B's practice-session reward, so the chain is
+    173-B -> Level 4 -> SCP-770 flask -> 914 very fine -> Level 5.
+  - Sealed in inventory: does nothing (dead weight). Right-click Use to
+    unscrew the stopper - a growing patch of radiosynthetic mould pours
+    onto the floor at your feet, glows white-hot, spreads through spores,
+    burns your shoes, and irradiates the room.
+  - Standing in the chamber also delivers an ambient dose that stacks
+    Injuries/Bloodloss/Infect. Do not linger.
+  - SCP-914 recipes for the sealed flask: Rough shatters it in the intake
+    tray (big instant dose). Coarse pops the stopper. Fine reseats the
+    stopper. Very Fine turns the flask into a radiation-hardened Level 5
+    key. 1:1 gives you an ordinary empty beaker.
+  - Vanilla-first: reuses the existing IndevHazards.bb 770 sprite/patch
+    system (already had the growing-mould code and IHzIrradiate), plus
+    Injuries/Bloodloss/Infect, PointLight and CreateItem.
+
+ SCP-173-B - "Practice Sculpture" (room2173cages, Indev Zone)
+  - A duplicate SCP-173, painted with red enamel over the eye positions.
+    Not anomalous. Cannot move. Has never moved.
+  - Its cage is release-locked from the observation desk in the same
+    room; entering the cage starts a Foundation training session.
+  - Mechanic: watch the sculpture. Stress drains while it is on screen,
+    stamina drains too. Look away for more than a second and stress
+    spikes hard (SCP-173 muscle memory). Three look-away spikes and the
+    session ends.
+  - Pass the session (45 seconds of cumulative eye contact) and a Level
+    4 keycard drops from the plinth. Leaving the room cancels the session.
+  - Two documents: the training procedure and a graffiti book from
+    previous trainees.
+  - Vanilla-first: reuses GFX/map/173_2.b3d (the intro-room sculpture),
+    IndevStress, EntityVisible and CreateItem. No new NPC.
+
+ SCP-085 - "Hand-drawn 'Cassy'" (item, room2sroom)
+  - A folded sheet of graph paper with a pen-drawn woman on it. She
+    moves between drawings. Use her from the inventory and she draws
+    you a small text map of the rooms adjacent to yours, up on screen
+    for 8 seconds.
+  - Drawback: 3 charges. Each use costs stress +5 (she doesn't like
+    being drawn over). After 3 uses the paper is full.
+  - SCP-914 Rough shreds, Coarse folds her smaller, Fine/Very Fine
+    unfolds the paper and refreshes her charges. 1:1 turns the drawing
+    into an ordinary child's drawing.
+  - Document: her own file, in the same folder.
+
+ SCP-1155 - "Predatory Portrait" (environmental, room2offices)
+  - A poster on the office wall. The children on it rearrange themselves
+    every time it is off-screen. There are more of them now, and they
+    are closer to the fence than they were.
+  - Mechanic: stress rises fast while it is off-screen and you are near.
+    Direct eye contact freezes it and rises stress only slightly. The
+    correct play is to look at it.
+  - CF-1 cognitive filter glasses render it inert (existing hazard
+    system, no new gear).
+  - Document on the office desk explains it.
+
+ Pill spawning (Design.md rule 1e)
+  - New IndevPillSpawn.bb defines the pill-safe room list (medical,
+    research, testing, storage, cafeteria) and a category picker.
+  - An audit runs at map init and logs any pill that ended up in a
+    non-pill-safe room. Audit result on 2026-09-23: no offenders.
+  - New spawns (SCP-085 in room2sroom, doc1155 in room2offices) both
+    land in pill-safe rooms.
+
+--------------------------------------------------------------------------
+ 4. NEW ITEMS
+--------------------------------------------------------------------------
+ Every new item has its own model, texture, inventory icon, document,
+ SCP-914 recipes and hand-placed spawns. All spawns were checked against
+ the room geometry.
+
+ Commissary items
+  - Emergency Ration - a Foundation-issue meal-in-a-pouch. Eating it
+    restores a small amount of health and stamina, and calms stress
+    a little.
+  - Water Bottle - a 500 ml commissary bottle. Drinking it gives
+    minor stamina recovery and a touch of stress relief.
+  - Both are one-shot. Both are barred behind the gas mask / hazmat
+    when applicable (you can't drink through the mask).
+  - Both spawn on the room2newcaferoom table with the SCP-458 box.
+  - SCP-914:
+      Rough  - crushed to dust
+      Coarse - comes out Worn, half strength
+      1:1    - reworked into the other commissary item
+      Fine   - upgraded to a field first-aid kit
+      Very Fine - a fine (surgery) first-aid kit, or 1 in 5 dust
+  - New model, texture and inventory icon for each, all generated.
+
+ SCP-693 - "The Knotty Stalker" string dolls (room2offices3)
+  - One doll spawns per run, in red, blue, yellow or black.
+  - Use it to thread one of your hairs into its loop and bind it to you.
+  - For nine minutes (the "nine days") it copies you and tells the truth
+    about the nearest threat: which way and how far.
+  - Then it turns. It lies to you and works on you by its colour:
+      - red: anger
+      - blue: despair and exhaustion
+      - yellow: obsession
+      - black: it leads you into danger
+  - Its hold fades with distance.
+  - SCP-914: Rough or Coarse destroys it. 1:1 re-knots it in a different
+    colour. Fine unbinds it. Very Fine binds it and it turns at once.
+
+ SCP-113 - "The Jasper Stone" (room2sroom)
+  - A small red stone. Touch it bare-handed and it fuses to your palm.
+  - Stages: a burn (0.2 s), nausea and stinging (20 s), then a 60 s
+    transformation whose last 20 seconds are agony. Your biological sex
+    changes.
+  - Already badly hurt? The shock can kill you.
+  - It won't react again for 60 seconds. Repeat exposures can fail (25%,
+    rising with each use, slowly forgiven over time) and tear you up
+    inside.
+  - A hazmat suit or MJOLNIR armour counts as gloves.
+
+ SCP-202 - Purple FOB watch (room2sroom)
+  - A compass for anomalies. Its face appears on the HUD with a needle
+    pointing at the nearest one.
+  - Hold it open next to an anomaly to extract its energy.
+  - Transformation: no fatigue, wounds close, you barely need to blink,
+    but your mind bends and you crash afterwards.
+  - The fourth transformation is the last.
+
+ MJOLNIR Type 1 Powered Armour (room2sroom)
+  - Put it on and take it off like the vest. It takes a while.
+  - Recharging energy shield. Most gunfire glances off the shell.
+  - Injuries and blood loss are heavily reduced. It protects less as the
+    shield runs low.
+  - Stamina assist and steadier eyes (slower blinking).
+  - Blocks almost all radiation, the SCP-214/217 viruses and SCP-718's
+    fluid.
+  - SCP-202 can't extract from you while you wear it.
+  - Can't be worn with the vest or a hazmat suit.
+  - SCP-914: Rough turns it into a heavy vest.
+
+ CF-1 Cognitive Filter Glasses (room2offices3)
+  - Reduce visual anomaly effects: less blur, shake and flash, and they
+    block SCP-5043's blindness.
+  - Sanity loss halved. SCP-718's stare builds much slower.
+  - Blur the SCP-096 photo so it's safe to read.
+  - Stop SCP-993's blackout.
+
+ SCP-096 photo document (room2offices3)
+  - An unredacted photo of SCP-096's face.
+  - Read it without CF-1 glasses and SCP-096 comes for you.
+
+ SCP-348 - "A Gift from Dad" soup bowl (room2closets)
+  - Fills with warm soup when you're hurt or unwell. The soup heals you
+    and comes with a note.
+  - Relieves stress.
+
+ SCP-F02 - Recovery Pill (Medical Bay)
+  - Slowly restores health over about two minutes.
+  - A second dose restarts the effect rather than stacking.
+
+ Lemons (cafeteria and offices)
+  - Eat one for a small heal, a little stamina and less stress.
+  - SCP-914: Rough gives juice. Fine gives two lemons.
+
+ Viruses, songs and cures
+  - SCP-214 - string virus in a vial. Fatal infection.
+  - SCP-217 - clockwork virus in a vial. Fatal infection.
+  - SCP-407 - the song on a cassette. It heals, then comes growths,
+    infection and overgrowth.
+  - SCP-006 - spring water. Heals, cures and regenerates you.
+  - SCP-006-B - SCP-914 concentrate of SCP-006. Everything above,
+    stronger and longer.
+  - SCP-9282 - regenerating bandage.
+  - SCP-8228 - chocolate cupcake. Heals everything, but leaves you
+    permanently fatigued.
+  - SCP-770 - radioactive slime mould in an iron flask. Open it and
+    burning mould spreads across the floor.
+
+ Pill SCPs
+  - SCP-9097 - pink pill.
+  - SCP-6833 - black tablet.
+  - SCP-2077 - gel and capsules.
+  - SCP-5604.
+  - SCP-7985.
+  - SCP-474 - Alexylva placebo. Your next rest is a broadcast dream.
+  - SCP-483 - anti-aging bottle. Turns a pill into SCP-483-1.
+  - SCP-484 - "V". Eye contact steals memories.
+  - SCP-876 - element capsules. Two different colours in a row are fatal.
+  - SCP-1642 - Insta-teen tablets. Mood swings, then anxiety, then coma.
+  - SCP-2022 - sunlight pills. Energised; an overdose burns.
+  - SCP-2968 - afterlife supplements.
+  - SCP-3494 - superlax.
+  - SCP-3521 - banana equivalent dose. New translucent amber gel capsule
+    model. It now takes 30 seconds: cramps, then swelling, then death by
+    9.15 million kg of bananas. SCP-500 in time saves you. One capsule
+    is also found in room2newcaferoom.
+  - SCP-3866 - youth in asia. Permanent hibernation.
+  - SCP-3929 - you age about 70 years.
+  - SCP-4193 - migraine medicine.
+  - SCP-4257 - space drive. Sprint forever, briefly.
+  - SCP-4292 - freaky pills. A random alteration, then withdrawal.
+  - SCP-5043 - brainexplosion.
+  - SCP-7521 - capsule collection. Countdown to regression.
+  - SCP-500 now also cures every new pill effect.
+
+
+--------------------------------------------------------------------------
+ 5. PLAYER SYSTEMS AND HUD
+--------------------------------------------------------------------------
+
+ Memory meter: Alzheimer's disease (left, above the stress bar)
+  - The Class-D has Alzheimer's disease. A lavender bar with a brain icon
+    and the current stage number (IndevMemory.bb). It starts at 10 and
+    rises slowly, about a point every 50 seconds, twice as fast while
+    stress is 70 or more. Each new stage is announced.
+  - The 7 stages, with small symptoms spaced minutes apart:
+      1  (0-14)   no impairment
+      2  (15-29)  forgetting a word, where you put something
+      3  (30-44)  lost in familiar corridors, forgetting new names, focus
+      4  (45-59)  forgetting recent events, repeating the same thought,
+                  numbers swim (keypads), denial
+      5  (60-74)  "where is this, what day is it", inventory items
+                  misplaced in odd slots
+      6  (75-89)  delusions (things stolen), fear and mood swings,
+                  wandering (the view turns), not recognising people
+      7  (90-100) the body forgets: stamina capped at 50 and drains
+                  faster, stumbles
+  - Preserved skills: while you read a document the decline pauses.
+  - Medicine: an ordinary pill slows the decline for five minutes.
+    SCP-500 cures it: the bar drops to zero and stops rising.
+  - Test switch: -testmemory <0-100> with -roomtest.
+
+ Stress meter (left, above the blink bar)
+  - Builds from:
+      - SCP-173 in view;
+      - SCP-106 nearby;
+      - SCP-096 hunting;
+      - SCP-718's stare;
+      - SCP-895;
+      - lost sanity;
+      - bad wounds.
+  - Drains when things are quiet, faster while crouching.
+  - Effects are subtle: a heartbeat at 40+, brief blur and tremors at
+    60+, rare intrusive thoughts at 80+.
+  - SCP-122, CF-1 glasses, soup and candy all calm it.
+
+ Improved blinking
+  - How fast you blink depends on your condition: stress, exhaustion,
+    blood loss, injuries, or calm crouching.
+  - SCP effects can change it for a while: SCP-718, SCP-096, SCP-719,
+    pills, MJOLNIR and SCP-693.
+
+ Armour bar (bottom-right)
+  - Shows the MJOLNIR shield, the vest (40 or 70) or the hazmat suit
+    (25).
+  - Hidden while a held item uses that corner.
+
+ Condition meters (right edge, above the armour bar)
+  - Health - overall condition. Always shown.
+  - Bleeding - injury severity.
+  - Radiation - accumulated exposure. Fades slowly.
+  - Geiger - radiation detected right now. Flickers and clicks.
+  - Infection - SCP-008, SCP-214/217 and SCP-718 blisters.
+  - Cognitohazard - SCP-718, the SCP-096 photo, SCP-895 and lost sanity.
+  - Memetic - SCP-993, SCP-719, SCP-738, SCP-513, SCP-990 and SCP-693.
+  - Meters appear only while they read something.
+  - Console: "meters" shows all of them all the time.
+
+
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+ 6b. MEANINGFUL GAMEPLAY (Design.md rev 2)
+--------------------------------------------------------------------------
+  Three more rules added to Design.md - the checklist, the chain, and
+  the 'improve existing before adding new' pillar - and their code:
+
+  Reworked item spawning (IndevRareSpawn.bb)
+   - IndevRoll(r, x, y, z) drops one category-appropriate rare item
+     into a pill-safe room, on a low chance per room.
+       medibay 1/3 (firstaid, firstaid2, scp9282, scp500, syringe,
+                    indevration, eyedrops)
+       office  1/5 (bat, 18vbat, cigarette, wallet, coin, indevwater,
+                    clipboard)
+       testing 1/4 (scp474, scp1642, scp6833, scp876r/g/b, scp3494)
+       storage 1/4 (bat, electronics, cup, hand, 18vbat, indevration,
+                    gasmask)
+       cafeteria 1/5 (indevration, indevwater, cup, lemon, candy330)
+   - Anti-double: no second copy of a unique SCP-* item ever drops.
+   - Wired into medibay, room2closets, room2offices, room2storage and
+     room2newcaferoom.
+
+  Reworked map generation - chain audit
+   - IndevChainAudit() runs once at map init. Walks every placed room,
+     item, document, event and SCP. Logs rooms/items/docs/events/scps/
+     keys totals, and warns when a seed has fewer than 3 keycards,
+     6 documents, or 4 SCP items. Useful for spotting bad seeds.
+
+  Improve existing rooms (IndevRoomExtras.bb)
+   - Medibay: broken emergency locker (Locker 4-B) on the wall. Click
+     to force. One-shot: pops out a field first-aid kit AND a slip of
+     paper - the note500 custody form, a document that names SCP-500
+     as missing from stock and points at junior researcher T. Kane.
+   - room2closets: bottom drawer, stuck. Hold click for 2 seconds to
+     force. Drops a random storage-pool item (bat, electronics, cup,
+     18vbat, indevration, syringe, gasmask). Then it stays stuck.
+   - room2offices: wall intercom over the desk. Click to listen in.
+     Plays random SFX/Radio/Chatter*.ogg. 1 in 3 times the chatter
+     contains a hint at the AccessCode's last digit - not the code,
+     just the last digit. 60-second cooldown per intercom.
+   - All three interactions are MouseHit1/MouseDown1 (no new key
+     bind), Msg/MsgTimer (no new HUD region) and CreateItem drops.
+     Vanilla-first.
+
+  Chain connections in code:
+     Room (medibay) -> Interaction (locker) -> Item (firstaid) ->
+       Document (note500) -> SCP hook (SCP-500 missing)
+     Room (room2closets) -> Interaction (drawer) -> Item (random)
+     Room (room2offices) -> Interaction (intercom) ->
+       Progression (AccessCode hint)
+
+
+--------------------------------------------------------------------------
+ 6a. DESIGN PILLARS (Design.md)
+--------------------------------------------------------------------------
+  Written down at the repo root as Design.md. Enforced on every new
+  addition from 2026-09-23 on:
+
+  1. Every pill has a reason to exist.
+       Purpose, meter-visible effect, a drawback when the effect is
+       strong, a reason to carry it over a first-aid kit, and a
+       logical spawn site. Audit on 2026-09-23: every existing pill
+       already meets the bar.
+
+  2. New content brings its own lore up front.
+       One document per new pill; two per new SCP; three per new
+       event or zone. Each carries a believable reason it exists, a
+       specific Foundation connection, and a gameplay purpose.
+       Environmental storytelling (stains, notes, chalked messages)
+       is welcome. Writing lore afterwards to explain content that's
+       already there is not.
+
+  3. Vanilla-first.
+       Expand existing SCP:CB systems before inventing a new one.
+       Reuse Sanity, Injuries, Bloodloss, Stamina, the four wearable
+       slots, the meter HUD, card readers and keypads, and the Msg
+       system before adding new globals, HUD regions or lock types.
+       Recent examples: the SCP-914 refinement fallback (extends the
+       existing SCP-914), the Indev-Zone Level 5 card reader (reuses
+       CreateDoor keycard levels) and the Christmas music (reuses
+       StreamSound_Strict from the existing music channel).
+
+
+ 6. FIXES
+--------------------------------------------------------------------------
+  - Bug fixes: game-breaking issues resolved without altering the
+    original designs -
+      - Unbeatable seeds: layouts are validated on generation and
+        regenerated if the exit can't be reached from the start
+        (IndevMapGen). A debug report names any unreachable rooms.
+      - Overlapping rooms: OverlapResolver.bb now catches rooms
+        that were spawned inside each other, rotates or shifts the
+        smaller one until the overlap is zero, and reports what it
+        moved. Rooms flagged 'disable overlap check' are left alone.
+      - Random crashes: the strict loaders on every asset call
+        turn a missing model, sound or texture into a clear error
+        instead of a memory access violation, and the event system
+        catches exceptions per NPC so one bad event no longer takes
+        the run with it.
+  - New documents no longer overlap props in rooms.
+  - SCP-330 can be clicked reliably.
+  - SCP-719 and SCP-993 can be clicked. Their screens no longer fill the
+    view, and they no longer fall through their desks.
+  - SCP-122's glow no longer floods the room with light.
+  - SCP-202 is placed visibly on the shelf in room2sroom.
+  - Stress no longer rises at random. This was caused by stale SCP-895
+    distances, an idle or contained SCP-106, and tiny sanity dips.
+  - SCP-718's document is placed correctly in both room variants.
+  - Saving and loading no longer breaks SCP-993, SCP-719 and the other new
+    SCP props: quick-loading keeps them working.
+  - Clicking works reliably on every new SCP: TVs, SCP-718, SCP-330,
+    SCP-122 and SCP-738.
+  - SCP-993's black screen can't get stuck any more.
+  - SCP-1074: the pull no longer walks you backwards, and you can look
+    away from the painting to leave.
+  - Event NPCs no longer walk into walls, repeat lines forever or get stuck
+    on corners.
+  - room2newroom65: the player no longer falls through the lower level's
+    floor, and no longer bleeds out after the Hollow's catches.
+  - Omega Silo: valve wheels show as closed after loading, and the NPCs
+    come back after loading.
+  - SCP-2295 can be picked up out of its toy chest.
+  - The room2newoffices2 keypad note sits on the desk by the door and can't
+    fall under it.
+  - On-screen messages wider than the screen now wrap onto several lines.
+    They used to be drawn as one centred line and ran off both edges.
+
+
+--------------------------------------------------------------------------
+ CREDITS
+--------------------------------------------------------------------------
+  All new SCPs are based on the SCP Wiki articles of the same numbers
+  (scp-wiki.wikidot.com), licensed under CC BY-SA 3.0. See Credits.txt.
+==========================================================================
+
+5g. Performance and stability
+ - Loading: an INI section index (item, NPC and room tables no longer re-scanned line by line), a case-insensitive hashed texture cache (1015 to 792 texture loads), waypoint linking on a spatial grid (6.1 s to 0.8 s), and the loading screen redrawn at most 30 times a second.
+ - Startup: one key or click skips the whole intro. 35 oversized 2048 lightmaps cut to 1024.
+ - New game: about 15 s to 9 s. Map generation, seeds, room connectivity and zone borders are unchanged.
+
+5h. Batch 46 - the alternate timeline (IndevU46.bb, Tools/roomkit/rooms_b46.py)
+ - Years before the breach on record, the lower levels failed and were sealed with people still inside.
+ - Checkpoint 9 (HCZ): an abandoned security checkpoint with its radio still on. Officer Miller answers from below, or static, or someone else.
+ - Sector R (LCZ): a research department struck off the maps. Dr. Harrison explains the timeline.
+ - Personnel Lift (LCZ): a working lift down to the lower complex, an older second facility. Miller holds the platform and gives directions based on your keycard.
+ - Sealed Wing (HCZ): decades of dust, a stopped calendar, the sealed blast door, and a chance of SCP-106.
+ - 4 notes, 3 new small textures (dust, site map, signs); everything else reuses original textures and models. Teleport aliases: cp9, sectorr, perslift, sealedwing.
+
+5i. The old SCP-173 cell, new key cards and readers
+ - room2scp173oldercell (LCZ): a tall concrete chamber under steel beams, a guard balcony, the big containment door and the old white cell. Walking in plays the old intro (SFX/Indev/intro): the intercom, the door opens, two D-class walk in, one refuses, the lights fail twice, two neck snaps, the alarm. After that the old statue moves whenever you are not looking (one blink is enough) and kills at arm's length. It is a separate statue, not the real SCP-173 NPC.
+ - New cards: Old Site Key Card (keyold) and Sector R Access Card (keysectorr). On ordinary readers they count as Level 2 / Level 3. The new old-pattern readers (door level 7 = Old Site, 8 = Sector R) take only their own card, the omni card or SCP-005.
+ - Sector R's records office now needs the Sector R card (in Checkpoint 9's ready room). The Sealed Wing office needs the Old Site card (in the old 173 control room).
+ - Teleport aliases: old173, oldcell173. Harrison and Miller no longer sink into the floor.
+
+5j. The old SCP-689 room
+ - room1scp689old (HCZ, dead end) uses the old GFX/map/statueroom.b3d room with its own baked lightmap. The game can now load .b3d room meshes (Indev689.bb IndevLoadB3DRoom, hooked into LoadRoomMesh).
+ - SCP-689 uses the old GFX/npcs/statue.x model, tinted green soapstone, on the pedestal in the alcove. Once you have looked at it, it must stay in view while you are in the room: warnings at 3 and 6 seconds, and at 9 seconds it is beside you. Leaving the room resets it.
+ - Teleport aliases: 689, scp689, statueroom. Summary of scp-wiki.wikidot.com/scp-689 in our own words (CC BY-SA 3.0).
+
+5k. Old SCP-173 and old SCP-106 (IndevOldSCPs.bb)
+- The very old SCP-173 (GFX\npcs\173.3ds, 173tex.jpg) and the old SCP-106 (GFX\npcs\106.b3d, oldman.jpg) are added as EXTRA NPCs next to the normal ones. They run the normal SCP-173 / SCP-106 AI; the new models, textures and Curr173 / Curr106 are untouched.
+- A new game puts the old 173 in a random Light Containment hallway room; the old 106 comes out later than the new one (20-30 minutes).
+- Console: spawn old173 (oldstatue), spawn old106 (oldlarry).
+- Saves keep the old look (n\Model); after loading, Curr173 / Curr106 are handed back to the new ones.
+- Fix: starting a second new game in one session crashed (Indev2536Reset freed the already-freed tree and gift).
+- The old SCP-173 now starts in a random room of Light Containment (any shape except dead ends) and, every 2-4 minutes while it is far away and unseen, moves to another room of the zone the player is in.
+- The old SCP-106 now uses SCP-106's own timer: it comes out 1-3 minutes after the new one's countdown, then appears through the rooms with the normal SCP-106 AI.
+
+5l. Legacy rooms in the Indev zone (batch 47: Tools\roomkit\rooms_b47.py, IndevU47.bb, generated IndevU47Data.bb)
+- room2closetsolderones: the old starting room - gas mask, battery and an orientation sheet on the gear table, old cabinets, white chairs, the blinding white doorway (blurs your view up close).
+- room2oldconference: the early conference room - long table, white chairs (one knocked over), whiteboard, red book, ceiling vent box.
+- room2oldmedibay: the first medical bay - beds, treatment table, cabinets, sink, first aid kit, eye drops.
+- room2oldcores: the early core chambers - SCP-513 on its pedestal, the refining machine's two booths, the old man's corroded chamber.
+- All four are zone 4 (Indev zone), set rooms. Built from the original assets: concretewall/Old_Whitewall, scpcb_chair/scpcb_cabinet/scpcb_book/dclass_bed/dclass_sink. Four new notes (docb47_*).
+- Old door buttons: plain doors in the Indev zone now get the old button (a dark steel box with a round red push button) next to the old door slab (door.x / door.jpg) they already used.
+- Teleport: oldstart, oldconference, oldmedibay, oldcores.
+
+5m. Zone checkpoints fixed (IndevMapGen.bb: IndevFixCheckpoints, called from CreateMap)
+- Every corridor that crossed a zone border used to become a checkpoint: 3-6 per border, some leading into solid wall (nothing past the far door) and some with rooms at their sides they could not connect to, so the next zone could be cut off.
+- Now each border (LCZ->HCZ, HCZ->Indev zone, Indev zone->Entrance) keeps at most two straight checkpoints with a corridor on both sides; the rest become ordinary rooms. If a border has none, one is made where corridors meet, or a corridor is extended up to the next zone.
+- No extra random numbers: a seed still gives the same map apart from the border rows. Checked on 8 seeds: every border has 1-2 working checkpoints.
+
+5n. SCP-806, the resurrection projector (batch 48: Tools\roomkit\make_assets48.py, make_docs48.py, rooms_b48.py; IndevU48.bb, generated IndevU48Data.bb)
+- room2scp806 (Heavy Containment): a big screening room - silver lenticular screen across the east end, rows of cinema seats, the projector on its stand, Containment Locker 8 (the reel cage) with five reels and the SCP-806 file, test log and reel index. Teleport: 806, scp806, projector, screening.
+- The projector is built in code after the reference photo (gunmetal body, chrome plates, lens barrel with a gemstone-layered lens, two reels on arms that turn while it runs, knobs, crank).
+- Click the projector with a reel in your inventory to load it, click again to run it. Footage plays on the screen, a cone of light and needle-thin rays reach from the lens, and a colourless copy builds itself before the screen (about 100 s; the projector runs the reels fast).
+- Someone has to watch: forming only advances while the screen is in view (not while blinking), and slides back otherwise; fully undone, the shape is gone.
+- Click it while running to shut it down: under 20% the copy dissolves into blood and graphite dust; past that an unfinished body drops (past 60%: brain death).
+- Reels: D (a Class-D subject - forms; gives you a level 3 card), SEC (two officers - only the one with most screen time forms; gives a level 4 card), TOON (animated - nothing forms), LIVE (a living interviewee - nothing forms), 5.8s loop (SCP-806-1-a: a young woman with no memory of who she was; she forms from far too little film and never dies).
+- Copies are grey all over, talk as the person they were (click them), and die of cardiac arrest about 7 minutes after forming (one game minute for ten hours of the file's 70-75). Saves keep the copy and the projector state.
+- New assets: indev_806metal/chrome/lens/screen/grey/beam/sign, six film frames, GFX\items\filmreel.x + filmreel.png + five reel icons, SFX\Indev\projector806.wav (all generated).
+
+5o. SCP-087-B (batch 49: Tools\roomkit\make_assets49.py, make_docs49.py, rooms_b49.py; IndevU49.bb, generated IndevU49Data.bb)
+- room2scp087b (Light Containment): an old red-brick room with a narrow stairwell in the east wall going down into the dark, the SCP-087-B sign and a notice. Teleport: 087b, scp087b, 87b.
+- Walk down the stairs and you are in SCP-087-B: narrow red-brick hallways and staircases, generated one floor at a time as you go down (random path, turns, dead-end branches, a staircase to the next floor), different every time, with no bottom.
+- No lag however deep: only three floors exist at once (the floor above, yours, the floor below); a floor two up is freed and the stairs to it walled off. Short black fog that closes in the deeper you go.
+- Numbered metal plates on the walls; the sound of something walking behind you from floor 4.
+- The thing below: from floor 2 it may stand at the far end of a hall and vanish when you get close or look too long; from floor 10 it follows you down the stairs and comes at you whenever you're not looking (faster every floor) - it reaches you, you die.
+- Every fifteenth floor a door stands at a dead end: it leads back out to the entrance room (tells you how deep you got).
+- A save made down there puts you back at the top of a freshly rearranged stairwell.
+- New assets: indev_087bbrick (old red brick), indev_087bnum (number plates), indev_087blurk, indev_087bsign (all generated).
+
+5p. SCP-087-B fixes
+- The stairs: each new floor's hallways could run underneath the staircase of the floor above, and their ceiling then stuck up into that staircase - going down, you ended up walking on top of it instead of down the steps. A floor now keeps clear of the two cells under the stairs above it.
+- The invisible ramp you walk on now runs through the middle of the steps (it ran along their top edges, so you floated over them).
+- Number plates: only ever on a real wall (they could hang in a doorway), smaller, cleaner, and the number reads the right way round on every wall.
+- The entrance room: brighter, a light by the opening and a weak bulb over the top steps, and the old concrete balustrade (stepped, with posts) down the side of the stairs.
+- SCP-087-B fog: no longer too dark - fog starts 1 unit out and reaches black at 8 units near the top, closing in to 4.5 units deep down (was 4.8 down to 2.8); the brick walls are brighter.
+
+5q. A working research complex (batch 50: Tools\roomkit\rooms_b50.py, make_docs50.py; IndevU50.bb, generated IndevU50Data.bb)
+- Five new rooms, original SCP:CB textures and props, ordinary room2 tiles (doors at both ends, the walkway kept clear, set rooms so they never overlap): Research Laboratory 02 (lab02), Chemical Storage (chemstore), Experimental Observation Room (observation), Researcher Office (researchoffice), Small Specimen Storage (specimen). Placed on every test seed.
+- Three new SCP encounters (none of them were in the mod before):
+  SCP-061 (Laboratory 02): inaudible orders - within range it makes you stop, turn round or walk towards it every few seconds. Its switch is on the wall by the south door.
+  SCP-162 (in the Observation Room pit, stairs down at the south end): the ball of hooks. Too close and you're caught; moving drags the hooks in (injuries, blood loss, can kill); stand still four seconds and they let go.
+  SCP-020 (Specimen Storage, the dark north-west corner): the unseen mold. Near it without a gas mask or hazmat suit you start coughing, then it hurts (injuries, blur, stamina); it clears slowly once you leave.
+- Five random facility incidents, one every 4-8 minutes, never in special areas: power fluctuation, ventilation failure (stamina drains for 45 s), burst pipe (a puddle), a PA announcement (5 variants), a nearby door opening or closing by itself.
+- Nine new documents: the three SCP files, the lab bench log, chemical inventory, observation log, staffing memo, weekly incident summary, specimen checklist.
+- Cheap by design: one generated prop (SCP-162, built once per room), everything else is baked into the rooms; the incidents create at most one decal.

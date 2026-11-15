@@ -1,0 +1,6 @@
+room2b36taiga 0 165 -400 -700 150 -400
+room2b36taiga 0 165 400 -700 150 400
+room2b36taiga 0 165 0 700 150 0
+room2b36confect 0 165 -400 -700 150 -400
+room2b36confect 0 165 400 -700 150 400
+room2b36confect 0 165 0 700 150 0

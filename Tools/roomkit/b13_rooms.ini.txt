@@ -1,0 +1,63 @@
+
+;INDEV THIRTEENTH BATCH - 6 rooms, 16 SCPs (generated, Tools\roomkit\gen_b13.py, IndevU13.bb)
+;=================================================
+
+[room2safewing]
+descr=Safe Wing break room (Light Containment): fortune cookies, an old camera and a knife. An isolated PC room to the west.
+mesh path=GFX\map\room2safewing.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=1
+set room=0.35
+set room priority=9000
+
+[room2biowing]
+descr=Biohazard wing (Heavy Containment): a vase chamber, a ball locker with a phone that rings, and a viral sample shelf.
+mesh path=GFX\map\room2biowing.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=2
+set room=0.5
+set room priority=9000
+
+[room2doorhall]
+descr=Door Hall (Heavy Containment): door 249 in the south arm, the white door 3038 in the north arm, and a dark farmhouse room (SCP-1983) east.
+mesh path=GFX\map\room2doorhall.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=2
+set room=0.45
+set room priority=9000
+
+[room2menagerie]
+descr=Menagerie (Heavy Containment): a striped enclosure east with a feed bowl, and the stores west with a silver cardboard box marked HERE BE DRAGONS.
+mesh path=GFX\map\room2menagerie.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=2
+set room=0.6
+set room priority=9000
+
+[room2pool354]
+descr=Red Pool chamber (Heavy Containment): a lift down to a basement hall with a red pool. Hostile things climb out of it.
+mesh path=GFX\map\room2pool354.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=2
+set room=0.3
+set room priority=9000
+
+[room2incidents]
+descr=Incidents room (Light Containment): the Weissnacht office with a letter, the records room with a red sweater, and a school PC in the north arm.
+mesh path=GFX\map\room2incidents.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=3
+set room=0.5
+set room priority=9000

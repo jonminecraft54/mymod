@@ -1,0 +1,43 @@
+
+;INDEV THIRTY-FOURTH BATCH - DEEP STORAGE AREAS 06-09 (generated, Tools\roomkit\gen_b34.py, IndevU34.bb)
+;=================================================
+
+[room2b34humanoid]
+descr=Deep Storage Area 06 (Heavy Containment): humanoid SCPs in cells along a sunken storage floor; the surveillance room and the lockdown control.
+mesh path=GFX\map\room2b34humanoid.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=2
+set room=0.4
+set room priority=9000
+
+[room2b34objects]
+descr=Deep Storage Area 07 (Light Containment): anomalous objects on display plinths and in alcoves on a sunken storage floor; the printing office and the stationery room.
+mesh path=GFX\map\room2b34objects.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=1
+set room=0.4
+set room priority=9000
+
+[room2b34bio]
+descr=Deep Storage Area 08 (Heavy Containment): biological SCPs in tanks and pens, the brass ovoids, the Venus fountain and the grey sphere; the server room and the lab.
+mesh path=GFX\map\room2b34bio.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=2
+set room=0.6
+set room priority=9000
+
+[room2b34site45]
+descr=Deep Storage Area 09 (Entrance Zone): the Site-45 records, SCP-1619's drawn door, and the cells of SCP-3811, -4477, -5151, -5424 and -5534; the control room and the records office.
+mesh path=GFX\map\room2b34site45.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=3
+set room=0.6
+set room priority=9000

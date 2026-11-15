@@ -1,0 +1,53 @@
+
+;INDEV TWENTIETH BATCH - 5 rooms (SCP-3008, wings) (generated, Tools\roomkit\gen_b20.py, IndevU20.bb)
+;=================================================
+
+[room2b20store3008]
+descr=SCP-3008 (Heavy Containment): the floor of a furniture store that goes on further than the building does. Its staff come out at closing time.
+mesh path=GFX\map\room2b20store3008.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=2
+set room=0.6
+set room priority=9000
+
+[room2b20wing999]
+descr=Containment wing, SCP-999 and SCP-131 (Light Containment): a playful jelly east, two eye pods west.
+mesh path=GFX\map\room2b20wing999.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=1
+set room=0.5
+set room priority=9000
+
+[room2b20wing529]
+descr=Containment wing, SCP-529 and SCP-111 (Light Containment): half a cat east, the dragon-snails west.
+mesh path=GFX\map\room2b20wing529.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=1
+set room=0.5
+set room priority=9000
+
+[room2b20wing458]
+descr=Containment wing, SCP-458 and SCP-261 (Entrance Zone): a pizza box east, a vending machine west.
+mesh path=GFX\map\room2b20wing458.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=3
+set room=0.5
+set room priority=9000
+
+[room2b20wing2295]
+descr=Containment wing, SCP-241 and SCP-113 (Heavy Containment): a cookbook east, a red stone west.
+mesh path=GFX\map\room2b20wing2295.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=2
+set room=0.5
+set room priority=9000

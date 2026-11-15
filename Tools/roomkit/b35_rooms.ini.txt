@@ -1,0 +1,23 @@
+
+;INDEV THIRTY-FIFTH BATCH - STORAGE AREAS 10-11 (generated, Tools\roomkit\gen_b35.py, IndevU35.bb)
+;=================================================
+
+[room2b35cellblock]
+descr=Storage Area 10, the cell block (Heavy Containment): barred cells on two tiers round the Foundation emblem - SCP-746, -886, -799, the moths, the parasite, the amoebae, the coin-eater, the marble heads, Grandmother Predictions.
+mesh path=GFX\map\room2b35cellblock.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=2
+set room=0.7
+set room priority=9000
+
+[room2b35bunker]
+descr=Storage Area 11, the bunker (Entrance Zone): board-marked concrete, pillars and wall lamps - the cedar giant, the jewelled projector, the organ printer, the paintbrushes, the pocket watch; the generator room and the old stone passage.
+mesh path=GFX\map\room2b35bunker.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=3
+set room=0.65
+set room priority=9000

@@ -1,0 +1,4 @@
+room2hcrecep 0 165 -300 0 110 0
+room2hcguest117 150 165 -20 300 110 -110
+room2incidents 0 160 120 130 120 260
+room2hotellift -200 165 300 100 140 220

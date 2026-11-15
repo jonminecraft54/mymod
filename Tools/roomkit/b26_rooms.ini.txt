@@ -1,0 +1,33 @@
+
+;INDEV TWENTY-SIXTH BATCH - outdoor expansion (generated, Tools\roomkit\gen_b26.py, IndevU26.bb)
+;=================================================
+
+[room2b26exit]
+descr=Surface exit (Entrance Zone): a checkpoint lobby and a lift up to the surface - a foggy evergreen forest, a road, a security booth and a utility shed.
+mesh path=GFX\map\room2b26exit.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=3
+set room=0.5
+set room priority=9000
+
+[room2b26labs]
+descr=Research wing (Light Containment): a forest research laboratory, an abandoned medical ward, secure equipment storage and a damaged security control room.
+mesh path=GFX\map\room2b26labs.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=1
+set room=0.45
+set room priority=9000
+
+[room2b26utility]
+descr=Utility wing (Heavy Containment): a rainwater drainage chamber, an underground utility station and a forest observation room.
+mesh path=GFX\map\room2b26utility.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=2
+set room=0.45
+set room priority=9000

@@ -1,0 +1,63 @@
+
+;INDEV FORTY-FOURTH BATCH - OLD 1074 WING AND FIVE SITES (generated, Tools\roomkit\gen_b44.py, IndevU44.bb)
+;=================================================
+
+[room2b46old1074]
+descr=The Old Wing (Light Containment): a damp brick corridor from the facility's first days - where SCP-1074 was first kept, and where a researcher looked at it too long.
+mesh path=GFX\map\room2b46old1074.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=1
+set room=0.35
+set room priority=9000
+
+[room2b46cryo]
+descr=Cryogenic Research Facility (Heavy Containment): six frosted suspension pods under their feed pipes, the monitoring room and the LN2 store.
+mesh path=GFX\map\room2b46cryo.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=2
+set room=0.5
+set room priority=9000
+
+[room2b46theatre]
+descr=Experimental Testing Theatre (Entrance Zone): a round test floor under a surgical lamp, ringed by a tiered gallery; the projection and PA booth and the prep room.
+mesh path=GFX\map\room2b46theatre.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=3
+set room=0.5
+set room priority=9000
+
+[room2b46gravity]
+descr=Gravity Testing Chamber (Heavy Containment): a tall padded chamber with field rings in floor and ceiling and crates hanging in the air; the field control room and the equipment store.
+mesh path=GFX\map\room2b46gravity.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=2
+set room=0.5
+set room priority=9000
+
+[room2b46geology]
+descr=Geological Anomaly Research Site (Light Containment): a rock cavern round a glowing crystal formation, the drill rig and seismograph; the core lab and the tool store.
+mesh path=GFX\map\room2b46geology.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=1
+set room=0.5
+set room priority=9000
+
+[room2b46o5vault]
+descr=O5 Classified Records Vault (Entrance Zone): black marble and panelled walls, the record cabinets, the long reading table and its green lamp; the antechamber and the shredder room.
+mesh path=GFX\map\room2b46o5vault.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=3
+set room=0.5
+set room priority=9000

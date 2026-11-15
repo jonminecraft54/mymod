@@ -1,0 +1,23 @@
+
+;INDEV THIRTY-FIRST BATCH - SCP-467 AND FIVE ITEMS (generated, Tools\roomkit\gen_b31.py, IndevU31.bb)
+;=================================================
+
+[room2b31booth]
+descr=SCP-467 wing (Entrance Zone): the confessional phone booth with its guard post, Dr. Rights' office, the research open office and the staff break room.
+mesh path=GFX\map\room2b31booth.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=3
+set room=0.5
+set room priority=9000
+
+[room2b31items]
+descr=Anomalous item wing (Light Containment): SCP-198 on its digital scale, the SCP-207 locker and crate, SCP-178's Class 3 container, the SCP-1079 locker and the SCP-1650 artifact unit.
+mesh path=GFX\map\room2b31items.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=1
+set room=0.5
+set room priority=9000

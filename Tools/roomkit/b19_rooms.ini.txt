@@ -1,0 +1,63 @@
+
+;INDEV NINETEENTH BATCH - 6 rooms (reference images) (generated, Tools\roomkit\gen_b19.py, IndevU19.bb)
+;=================================================
+
+[room2b19office]
+descr=Office 19-A (Entrance Zone): a filing cabinet, a desk, two river photographs and a researcher who still waits for his transfer.
+mesh path=GFX\map\room2b19office.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=3
+set room=0.5
+set room priority=9000
+
+[room2b19gallery]
+descr=Observation gallery (Light Containment): a balcony along the east wall, and two Class-D waiting on the tiled floor below for a test that was cancelled.
+mesh path=GFX\map\room2b19gallery.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=1
+set room=0.4
+set room priority=9000
+
+[room2b19hoist]
+descr=Hoist control (Heavy Containment): consoles, the HOIST panel, and a lift down to the hoist pit, where an overflow cell is kept.
+mesh path=GFX\map\room2b19hoist.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=2
+set room=0.45
+set room priority=9000
+
+[room2b19storage]
+descr=Storage B (Light Containment): a long corridor of roll-up shutters, none of them motorised.
+mesh path=GFX\map\room2b19storage.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=1
+set room=0.5
+set room priority=9000
+
+[room2b19h09]
+descr=SCP-H09 chamber (Heavy Containment): a mural of the Foundation emblem drawn in light, which melts and redraws itself.
+mesh path=GFX\map\room2b19h09.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=2
+set room=0.5
+set room priority=9000
+
+[room2b19cells]
+descr=Cell Block D (Light Containment): two cells off the hub. The knocking from D-19B is the pipes.
+mesh path=GFX\map\room2b19cells.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=1
+set room=0.55
+set room priority=9000

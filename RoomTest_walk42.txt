@@ -1,0 +1,6 @@
+room2b44panopticon 0 165 -800 0 150 900
+room3b44toybox 0 165 -800 0 150 900
+room3b44toybox -800 165 0 900 150 0
+room4b44vault 0 165 -800 0 150 900
+room4b44vault 0 165 530 -900 150 530
+room2b44cellar 0 165 0 900 150 0

@@ -1,0 +1,95 @@
+"""Hook the two rooms of the fourteenth batch (IndevU14.bb + generated IndevU14Data.bb) into the game, with the
+lightbulb item and the notes and photograph of SCP-4035 and SCP-3886.
+Run gen_b14.py --game first (it writes b14_names.txt and b14_rooms.ini.txt), and make_assets14.py and make_docs14.py
+for the textures and the notes. Safe to run twice. Originals are kept once as *.bak_u14."""
+import os
+import shutil
+from make_docs14 import TITLES
+
+ROOT = r"I:\MythicalC v1.2.7\v0.1\scpcb-dx9\scpcb-dx9"
+
+
+def load(rel):
+    raw = open(os.path.join(ROOT, rel), 'rb').read()
+    nl = b'\r\n' if b'\r\n' in raw else b'\n'
+    return raw.decode('latin-1'), nl.decode()
+
+
+def after_line(text, anchor, block, marker, nl):
+    if marker in text:
+        return text, False
+    i = text.index(anchor)
+    j = text.index(nl, i) + len(nl)
+    return text[:j] + block.replace('\n', nl) + text[j:], True
+
+
+def before_line(text, anchor, block, marker, nl):
+    if marker in text:
+        return text, False
+    i = text.index(anchor)
+    j = text.rfind(nl, 0, i) + len(nl)
+    return text[:j] + block.replace('\n', nl) + text[j:], True
+
+
+def save(rel, text):
+    p = os.path.join(ROOT, rel)
+    bak = p + '.bak_u14'
+    if not os.path.exists(bak):
+        shutil.copy2(p, bak)
+    open(p, 'wb').write(text.encode('latin-1'))
+
+
+NAMES = [l.strip() for l in open('b14_names.txt') if l.strip()]
+ALIASES = [('room2lampshop', ('lampshop', '4035')), ('room2saddlestall', ('saddlestall', '3886'))]
+
+if __name__ == '__main__':
+    done = []
+    t, nl = load('Main.bb')
+    t, c = after_line(t, 'Include "IndevU13Data.bb"', 'Include "IndevU14.bb"\nInclude "IndevU14Data.bb"\n', 'Include "IndevU14.bb"', nl)
+    done.append(('Main include', c))
+    t, c = after_line(t, 'IndevU13Events()', '\tIndevU14Events() ;Indev: the two rooms of the fourteenth batch (IndevU14.bb)\n', 'IndevU14Events()', nl)
+    done.append(('Main events', c))
+    al = ''
+    for room, keys in ALIASES:
+        al += '\t\t\t\t\t\t\tCase %s\n\t\t\t\t\t\t\t\troomName = "%s"\n' % (', '.join('"%s"' % k for k in keys), room)
+    t, c = before_line(t, 'Case "blockhall", "blockd"', al, 'roomName = "room2lampshop"', nl)
+    done.append(('Main teleport aliases', c))
+    save('Main.bb', t)
+
+    t, nl = load('MapSystem.bb')
+    fr = '\t\tCase %s\n\t\t\t;[Block]\n\t\t\tIndevFillU14(r) ;Indev: fourteenth-batch rooms, table in IndevU14Data.bb\n\t\t\t;[End Block]\n' % ', '.join('"%s"' % n for n in NAMES)
+    t, c = before_line(t, 'Case "room2blockhall"', fr, 'IndevFillU14(r)', nl)
+    done.append(('MapSystem FillRoom', c))
+    save('MapSystem.bb', t)
+
+    t, nl = load('UpdateEvents.bb')
+    ue = '\t\t\tCase "u14room"\n\t\t\t\t;[Block]\n\t\t\t\tUpdateIndevU14(e) ;Indev (IndevU14.bb)\n\t\t\t\t;[End Block]\n'
+    t, c = before_line(t, 'Case "v02room"', ue, 'UpdateIndevU14(e)', nl)
+    done.append(('UpdateEvents', c))
+    save('UpdateEvents.bb', t)
+
+    t, nl = load(r'Data\rooms.ini')
+    if '[room2lampshop]' not in t:
+        add = open('b14_rooms.ini.txt').read()
+        t = t.rstrip('\r\n') + nl + add.replace('\n', nl)
+        done.append(('rooms.ini', True))
+    save(r'Data\rooms.ini', t)
+
+    t, nl = load(r'Data\items.ini')
+    if '[bulb]' not in t:
+        add = ('\n[bulb]\nmodel = GFX\\items\\Battery\\Battery.x\ninvicon = GFX\\items\\INVbulb14.png\nscale = 0.008\n')
+        for n in sorted(TITLES):
+            add += ('\n[%s]\ngroup = paper\nmodel = GFX\\items\\paper.x\ninvicon = GFX\\items\\INVpaper.png\ndocument = GFX\\items\\%s.jpg\nscale = 0.003\nsound = 0\n'
+                    % (n, n))
+        t = t.rstrip('\r\n') + nl + add.replace('\n', nl)
+        done.append(('items.ini', True))
+    save(r'Data\items.ini', t)
+
+    t, nl = load(r'Data\strings.ini')
+    names = 'bulb = Lightbulb\n' + ''.join('%s = %s\n' % (k, TITLES[k]) for k in sorted(TITLES))
+    t, c = after_line(t, 'doc5094 = ', names, 'doc4035 = ', nl)
+    done.append(('strings.ini', c))
+    save(r'Data\strings.ini', t)
+
+    for d in done:
+        print(d)

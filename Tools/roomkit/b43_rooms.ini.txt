@@ -1,0 +1,33 @@
+
+;INDEV FORTY-THIRD BATCH - LIFT LOBBY, CHECKPOINT, OFFICES (generated, Tools\roomkit\gen_b43.py, IndevU43.bb)
+;=================================================
+
+[room2b45lobby]
+descr=Lift Lobby (Light Containment): a lobby round a heavy octagonal pillar with three lift doors - one working, down to the hoist control office.
+mesh path=GFX\map\room2b45lobby.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=1
+set room=0.45
+set room priority=9000
+
+[room2b45checkpoint]
+descr=Security Checkpoint (Heavy Containment): a dark concrete corridor where a guard watches from behind a counter window, the weapons-check room, and the screening hall with its scanner arch and holding cell.
+mesh path=GFX\map\room2b45checkpoint.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=2
+set room=0.45
+set room priority=9000
+
+[room2b45offices]
+descr=Office Wing (Entrance Zone): offices behind windows off the striped corridor, and an open office floor with two glass-fronted offices - and a telephone that will not stop ringing.
+mesh path=GFX\map\room2b45offices.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=3
+set room=0.45
+set room priority=9000

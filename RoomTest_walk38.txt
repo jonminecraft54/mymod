@@ -1,0 +1,5 @@
+room2b40infhall 0 165 -650 0 150 900
+room2b40display 0 165 0 -900 150 0
+room2b40display 0 165 0 900 150 0
+room2b40party 0 165 0 -900 150 0
+room2b40party 0 165 0 900 150 0

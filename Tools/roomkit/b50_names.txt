@@ -1,0 +1,5 @@
+room2b50lab02
+room2b50chem
+room2b50observe
+room2b50office
+room2b50specimen

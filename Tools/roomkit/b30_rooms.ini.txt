@@ -1,0 +1,63 @@
+
+;INDEV THIRTIETH BATCH - SITE-42 (generated, Tools\roomkit\gen_b30.py, IndevU30.bb)
+;=================================================
+
+[room2b30admin]
+descr=Site-42 Administration (Entrance Zone): Site Director Dr. T. Sherman's office, Media Relations & Support, the Ethics Subcommittee for Sentient & Sapient Anomalies and the Multi-U Dept.
+mesh path=GFX\map\room2b30admin.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=3
+set room=0.4
+set room priority=9000
+
+[room2b30a4]
+descr=Safe-Class Containment Wing A4 (Light Containment): Room G14 behind its custom-ID door, the Safe-class lockers and the recording booth.
+mesh path=GFX\map\room2b30a4.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=1
+set room=0.5
+set room priority=9000
+
+[room2b30b4]
+descr=Euclid-Level Containment Wing B4 (Heavy Containment): SCP-4427 cordoned off in the corridor (visible only on thermal), Room 35 (SCP-4427-B), the thermal watch station and the wing security office.
+mesh path=GFX\map\room2b30b4.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=2
+set room=0.45
+set room priority=9000
+
+[room2b30ocean]
+descr=SCP-3069 deep monitoring (Heavy Containment): a specimen tank, the Atlantic map and a viewing platform; MTF Gamma-6's equipment room with the SCP-3069-A replica.
+mesh path=GFX\map\room2b30ocean.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=2
+set room=0.55
+set room priority=9000
+
+[room2b30outpost]
+descr=Outposts 4433-A and 4434 remote surveillance (Entrance Zone): a wall of camera feeds and a desk with a phone that rings; the SCP-4434 evidence room with an SCP-4434-C skull.
+mesh path=GFX\map\room2b30outpost.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=3
+set room=0.6
+set room priority=9000
+
+[room2b30store]
+descr=SCP-2648 container and general storage (Light Containment): the amalgam in its shipping container behind bars, MTF Lambda-14's readings; a storage room in the old style.
+mesh path=GFX\map\room2b30store.rmesh
+shape = 2
+commonness = 0
+disabledecals = true
+zone1=1
+set room=0.6
+set room priority=9000
